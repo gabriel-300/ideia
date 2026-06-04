@@ -121,7 +121,8 @@ section.problems{background:var(--smoke);padding:88px 0;border-bottom:1px solid 
 .prob-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .prob-card{background:#fff;border:1px solid var(--rule);border-radius:var(--radius);padding:28px 24px;display:flex;flex-direction:column;gap:14px;transition:all .22s;box-shadow:0 1px 3px rgba(0,0,0,.03)}
 .prob-card:hover{border-color:rgba(66,165,245,.4);box-shadow:0 6px 24px rgba(16,59,115,.09);transform:translateY(-3px)}
-.prob-icon{width:42px;height:42px;border-radius:10px;background:var(--blue-dim);display:flex;align-items:center;justify-content:center;font-size:19px}
+.prob-icon{width:42px;height:42px;border-radius:10px;background:var(--blue-dim);display:flex;align-items:center;justify-content:center;color:var(--blue);flex-shrink:0}
+.prob-icon svg{width:21px;height:21px}
 .prob-card h3{font-family:var(--sans);font-size:15.5px;font-weight:600;letter-spacing:-.015em;color:var(--ink);line-height:1.25}
 .prob-card p{font-size:14px;color:var(--ink-2);line-height:1.65}
 
@@ -147,7 +148,8 @@ section.diferencial{background:#fff;padding:88px 0;border-bottom:1px solid var(-
 .dif-tiles{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .dif-tile{border:1px solid var(--rule);border-radius:var(--radius);padding:22px 20px;background:var(--smoke);transition:all .22s}
 .dif-tile:hover{border-color:rgba(16,59,115,.2);background:#fff;box-shadow:0 3px 14px rgba(16,59,115,.06)}
-.dif-tile .icon{font-size:22px;margin-bottom:10px;line-height:1}
+.dif-tile .icon{margin-bottom:12px;color:var(--blue);display:flex}
+.dif-tile .icon svg{width:22px;height:22px}
 .dif-tile h4{font-family:var(--sans);font-size:14px;font-weight:600;color:var(--ink);letter-spacing:-.01em;margin-bottom:5px}
 .dif-tile p{font-size:13px;color:var(--ink-2);line-height:1.55}
 
@@ -271,13 +273,13 @@ footer{background:var(--graphite);padding:52px 0 32px}
 <nav class="top" id="nav">
   <div class="wrap bar">
     <a class="logo" href="#">
-      <svg class="logo-mark" width="42" height="42" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M50 16 A34 34 0 0 1 20.6 67" stroke="#42A5F5" stroke-width="7" stroke-linecap="butt" fill="none"/>
-        <path d="M20.6 67 A34 34 0 0 1 79.4 67" stroke="#2E3138" stroke-width="7" stroke-linecap="butt" fill="none" opacity=".75"/>
-        <path d="M79.4 67 A34 34 0 0 1 50 16" stroke="#103B73" stroke-width="7" stroke-linecap="butt" fill="none"/>
-        <circle cx="50" cy="16" r="12" fill="#42A5F5"/>
-        <circle cx="20.6" cy="67" r="11" fill="#103B73"/>
-        <circle cx="79.4" cy="67" r="11" fill="#2E3138"/>
+      <svg class="logo-mark" width="46" height="46" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50 12 A38 38 0 0 1 83 69" stroke="#103B73" stroke-width="7" fill="none"/>
+        <path d="M83 69 A38 38 0 0 1 17 69" stroke="#2E3138" stroke-width="7" fill="none" opacity=".75"/>
+        <path d="M17 69 A38 38 0 0 1 50 12" stroke="#42A5F5" stroke-width="7" fill="none"/>
+        <circle cx="50" cy="12" r="15" fill="#42A5F5"/>
+        <circle cx="17" cy="69" r="10" fill="#103B73"/>
+        <circle cx="83" cy="69" r="10" fill="#2E3138"/>
       </svg>
       <span class="logo-name">IDEIA</span>
     </a>
@@ -304,7 +306,7 @@ footer{background:var(--graphite);padding:52px 0 32px}
           <a class="btn btn-primary" href="#contacto">Agendar reunión <span class="arr">→</span></a>
           <a class="btn btn-ghost" href="#como-trabajamos">Conocer cómo trabajamos</a>
         </div>
-        <p class="hero-note">✓ Diagnóstico inicial sin cargo &nbsp;·&nbsp; ✓ Sin contratos de adhesión</p>
+        <p class="hero-note"><span class="hero-check">—</span> Diagnóstico inicial sin cargo &nbsp;·&nbsp; <span class="hero-check">—</span> Sin contratos de adhesión</p>
         <div class="hero-stats">
           <div class="s"><div class="v">25+</div><div class="l">Años de experiencia</div></div>
           <div class="s"><div class="v">100%</div><div class="l">Soluciones a medida</div></div>
@@ -362,32 +364,32 @@ footer{background:var(--graphite);padding:52px 0 32px}
     </div>
     <div class="prob-grid">
       <div class="prob-card fu">
-        <div class="prob-icon">👤</div>
+        <div class="prob-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-3.5 3.6-6 8-6s8 2.5 8 6"/></svg></div>
         <h3>Dependencia de personas</h3>
         <p>Procesos que solo funcionan si alguien específico está presente.</p>
       </div>
       <div class="prob-card fu" style="transition-delay:.05s">
-        <div class="prob-icon">📊</div>
+        <div class="prob-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v6c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 11v6c0 1.66 4 3 9 3s9-1.34 9-3v-6"/></svg></div>
         <h3>Información dispersa</h3>
         <p>Datos repartidos en múltiples sistemas y planillas sin integración.</p>
       </div>
       <div class="prob-card fu" style="transition-delay:.1s">
-        <div class="prob-icon">🔄</div>
+        <div class="prob-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><polyline points="23 20 23 14 17 14"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/></svg></div>
         <h3>Tareas repetitivas</h3>
         <p>Tiempo operativo perdido en acciones manuales que podrían automatizarse.</p>
       </div>
       <div class="prob-card fu" style="transition-delay:.15s">
-        <div class="prob-icon">🔍</div>
+        <div class="prob-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg></div>
         <h3>Falta de trazabilidad</h3>
         <p>Dificultad para medir y controlar el avance de los procesos internos.</p>
       </div>
       <div class="prob-card fu" style="transition-delay:.2s">
-        <div class="prob-icon">🤝</div>
+        <div class="prob-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
         <h3>Equipos desalineados</h3>
         <p>Falta de claridad sobre responsabilidades y seguimiento entre áreas.</p>
       </div>
       <div class="prob-card fu" style="transition-delay:.25s">
-        <div class="prob-icon">📈</div>
+        <div class="prob-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg></div>
         <h3>Decisiones sin datos</h3>
         <p>Operaciones sin métricas confiables para tomar decisiones estratégicas.</p>
       </div>
@@ -441,22 +443,22 @@ footer{background:var(--graphite);padding:52px 0 32px}
       </div>
       <div class="dif-tiles fu" style="transition-delay:.14s">
         <div class="dif-tile">
-          <div class="icon">🎯</div>
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
           <h4>Claridad</h4>
           <p>Simplificamos procesos complejos sin tecnicismos innecesarios.</p>
         </div>
         <div class="dif-tile">
-          <div class="icon">🔧</div>
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
           <h4>Experiencia real</h4>
           <p>Trabajamos desde la práctica, no desde la teoría.</p>
         </div>
         <div class="dif-tile">
-          <div class="icon">🤝</div>
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
           <h4>Cercanía</h4>
           <p>Construimos soluciones junto a cada organización.</p>
         </div>
         <div class="dif-tile">
-          <div class="icon">⚡</div>
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
           <h4>Impacto medible</h4>
           <p>Resultados concretos desde el primer diagnóstico.</p>
         </div>
@@ -664,13 +666,13 @@ footer{background:var(--graphite);padding:52px 0 32px}
     <div class="footer-top">
       <div class="footer-brand">
         <a class="logo" href="#">
-          <svg width="34" height="34" viewBox="0 0 100 100" fill="none">
-            <path d="M50 16 A34 34 0 0 1 20.6 67" stroke="#42A5F5" stroke-width="7" stroke-linecap="butt" fill="none" opacity=".7"/>
-            <path d="M20.6 67 A34 34 0 0 1 79.4 67" stroke="#4a5568" stroke-width="7" stroke-linecap="butt" fill="none" opacity=".6"/>
-            <path d="M79.4 67 A34 34 0 0 1 50 16" stroke="#5a7aa0" stroke-width="7" stroke-linecap="butt" fill="none" opacity=".7"/>
-            <circle cx="50" cy="16" r="12" fill="#42A5F5" opacity=".8"/>
-            <circle cx="20.6" cy="67" r="11" fill="#5a7aa0" opacity=".7"/>
-            <circle cx="79.4" cy="67" r="11" fill="#4a5568" opacity=".7"/>
+          <svg width="36" height="36" viewBox="0 0 100 100" fill="none">
+            <path d="M50 12 A38 38 0 0 1 83 69" stroke="#5a7aa0" stroke-width="7" fill="none" opacity=".7"/>
+            <path d="M83 69 A38 38 0 0 1 17 69" stroke="#4a5568" stroke-width="7" fill="none" opacity=".55"/>
+            <path d="M17 69 A38 38 0 0 1 50 12" stroke="#42A5F5" stroke-width="7" fill="none" opacity=".7"/>
+            <circle cx="50" cy="12" r="15" fill="#42A5F5" opacity=".8"/>
+            <circle cx="17" cy="69" r="10" fill="#5a7aa0" opacity=".7"/>
+            <circle cx="83" cy="69" r="10" fill="#4a5568" opacity=".65"/>
           </svg>
           <span class="logo-name">IDEIA</span>
         </a>
