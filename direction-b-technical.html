@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>IDEIA — Automatización · Desarrollo · IA Aplicada</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#08090c;
+    --bg-2:#0e1014;
+    --bg-3:#15181f;
+    --ink:#f3f4f6;
+    --ink-2:#a8acb5;
+    --ink-3:#6b6f78;
+    --ink-4:#3a3d44;
+    --rule:rgba(255,255,255,0.07);
+    --rule-soft:rgba(255,255,255,0.04);
+    --accent:#e6e7ea;
+    --sans:"Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    --mono:"Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:400;font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;letter-spacing:-.005em}
+  body{overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--ink);color:var(--bg)}
+
+  /* grain */
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.35;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.07 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+  /* fixed grid */
+  body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;
+    background-image:linear-gradient(to right,var(--rule-soft) 1px,transparent 1px);
+    background-size:calc((100vw - 80px)/12) 100%;background-position:40px 0;opacity:.6}
+
+  .wrap{max-width:1360px;margin:0 auto;padding:0 40px;position:relative;z-index:2}
+
+  /* Eyebrow */
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--ink-3);text-transform:uppercase;display:inline-flex;align-items:center;gap:8px}
+  .eyebrow::before{content:"";width:6px;height:6px;background:#9fff8a;border-radius:50%;box-shadow:0 0 12px #9fff8a}
+
+  .num{font-family:var(--mono);font-size:11px;color:var(--ink-3);letter-spacing:.02em}
+
+  /* NAV */
+  nav.top{position:sticky;top:0;z-index:50;background:rgba(8,9,12,.78);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--rule)}
+  nav.top .bar{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .wm{display:inline-flex;align-items:center;font-family:var(--mono);font-size:14px;font-weight:500;color:var(--ink);letter-spacing:.02em;gap:0}
+  .wm .br{color:var(--ink-3);font-weight:400}
+  .wm .ai{color:var(--ink);background:linear-gradient(180deg,transparent 55%,rgba(159,255,138,.35) 55%);padding:0 1px}
+  .wm .cur{display:inline-block;width:7px;height:14px;background:var(--ink);margin-left:6px;animation:blink 1s steps(2) infinite;vertical-align:-2px}
+  @keyframes blink{50%{opacity:0}}
+  .nav-links{display:flex;gap:28px;align-items:center;font-family:var(--mono);font-size:12px;color:var(--ink-2)}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-cta{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;color:var(--bg);background:var(--ink);padding:8px 14px;border-radius:6px;border:1px solid var(--ink);transition:.15s}
+  .nav-cta:hover{background:transparent;color:var(--ink)}
+
+  /* HERO */
+  section.hero{padding:88px 0 96px;position:relative;border-bottom:1px solid var(--rule)}
+  section.hero::after{content:"";position:absolute;left:50%;top:0;width:1px;height:100%;background:linear-gradient(180deg,transparent,var(--rule),transparent);opacity:.6;pointer-events:none}
+  .hero-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px;padding-bottom:18px;border-bottom:1px dashed var(--rule)}
+  .hero-head .left{display:flex;gap:24px;align-items:center}
+  .pill{font-family:var(--mono);font-size:11px;color:var(--ink-2);border:1px solid var(--rule);padding:5px 10px;border-radius:999px;background:var(--bg-2)}
+  .hero h1{font-family:var(--sans);font-weight:500;font-size:clamp(54px,8vw,124px);line-height:.97;letter-spacing:-.04em;color:var(--ink);max-width:18ch}
+  .hero h1 .acc{color:var(--ink-3);font-weight:400}
+  .hero h1 .line{display:block;position:relative}
+  .hero h1 .underline{background:linear-gradient(180deg,transparent 78%,#9fff8a 78%, #9fff8a 90%, transparent 90%);padding:0 4px;margin:0 -4px}
+  .hero-sub{margin-top:40px;display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:end}
+  .hero-sub .lead{font-size:19px;line-height:1.5;color:var(--ink-2);max-width:54ch}
+  .hero-sub .lead b{color:var(--ink);font-weight:500}
+  .hero-sub .meta{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);line-height:1.85;border-left:1px solid var(--rule);padding-left:20px}
+  .hero-sub .meta .k{color:var(--ink-2);display:inline-block;width:12ch}
+  .hero-ctas{margin-top:56px;display:flex;gap:12px;align-items:center}
+  .btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--sans);font-size:14px;font-weight:500;padding:13px 20px;border-radius:8px;transition:all .18s;letter-spacing:-.005em}
+  .btn-primary{background:var(--ink);color:var(--bg);border:1px solid var(--ink)}
+  .btn-primary:hover{background:#fff}
+  .btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--rule)}
+  .btn-ghost:hover{border-color:var(--ink-2);background:var(--bg-2)}
+  .btn .arr{display:inline-block;transition:transform .18s}
+  .btn:hover .arr{transform:translateX(3px)}
+
+  .hero-foot{margin-top:80px;display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--rule)}
+  .hero-foot .stat{padding:20px 24px 20px 0;border-right:1px solid var(--rule)}
+  .hero-foot .stat:last-child{border-right:0}
+  .hero-foot .k{font-family:var(--mono);font-size:11px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
+  .hero-foot .v{font-family:var(--sans);font-size:32px;line-height:1;letter-spacing:-.03em;font-weight:500}
+  .hero-foot .v small{font-size:14px;color:var(--ink-3);font-weight:400;letter-spacing:0;margin-left:6px}
+
+  /* SECTION TITLE */
+  .sec-head{padding:96px 0 56px;display:grid;grid-template-columns:280px 1fr;gap:48px;align-items:start}
+  .sec-head .label{display:flex;flex-direction:column;gap:14px;position:sticky;top:80px}
+  .sec-head .label .num{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--ink-3)}
+  .sec-head .label .sub{font-family:var(--mono);font-size:11.5px;color:var(--ink-2);line-height:1.6;border-top:1px solid var(--rule);padding-top:14px;margin-top:6px;max-width:30ch}
+  .sec-head h2{font-family:var(--sans);font-weight:500;font-size:clamp(38px,4.6vw,64px);line-height:1.02;letter-spacing:-.035em;max-width:22ch;color:var(--ink)}
+  .sec-head h2 span{color:var(--ink-3);font-weight:400}
+
+  /* VALUE */
+  section.value{padding-bottom:80px;border-bottom:1px solid var(--rule)}
+  .value-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:14px;overflow:hidden}
+  .v-cell{padding:32px 28px 32px;background:var(--bg);position:relative;display:flex;flex-direction:column;gap:18px;min-height:380px}
+  .v-cell:hover{background:var(--bg-2)}
+  .v-cell .tag{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.06em}
+  .v-cell .tag::before{content:"";width:6px;height:6px;background:var(--ink-2);border-radius:50%}
+  .v-cell .glyph{width:42px;height:42px;border-radius:8px;background:var(--bg-3);display:flex;align-items:center;justify-content:center;font-family:var(--mono);color:var(--ink);font-size:18px;border:1px solid var(--rule)}
+  .v-cell h3{font-family:var(--sans);font-weight:500;font-size:24px;line-height:1.15;letter-spacing:-.02em}
+  .v-cell p{color:var(--ink-2);font-size:14.5px;line-height:1.55;max-width:34ch}
+  .v-cell ul{list-style:none;font-family:var(--mono);font-size:11.5px;color:var(--ink-3);margin-top:auto;display:flex;flex-direction:column;gap:6px}
+  .v-cell ul li{display:flex;justify-content:space-between;padding:6px 0;border-top:1px solid var(--rule-soft)}
+  .v-cell ul li span:first-child{color:var(--ink-2)}
+
+  /* ABOUT */
+  section.about{padding:0 0 96px}
+  .about-card{margin-top:8px;border:1px solid var(--rule);border-radius:16px;padding:48px 56px;background:linear-gradient(180deg,var(--bg-2),var(--bg));position:relative;overflow:hidden}
+  .about-card::before{content:"";position:absolute;inset:0;background:radial-gradient(800px 400px at 80% 0%,rgba(159,255,138,0.06),transparent 60%);pointer-events:none}
+  .about-card p{font-family:var(--sans);font-size:22px;line-height:1.45;color:var(--ink);max-width:60ch;font-weight:400;letter-spacing:-.012em;position:relative;z-index:2}
+  .about-card p b{font-weight:500}
+  .about-card p i{color:var(--ink-2);font-style:normal}
+  .about-stats{margin-top:48px;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:12px;overflow:hidden;position:relative;z-index:2}
+  .about-stats .s{background:var(--bg-2);padding:20px 24px}
+  .about-stats .s .v{font-family:var(--sans);font-size:36px;font-weight:500;letter-spacing:-.03em;line-height:1}
+  .about-stats .s .l{font-family:var(--mono);font-size:11px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.08em;margin-top:8px}
+
+  /* TEAM */
+  section.team{padding:0 0 96px;border-top:1px solid var(--rule)}
+  .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .t-card{border:1px solid var(--rule);border-radius:14px;overflow:hidden;background:var(--bg-2);transition:all .2s}
+  .t-card:hover{border-color:rgba(255,255,255,.18);transform:translateY(-2px)}
+  .t-photo{aspect-ratio:4/5;position:relative;overflow:hidden;background:#0a0c10;border-bottom:1px solid var(--rule)}
+  .t-photo::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,transparent 0,transparent 14px,rgba(255,255,255,0.025) 14px,rgba(255,255,255,0.025) 15px)}
+  .t-photo .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--ink-3);text-transform:uppercase}
+  .t-photo .tag{position:absolute;top:12px;left:12px;font-family:var(--mono);font-size:10px;color:var(--ink-2);background:rgba(8,9,12,.7);border:1px solid var(--rule);padding:4px 8px;border-radius:6px;letter-spacing:.05em}
+  .t-body{padding:22px 24px 26px}
+  .t-body h3{font-family:var(--sans);font-weight:500;font-size:20px;letter-spacing:-.02em;margin-bottom:4px}
+  .t-body .role{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.05em;margin-bottom:12px}
+  .t-body p{font-size:14px;color:var(--ink-2);line-height:1.55}
+  .t-body .links{margin-top:16px;display:flex;gap:8px}
+  .t-body .links a{font-family:var(--mono);font-size:11px;padding:5px 9px;border:1px solid var(--rule);border-radius:5px;color:var(--ink-2);transition:.15s}
+  .t-body .links a:hover{border-color:var(--ink);color:var(--ink)}
+
+  /* PROJECTS */
+  section.projects{padding:0 0 96px;border-top:1px solid var(--rule)}
+  .proj-table{border:1px solid var(--rule);border-radius:14px;overflow:hidden;background:var(--bg-2)}
+  .proj-head{display:grid;grid-template-columns:40px 1.4fr 2fr 1fr 1fr 40px;gap:18px;padding:14px 22px;border-bottom:1px solid var(--rule);font-family:var(--mono);font-size:10.5px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.1em;background:var(--bg-3)}
+  .proj-row{display:grid;grid-template-columns:40px 1.4fr 2fr 1fr 1fr 40px;gap:18px;padding:22px;border-bottom:1px solid var(--rule);align-items:start;transition:background .15s;cursor:pointer}
+  .proj-row:last-child{border-bottom:0}
+  .proj-row:hover{background:var(--bg-3)}
+  .proj-row .pn{font-family:var(--mono);font-size:12px;color:var(--ink-3)}
+  .proj-row .pt h4{font-family:var(--sans);font-size:17px;font-weight:500;letter-spacing:-.015em;line-height:1.2;margin-bottom:6px}
+  .proj-row .pt .ps{font-family:var(--mono);font-size:11px;color:var(--ink-3);letter-spacing:.04em;text-transform:uppercase}
+  .proj-row .pd{font-size:14px;color:var(--ink-2);line-height:1.55}
+  .proj-row .tags{display:flex;flex-wrap:wrap;gap:6px}
+  .proj-row .tags span{font-family:var(--mono);font-size:10.5px;color:var(--ink-2);background:var(--bg);border:1px solid var(--rule);padding:3px 7px;border-radius:5px;letter-spacing:.02em}
+  .proj-row .result{font-family:var(--mono);font-size:11.5px;color:#9fff8a;line-height:1.55}
+  .proj-row .arr{justify-self:end;font-family:var(--mono);font-size:14px;color:var(--ink-3);transition:.15s}
+  .proj-row:hover .arr{color:var(--ink);transform:translate(3px,-3px)}
+
+  /* STACK */
+  section.stack{padding:0 0 96px;border-top:1px solid var(--rule)}
+  .stack-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+  .stack-col{border:1px solid var(--rule);border-radius:12px;padding:22px;background:var(--bg-2);display:flex;flex-direction:column;gap:14px}
+  .stack-col h4{font-family:var(--mono);font-size:11px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.08em;padding-bottom:10px;border-bottom:1px solid var(--rule)}
+  .stack-col ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+  .stack-col ul li{font-family:var(--mono);font-size:12.5px;color:var(--ink);letter-spacing:.01em;display:flex;align-items:center;gap:8px}
+  .stack-col ul li::before{content:"›";color:var(--ink-3);font-size:14px}
+
+  /* CONTACT */
+  section.contact{padding:96px 0 0;border-top:1px solid var(--rule);position:relative;overflow:hidden}
+  section.contact::before{content:"";position:absolute;inset:0;background:radial-gradient(900px 500px at 50% 0%,rgba(159,255,138,0.045),transparent 65%);pointer-events:none}
+  .contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;position:relative;z-index:2}
+  .contact-left h2{font-family:var(--sans);font-weight:500;font-size:clamp(44px,5.6vw,80px);line-height:1.0;letter-spacing:-.04em;color:var(--ink);max-width:14ch;margin-top:24px}
+  .contact-left h2 span{color:var(--ink-3);font-weight:400}
+  .contact-left .info{margin-top:48px;display:flex;flex-direction:column;gap:20px;border-top:1px solid var(--rule);padding-top:32px}
+  .contact-left .info .row{display:flex;justify-content:space-between;align-items:baseline;padding:6px 0}
+  .contact-left .info .row .k{font-family:var(--mono);font-size:11px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.08em}
+  .contact-left .info .row .v{font-family:var(--mono);font-size:14px;color:var(--ink)}
+
+  .contact-form{border:1px solid var(--rule);border-radius:14px;background:var(--bg-2);padding:32px;display:flex;flex-direction:column;gap:18px}
+  .contact-form .field{display:flex;flex-direction:column;gap:6px}
+  .contact-form label{font-family:var(--mono);font-size:11px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.08em}
+  .contact-form input,.contact-form textarea,.contact-form select{background:var(--bg);border:1px solid var(--rule);border-radius:8px;padding:12px 14px;font-family:var(--sans);font-size:14px;color:var(--ink);outline:none;transition:.15s}
+  .contact-form textarea{min-height:120px;resize:vertical;font-family:var(--sans)}
+  .contact-form input:focus,.contact-form textarea:focus,.contact-form select:focus{border-color:var(--ink-2);background:var(--bg-3)}
+  .contact-form .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .contact-form button{margin-top:6px;background:var(--ink);color:var(--bg);font-family:var(--sans);font-size:14px;font-weight:500;padding:14px 16px;border:0;border-radius:8px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:.15s}
+  .contact-form button:hover{background:#fff}
+  .contact-form .hint{font-family:var(--mono);font-size:11px;color:var(--ink-3)}
+
+  footer{margin-top:120px;border-top:1px solid var(--rule);padding:24px 0;font-family:var(--mono);font-size:11px;color:var(--ink-3);letter-spacing:.06em}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center}
+
+  @media (max-width:980px){
+    .wrap{padding:0 20px}
+    .nav-links{display:none}
+    .hero-sub,.sec-head,.about-stats,.team-grid,.stack-grid,.contact-inner{grid-template-columns:1fr;gap:32px}
+    .value-grid,.hero-foot{grid-template-columns:1fr}
+    .v-cell{min-height:auto}
+    .proj-head,.proj-row{grid-template-columns:1fr;gap:8px}
+    .proj-head{display:none}
+    .hero-foot .stat{border-right:0;border-bottom:1px solid var(--rule);padding-right:0}
+  }
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap bar">
+    <a class="wm" href="#">
+      <span class="br">[</span><span>ide</span><span class="ai">ia</span><span class="br">]</span><span class="cur"></span>
+    </a>
+    <div class="nav-links">
+      <a href="#servicios">/servicios</a>
+      <a href="#proyectos">/proyectos</a>
+      <a href="#contacto">/contacto</a>
+    </div>
+    <a class="nav-cta" href="#contacto">Hablemos <span>↗</span></a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-head">
+      <div class="left">
+        <span class="eyebrow">Tomando proyectos · 2026</span>
+        <span class="pill">v.01 — Misiones, AR</span>
+      </div>
+      <span class="num">→ scroll · 06 secciones</span>
+    </div>
+
+    <h1>
+      <span class="line">Automatizamos lo</span>
+      <span class="line acc">que <span class="underline" style="color:#f3f4f6">frena</span></span>
+      <span class="line">tu negocio.</span>
+    </h1>
+
+    <div class="hero-sub">
+      <p class="lead">Consultora técnica especializada en <b>automatización de procesos</b>, <b>desarrollo a medida</b> e <b>IA aplicada</b> a operaciones reales de PyMEs argentinas.</p>
+      <div class="meta">
+        <div><span class="k">// sede</span>Posadas, MN — AR</div>
+        <div><span class="k">// modo</span>Remoto 100%</div>
+        <div><span class="k">// experiencia</span>+15 años</div>
+        <div><span class="k">// estado</span><span style="color:#9fff8a">● tomando proyectos</span></div>
+      </div>
+    </div>
+
+    <div class="hero-ctas">
+      <a href="#contacto" class="btn btn-primary">Contanos tu problema <span class="arr">→</span></a>
+      <a href="#proyectos" class="btn btn-ghost">Ver proyectos</a>
+    </div>
+
+    <div class="hero-foot">
+      <div class="stat"><div class="k">// proyectos</div><div class="v">24<small>entregados</small></div></div>
+      <div class="stat"><div class="k">// clientes</div><div class="v">12<small>activos</small></div></div>
+      <div class="stat"><div class="k">// áreas</div><div class="v">Auto · IA · Dev</div></div>
+      <div class="stat"><div class="k">// SLA</div><div class="v">24h<small>respuesta</small></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="value" id="servicios">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label">
+        <span class="num">// 01 — Servicios</span>
+        <span class="eyebrow">Tres pilares</span>
+        <span class="sub">No vendemos tecnología — diseñamos sistemas que resuelven problemas reales del negocio.</span>
+      </div>
+      <h2>Tres líneas de trabajo. <span>Una misma forma de pensar.</span></h2>
+    </div>
+
+    <div class="value-grid">
+      <div class="v-cell">
+        <span class="tag">01 — Automation</span>
+        <div class="glyph">⟁</div>
+        <h3>Automatización de procesos</h3>
+        <p>Flujos manuales, repetitivos o propensos a error → procesos automáticos conectados a tus sistemas actuales. Sin reemplazar lo que ya funciona.</p>
+        <ul>
+          <li><span>facturación y cobranzas</span><span>→</span></li>
+          <li><span>notificaciones y alertas</span><span>→</span></li>
+          <li><span>integración de sistemas</span><span>→</span></li>
+          <li><span>reportes programados</span><span>→</span></li>
+        </ul>
+      </div>
+      <div class="v-cell">
+        <span class="tag">02 — Development</span>
+        <div class="glyph">{ }</div>
+        <h3>Desarrollo a medida</h3>
+        <p>Aplicaciones web, integraciones de APIs, dashboards y herramientas internas adaptadas a cómo trabaja tu empresa — no al revés.</p>
+        <ul>
+          <li><span>aplicaciones web a medida</span><span>→</span></li>
+          <li><span>portales y dashboards</span><span>→</span></li>
+          <li><span>herramientas internas</span><span>→</span></li>
+          <li><span>tiendas online</span><span>→</span></li>
+        </ul>
+      </div>
+      <div class="v-cell">
+        <span class="tag">03 — AI applied</span>
+        <div class="glyph">✦</div>
+        <h3>IA aplicada al negocio</h3>
+        <p>LLMs y agentes de IA integrados en flujos reales: clasificación de datos, asistentes internos, procesamiento de documentos y reportes automáticos.</p>
+        <ul>
+          <li><span>clasificación automática</span><span>→</span></li>
+          <li><span>asistentes de consulta</span><span>→</span></li>
+          <li><span>lectura de documentos</span><span>→</span></li>
+          <li><span>análisis e informes</span><span>→</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label">
+        <span class="num">// 02 — Quiénes somos</span>
+        <span class="eyebrow">Sobre IDEIA</span>
+        <span class="sub">Venimos de adentro de las empresas — no de un laboratorio.</span>
+      </div>
+      <h2>Entendemos el problema <span>antes de proponer la solución.</span></h2>
+    </div>
+
+    <div class="about-card">
+      <p><b>IDEIA nació de la experiencia real en empresas.</b> Más de <b>15 años combinados</b> en gestión administrativa, operaciones y tecnología aplicada a negocios reales. Conocemos los sistemas que usan las PyMEs argentinas — ERPs, plataformas de facturación, planillas — y entendemos tanto el problema operativo como el problema de negocio detrás.</p>
+
+      <div class="about-stats">
+        <div class="s"><div class="v">15+</div><div class="l">// años combinados</div></div>
+        <div class="s"><div class="v">24</div><div class="l">// proyectos</div></div>
+        <div class="s"><div class="v">100%</div><div class="l">// remoto · AR</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="projects" id="proyectos">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label">
+        <span class="num">// 03 — Proyectos</span>
+        <span class="eyebrow">Casos seleccionados</span>
+        <span class="sub">Una muestra de lo que hicimos: problemas concretos, soluciones concretas.</span>
+      </div>
+      <h2>Lo que ya hicimos <span>funcionar en producción.</span></h2>
+    </div>
+
+    <div class="proj-table">
+      <div class="proj-head">
+        <span>#</span><span>Proyecto</span><span>Descripción</span><span>Stack</span><span>Resultado</span><span></span>
+      </div>
+
+      <div class="proj-row">
+        <span class="pn">01</span>
+        <div class="pt"><h4>Automatización de cobranzas</h4><span class="ps">Transporte · 2025</span></div>
+        <div class="pd">Clasificación de reclamos con IA, envío automático de emails y seguimiento desde Gmail. Reducción del 70% en tiempo administrativo de cobranza.</div>
+        <div class="tags"><span>automatización</span><span>IA</span><span>email</span></div>
+        <div class="result">↓ 70% tiempo<br/>↑ 3× volumen</div>
+        <span class="arr">↗</span>
+      </div>
+
+      <div class="proj-row">
+        <span class="pn">02</span>
+        <div class="pt"><h4>Integración ARCA → ERP</h4><span class="ps">Contable · 2025</span></div>
+        <div class="pd">Importación masiva de comprobantes AFIP al sistema contable Tango Gestión, eliminando carga manual de cientos de facturas mensuales.</div>
+        <div class="tags"><span>AFIP / ARCA</span><span>ERP contable</span><span>automatización</span></div>
+        <div class="result">↓ 95% carga manual<br/>0 errores tipeo</div>
+        <span class="arr">↗</span>
+      </div>
+
+      <div class="proj-row">
+        <span class="pn">03</span>
+        <div class="pt"><h4>Dashboard de deuda</h4><span class="ps">PyME industrial · 2025</span></div>
+        <div class="pd">Cuadro de mando con antigüedad de deuda, control cruzado ARCA vs ERP y alertas automáticas por vencimiento.</div>
+        <div class="tags"><span>Excel</span><span>análisis de datos</span><span>alertas automáticas</span></div>
+        <div class="result">Reporte semanal<br/>automatizado</div>
+        <span class="arr">↗</span>
+      </div>
+
+      <div class="proj-row">
+        <span class="pn">04</span>
+        <div class="pt"><h4>Plataforma de inscripciones</h4><span class="ps">Eventos deportivos · 2024</span></div>
+        <div class="pd">Sistema web para eventos con flujos de pago, gestión de participantes y marketplace de proveedores.</div>
+        <div class="tags"><span>web app</span><span>pagos online</span><span>automatización</span></div>
+        <div class="result">+3.000 inscripciones<br/>procesadas</div>
+        <span class="arr">↗</span>
+      </div>
+
+      <div class="proj-row">
+        <span class="pn">05</span>
+        <div class="pt"><h4>E-commerce para PyME local</h4><span class="ps">Retail · 2024</span></div>
+        <div class="pd">Tienda online con catálogo, carrito, integración de pago Payway y panel administrativo para negocio local.</div>
+        <div class="tags"><span>tienda online</span><span>pagos</span><span>hosting</span></div>
+        <div class="result">Deploy en CF<br/>costo 0$ infra</div>
+        <span class="arr">↗</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stack" id="proceso">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label">
+        <span class="num">// 04 — Proceso</span>
+        <span class="eyebrow">Cómo trabajamos</span>
+        <span class="sub">Un proceso claro y transparente: siempre sabés en qué etapa está tu proyecto.</span>
+      </div>
+      <h2>Del problema detectado <span>a la solución funcionando.</span></h2>
+    </div>
+
+    <div class="stack-grid" style="grid-template-columns:repeat(4,1fr)">
+      <div class="stack-col">
+        <h4>01 / Diagnóstico</h4>
+        <ul>
+          <li>Relevamos tu operación</li>
+          <li>Detectamos cuellos de botella</li>
+          <li>Priorizamos por impacto real</li>
+          <li>Estimamos tiempo y costo</li>
+        </ul>
+      </div>
+      <div class="stack-col">
+        <h4>02 / Diseño</h4>
+        <ul>
+          <li>Definimos la solución</li>
+          <li>Mostramos el flujo antes de arrancar</li>
+          <li>Adaptamos a tus sistemas actuales</li>
+          <li>Aprobás antes de que empecemos</li>
+        </ul>
+      </div>
+      <div class="stack-col">
+        <h4>03 / Implementación</h4>
+        <ul>
+          <li>Entregas por etapas</li>
+          <li>Pruebas con datos reales</li>
+          <li>Capacitación incluida</li>
+          <li>Acompañamiento en el lanzamiento</li>
+        </ul>
+      </div>
+      <div class="stack-col">
+        <h4>04 / Soporte</h4>
+        <ul>
+          <li>Soporte post-entrega incluido</li>
+          <li>Monitoreo de procesos</li>
+          <li>Mejoras y ajustes continuos</li>
+          <li>Respuesta en 24h hábiles</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contacto">
+  <div class="wrap">
+    <div class="contact-inner">
+      <div class="contact-left">
+        <span class="num">// 05 — Contacto</span>
+        <h2>Contanos qué te frena. <span>Respondemos en 24h.</span></h2>
+        <div class="info">
+          <div class="row"><span class="k">email</span><span class="v"><a href="mailto:hola@ideia.com.ar">hola@ideia.com.ar</a></span></div>
+          <div class="row"><span class="k">whatsapp</span><span class="v">+54 9 376 — — —</span></div>
+          <div class="row"><span class="k">linkedin</span><span class="v">/company/ideia</span></div>
+          <div class="row"><span class="k">sede</span><span class="v">Posadas, Misiones — AR</span></div>
+          <div class="row"><span class="k">horario</span><span class="v">Lun–Vie · 9–18 · UTC−3</span></div>
+        </div>
+      </div>
+
+      <form class="contact-form">
+        <div class="row2">
+          <div class="field"><label>Nombre</label><input type="text" placeholder="Tu nombre" /></div>
+          <div class="field"><label>Empresa</label><input type="text" placeholder="Nombre de la empresa" /></div>
+        </div>
+        <div class="field"><label>Email</label><input type="email" placeholder="vos@empresa.com.ar" /></div>
+        <div class="field">
+          <label>¿Qué necesitás?</label>
+          <select>
+            <option>Automatizar un proceso</option>
+            <option>Desarrollar una herramienta</option>
+            <option>Integrar IA en mi negocio</option>
+            <option>No estoy seguro — quiero asesoría</option>
+          </select>
+        </div>
+        <div class="field"><label>Mensaje</label><textarea placeholder="Contanos qué te está frenando hoy..."></textarea></div>
+        <button type="submit">Enviar mensaje <span>→</span></button>
+        <span class="hint">Respondemos en menos de 24h hábiles · sin spam, sin chatbots</span>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 IDEIA · Posadas, Misiones — AR</span>
+    <span>ideia.com.ar / v.01</span>
+  </div>
+</footer>
+</body>
+</html>
