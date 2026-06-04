@@ -5,275 +5,225 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>IDEIA — Influir positivamente para que las cosas pasen.</title>
 <meta name="description" content="Ayudamos a organizaciones a mejorar procesos internos mediante automatización, inteligencia aplicada y experiencia operativa real." />
-<meta property="og:title" content="IDEIA — Mejora operativa e inteligencia aplicada" />
-<meta property="og:description" content="Transformamos procesos internos en operaciones más eficientes." />
-<meta property="og:type" content="website" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 <style>
-/* ─── TOKENS ─── */
 :root {
-  --blue:       #103B73;
-  --blue-e:     #42A5F5;
-  --blue-dim:   rgba(16,59,115,0.08);
-  --blue-glow:  rgba(66,165,245,0.15);
-  --graphite:   #2E3138;
-  --smoke:      #F7F8FA;
-  --white:      #ffffff;
-  --ink:        #0d1b2e;
-  --ink-2:      #4a5568;
-  --ink-3:      #8892a4;
-  --ink-4:      #c5ccd8;
-  --rule:       #e4e8ee;
-  --rule-soft:  #f0f4f8;
-  --sans:       "Sora", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-  --body:       "Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-  --radius:     12px;
-  --radius-lg:  16px;
+  --blue:     #103B73;
+  --graphite: #1c2029;
+  --stone:    #F5F4F1;
+  --white:    #ffffff;
+  --ink:      #0d1b2e;
+  --ink-2:    #4a5568;
+  --ink-3:    #8a92a0;
+  --rule:     #ddd9d3;
+  --sans:     "Sora", system-ui, sans-serif;
+  --body:     "Inter", system-ui, sans-serif;
 }
-
-/* ─── RESET ─── */
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{background:var(--white);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+html,body{background:var(--white);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
 body{overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 ::selection{background:var(--blue);color:#fff}
-.wrap{max-width:1200px;margin:0 auto;padding:0 40px}
+.wrap{max-width:1160px;margin:0 auto;padding:0 56px}
 
-/* ─── HELPERS ─── */
-.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--body);font-size:11.5px;font-weight:600;color:var(--blue-e);text-transform:uppercase;letter-spacing:.09em}
-.eyebrow::before,.eyebrow::after{content:"";width:18px;height:1px;background:var(--blue-e)}
+.eyebrow{font-size:10px;font-weight:600;color:var(--ink-3);text-transform:uppercase;letter-spacing:.18em;display:block;margin-bottom:18px}
 
-/* ─── BUTTONS ─── */
-.btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--body);font-size:14px;font-weight:600;padding:13px 22px;border-radius:8px;transition:all .18s;letter-spacing:-.005em;cursor:pointer;border:none}
-.btn-primary{background:var(--blue);color:#fff}
-.btn-primary:hover{background:#0c2f5c;transform:translateY(-1px);box-shadow:0 4px 20px rgba(16,59,115,.28)}
-.btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--rule)}
-.btn-ghost:hover{border-color:var(--ink-3);background:var(--smoke)}
-.btn-white{background:#fff;color:var(--blue);font-weight:700}
-.btn-white:hover{background:var(--smoke);transform:translateY(-1px);box-shadow:0 4px 16px rgba(0,0,0,.14)}
-.btn-outline-white{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.35)}
-.btn-outline-white:hover{border-color:#fff;background:rgba(255,255,255,.08)}
-.btn .arr{transition:transform .18s}
-.btn:hover .arr{transform:translateX(3px)}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--body);font-size:13.5px;font-weight:500;padding:13px 26px;border-radius:2px;transition:background .2s,border-color .2s,color .2s;cursor:pointer;border:1px solid transparent}
+.btn-primary{background:var(--blue);color:#fff;border-color:var(--blue)}
+.btn-primary:hover{background:#0c2f5c;border-color:#0c2f5c}
+.btn-ghost{background:transparent;color:var(--ink-2);border-color:var(--rule)}
+.btn-ghost:hover{border-color:var(--ink);color:var(--ink)}
+.btn-white{background:#fff;color:var(--blue)}
+.btn-white:hover{background:var(--stone)}
+.btn-outline-white{background:transparent;color:#fff;border-color:rgba(255,255,255,.3)}
+.btn-outline-white:hover{border-color:rgba(255,255,255,.7)}
 
-/* ─── NAV ─── */
-nav.top{position:sticky;top:0;z-index:100;transition:background .3s,box-shadow .3s;background:rgba(255,255,255,0)}
-nav.top.scrolled{background:rgba(255,255,255,.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--rule)}
-.bar{display:flex;align-items:center;justify-content:space-between;height:68px}
+/* NAV */
+nav.top{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0);border-bottom:1px solid transparent;transition:background .3s,border-color .3s}
+nav.top.scrolled{background:rgba(255,255,255,.98);border-bottom-color:var(--rule)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:72px}
 .logo{display:inline-flex;align-items:center}
-.logo-img{height:36px;width:auto;display:block}
-.footer-brand .logo{background:#fff;padding:10px 16px;border-radius:8px;display:inline-flex}
-.footer-brand .logo-img{height:28px}
-.nav-links{display:flex;gap:30px;font-family:var(--body);font-size:14px;font-weight:500;color:var(--ink-2)}
+.logo-img{height:32px;width:auto;display:block}
+.nav-links{display:flex;gap:36px;font-size:13.5px;font-weight:400;color:var(--ink-2)}
 .nav-links a{transition:color .15s}
-.nav-links a:hover{color:var(--blue)}
-.nav-cta{font-family:var(--body);font-size:13.5px;font-weight:600;color:#fff;background:var(--blue);padding:10px 20px;border-radius:8px;transition:.15s}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{font-size:13px;font-weight:500;color:#fff;background:var(--blue);padding:10px 22px;border-radius:2px;transition:background .2s}
 .nav-cta:hover{background:#0c2f5c}
 
-/* ─── HERO ─── */
-section.hero{padding:96px 0 80px;background:linear-gradient(155deg,var(--white) 0%,var(--smoke) 55%,rgba(66,165,245,.07) 100%);border-bottom:1px solid var(--rule);position:relative;overflow:hidden}
-.hero-glow{position:absolute;right:-120px;top:-160px;width:640px;height:640px;border-radius:50%;background:radial-gradient(circle,rgba(66,165,245,.12) 0%,rgba(16,59,115,.06) 40%,transparent 70%);pointer-events:none}
-.hero-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:center;position:relative;z-index:1}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;font-family:var(--body);font-size:12px;font-weight:600;color:var(--blue-e);background:rgba(66,165,245,.1);border:1px solid rgba(66,165,245,.2);padding:6px 13px;border-radius:999px;margin-bottom:24px}
-.hero-badge .dot{width:6px;height:6px;background:var(--blue-e);border-radius:50%;animation:pulse 2s ease-in-out infinite}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
-.hero h1{font-family:var(--sans);font-weight:700;font-size:clamp(38px,5vw,68px);line-height:1.04;letter-spacing:-.04em;color:var(--ink);max-width:15ch}
-.hero h1 .accent{color:var(--blue)}
-.hero-lead{margin-top:22px;font-size:17px;line-height:1.65;color:var(--ink-2);max-width:46ch}
-.hero-ctas{margin-top:34px;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
-.hero-note{margin-top:13px;font-size:12.5px;color:var(--ink-3)}
-.hero-stats{margin-top:44px;padding-top:28px;border-top:1px solid var(--rule);display:flex;gap:32px;flex-wrap:wrap}
-.hero-stats .s .v{font-family:var(--sans);font-size:28px;font-weight:700;color:var(--blue);letter-spacing:-.03em;line-height:1}
-.hero-stats .s .l{font-size:12px;color:var(--ink-3);margin-top:3px;font-weight:500}
+/* HERO */
+section.hero{padding:148px 0 128px;background:var(--white);border-bottom:1px solid var(--rule)}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:center}
+.hero-label{font-size:10px;font-weight:600;color:var(--ink-3);text-transform:uppercase;letter-spacing:.18em;display:block;margin-bottom:26px}
+.hero h1{font-family:var(--sans);font-weight:600;font-size:clamp(36px,4.4vw,60px);line-height:1.03;letter-spacing:-.04em;color:var(--ink);max-width:15ch}
+.hero h1 em{font-style:normal;color:var(--blue)}
+.hero-lead{margin-top:26px;font-size:16px;line-height:1.8;color:var(--ink-2);max-width:40ch}
+.hero-ctas{margin-top:38px;display:flex;gap:12px;flex-wrap:wrap}
+.hero-note{margin-top:16px;font-size:11.5px;color:var(--ink-3);letter-spacing:.02em}
+.hero-stats{margin-top:60px;padding-top:36px;border-top:1px solid var(--rule);display:flex;gap:52px;flex-wrap:wrap}
+.hero-stats .s .v{font-family:var(--sans);font-size:30px;font-weight:600;color:var(--blue);line-height:1;letter-spacing:-.03em}
+.hero-stats .s .l{font-size:11.5px;color:var(--ink-3);margin-top:7px;letter-spacing:.02em}
 
-/* Hero card */
-.hero-card{border:1px solid var(--rule);border-radius:var(--radius-lg);background:#fff;box-shadow:0 6px 32px rgba(0,0,0,.07);overflow:hidden}
-.hc-top{height:4px;background:linear-gradient(90deg,var(--blue),var(--blue-e))}
-.hc-body{padding:26px 24px}
-.hc-title{font-family:var(--sans);font-size:13px;font-weight:600;color:var(--ink);margin-bottom:18px;display:flex;align-items:center;justify-content:space-between}
-.hc-badge{font-size:11px;font-weight:500;color:var(--blue-e);background:rgba(66,165,245,.1);padding:3px 9px;border-radius:999px}
-.hc-steps{display:flex;flex-direction:column;gap:9px}
-.hc-step{display:flex;align-items:center;gap:11px;padding:11px 13px;border-radius:9px;background:var(--smoke);border:1px solid var(--rule)}
-.hc-step.done{background:rgba(16,59,115,.04);border-color:rgba(16,59,115,.14)}
-.hc-step .dot{width:8px;height:8px;border-radius:50%;background:var(--ink-4);flex-shrink:0}
-.hc-step.done .dot{background:var(--blue)}
-.hc-step.active .dot{background:var(--blue-e);animation:pulse 1.5s ease-in-out infinite}
-.hc-step .lbl{font-size:13px;color:var(--ink-2);font-weight:500}
-.hc-step.done .lbl{color:var(--ink)}
-.hc-step .val{margin-left:auto;font-size:11.5px;color:var(--ink-3);font-weight:500}
-.hc-step.done .val{color:var(--blue);font-weight:600}
-.hc-foot{margin-top:14px;padding-top:14px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center}
-.hc-foot .tag{font-size:11.5px;color:var(--ink-3)}
-.hc-foot .res{font-family:var(--sans);font-size:13px;font-weight:600;color:var(--blue)}
+/* Hero diagram */
+.hero-diagram{width:100%}
+.hero-diagram svg{width:100%;height:auto;display:block}
 
-/* ─── SECTION HEADS ─── */
-.sec-center{text-align:center;max-width:620px;margin:0 auto 52px}
-.sec-center h2{font-family:var(--sans);font-weight:700;font-size:clamp(28px,3.4vw,42px);line-height:1.08;letter-spacing:-.03em;color:var(--ink);margin-top:14px}
-.sec-center h2 span{color:var(--blue)}
-.sec-center p{margin-top:15px;font-size:16px;color:var(--ink-2);line-height:1.65}
+/* SECTION HEADS */
+.sec-head{margin-bottom:72px}
+.sec-head.center{text-align:center;max-width:520px;margin-left:auto;margin-right:auto}
+.sec-head h2{font-family:var(--sans);font-weight:600;font-size:clamp(26px,3vw,40px);line-height:1.08;letter-spacing:-.03em;color:var(--ink);margin-top:10px}
+.sec-head h2 span{color:var(--blue)}
+.sec-head p{margin-top:16px;font-size:15px;color:var(--ink-2);line-height:1.78}
 
-.sec-left{margin-bottom:44px}
-.sec-left h2{font-family:var(--sans);font-weight:700;font-size:clamp(26px,3vw,40px);line-height:1.08;letter-spacing:-.03em;color:var(--ink);margin-top:12px;max-width:24ch}
+/* PROBLEMAS */
+section.problems{background:var(--stone);padding:144px 0;border-bottom:1px solid var(--rule)}
+.prob-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--rule)}
+.prob-card{background:var(--white);padding:44px 36px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.prob-card:nth-child(3n){border-right:none}
+.prob-card:nth-child(4),.prob-card:nth-child(5),.prob-card:nth-child(6){border-bottom:none}
+.prob-n{font-family:var(--sans);font-size:10px;font-weight:600;color:var(--rule);letter-spacing:.1em;margin-bottom:28px;display:block}
+.prob-card h3{font-family:var(--sans);font-size:15px;font-weight:600;color:var(--ink);letter-spacing:-.015em;margin-bottom:12px;line-height:1.25}
+.prob-card p{font-size:13px;color:var(--ink-2);line-height:1.72}
 
-/* ─── PROBLEMAS ─── */
-section.problems{background:var(--smoke);padding:88px 0;border-bottom:1px solid var(--rule)}
-.prob-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.prob-card{background:#fff;border:1px solid var(--rule);border-radius:var(--radius);padding:28px 24px;display:flex;flex-direction:column;gap:14px;transition:all .22s;box-shadow:0 1px 3px rgba(0,0,0,.03)}
-.prob-card:hover{border-color:rgba(66,165,245,.4);box-shadow:0 6px 24px rgba(16,59,115,.09);transform:translateY(-3px)}
-.prob-icon{width:42px;height:42px;border-radius:10px;background:var(--blue-dim);display:flex;align-items:center;justify-content:center;color:var(--blue);flex-shrink:0}
-.prob-icon svg{width:21px;height:21px}
-.prob-card h3{font-family:var(--sans);font-size:15.5px;font-weight:600;letter-spacing:-.015em;color:var(--ink);line-height:1.25}
-.prob-card p{font-size:14px;color:var(--ink-2);line-height:1.65}
+/* QUÉ HACEMOS */
+section.services{background:var(--white);padding:144px 0;border-bottom:1px solid var(--rule)}
+.srv-list{border:1px solid var(--rule)}
+.srv-row{display:grid;grid-template-columns:160px 1fr;border-bottom:1px solid var(--rule)}
+.srv-row:last-child{border-bottom:none}
+.srv-n{padding:44px 40px;border-right:1px solid var(--rule);display:flex;align-items:flex-start}
+.srv-n span{font-family:var(--sans);font-size:10px;font-weight:600;color:var(--ink-3);letter-spacing:.1em}
+.srv-c{padding:44px 52px}
+.srv-c h3{font-family:var(--sans);font-size:18px;font-weight:600;color:var(--ink);letter-spacing:-.02em;margin-bottom:12px}
+.srv-c p{font-size:14px;color:var(--ink-2);line-height:1.78;max-width:54ch}
 
-/* ─── QUÉ HACEMOS ─── */
-section.services{background:#fff;padding:88px 0;border-bottom:1px solid var(--rule)}
-.srv-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-.srv-card{border:1px solid var(--rule);border-radius:var(--radius);padding:32px 28px;background:var(--smoke);display:flex;flex-direction:column;gap:15px;transition:all .22s;position:relative;overflow:hidden}
-.srv-card::after{content:"";position:absolute;left:0;top:0;width:3px;height:100%;background:linear-gradient(180deg,var(--blue),var(--blue-e));opacity:0;transition:.22s}
-.srv-card:hover{border-color:rgba(16,59,115,.18);box-shadow:0 4px 22px rgba(16,59,115,.07)}
-.srv-card:hover::after{opacity:1}
-.srv-num{font-family:var(--body);font-size:11.5px;font-weight:700;color:var(--blue-e);letter-spacing:.08em;text-transform:uppercase}
-.srv-card h3{font-family:var(--sans);font-size:20px;font-weight:600;letter-spacing:-.02em;color:var(--ink);line-height:1.2}
-.srv-card p{font-size:14px;color:var(--ink-2);line-height:1.65}
-
-/* ─── DIFERENCIAL ─── */
-section.diferencial{background:#fff;padding:88px 0;border-bottom:1px solid var(--rule)}
-.dif-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.dif-left h2{font-family:var(--sans);font-weight:700;font-size:clamp(30px,3.8vw,50px);line-height:1.05;letter-spacing:-.035em;color:var(--ink);margin-top:14px;max-width:16ch}
+/* DIFERENCIAL */
+section.diferencial{background:var(--stone);padding:144px 0;border-bottom:1px solid var(--rule)}
+.dif-grid{display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:start}
+.dif-left h2{font-family:var(--sans);font-weight:600;font-size:clamp(28px,3.5vw,46px);line-height:1.05;letter-spacing:-.04em;color:var(--ink);margin-top:10px;max-width:16ch}
 .dif-left h2 span{color:var(--blue)}
-.dif-left .text{margin-top:22px;font-size:15.5px;color:var(--ink-2);line-height:1.7;max-width:46ch}
-.dif-left .text+.text{margin-top:12px}
-.dif-left .btn{margin-top:30px}
-.dif-tiles{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.dif-tile{border:1px solid var(--rule);border-radius:var(--radius);padding:22px 20px;background:var(--smoke);transition:all .22s}
-.dif-tile:hover{border-color:rgba(16,59,115,.2);background:#fff;box-shadow:0 3px 14px rgba(16,59,115,.06)}
-.dif-tile .icon{margin-bottom:12px;color:var(--blue);display:flex}
-.dif-tile .icon svg{width:22px;height:22px}
-.dif-tile h4{font-family:var(--sans);font-size:14px;font-weight:600;color:var(--ink);letter-spacing:-.01em;margin-bottom:5px}
-.dif-tile p{font-size:13px;color:var(--ink-2);line-height:1.55}
+.dif-left p{margin-top:22px;font-size:15px;color:var(--ink-2);line-height:1.8;max-width:40ch}
+.dif-left p+p{margin-top:14px}
+.dif-left .btn{margin-top:38px}
+.dif-values{border:1px solid var(--rule);background:var(--white)}
+.val-row{padding:28px 32px;border-bottom:1px solid var(--rule);border-left:3px solid transparent;transition:border-left-color .2s}
+.val-row:hover{border-left-color:var(--blue)}
+.val-row:last-child{border-bottom:none}
+.val-title{font-family:var(--sans);font-size:14.5px;font-weight:600;color:var(--ink);letter-spacing:-.015em;margin-bottom:5px}
+.val-desc{font-size:13px;color:var(--ink-3);line-height:1.55}
 
-/* ─── CÓMO TRABAJAMOS ─── */
-section.proceso{background:var(--graphite);padding:88px 0}
-section.proceso .sec-center h2{color:#edf0f4}
-section.proceso .sec-center p{color:#8892a4}
-section.proceso .eyebrow{color:var(--blue-e)}
-section.proceso .eyebrow::before,
-section.proceso .eyebrow::after{background:var(--blue-e)}
-.timeline{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative;margin-top:16px}
-.timeline::before{content:"";position:absolute;top:27px;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(66,165,245,.4) 20%,rgba(66,165,245,.4) 80%,transparent)}
-.tl-step{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 12px}
-.tl-num{width:54px;height:54px;border-radius:50%;border:1.5px solid rgba(66,165,245,.3);display:flex;align-items:center;justify-content:center;font-family:var(--sans);font-size:14px;font-weight:700;color:rgba(255,255,255,.35);background:rgba(255,255,255,.04);margin-bottom:20px;position:relative;z-index:2;transition:.22s;flex-shrink:0}
-.tl-step:hover .tl-num{border-color:var(--blue-e);color:#fff;background:rgba(66,165,245,.14);box-shadow:0 0 20px rgba(66,165,245,.2)}
-.tl-step h4{font-family:var(--sans);font-size:14px;font-weight:600;color:#dde3ed;letter-spacing:-.01em;margin-bottom:7px}
-.tl-step p{font-size:12.5px;color:#6b7585;line-height:1.55}
+/* PROCESO */
+section.proceso{background:var(--graphite);padding:144px 0}
+section.proceso .sec-head h2{color:#cdd5e0}
+section.proceso .sec-head p{color:#4a5568}
+section.proceso .eyebrow{color:#34404f}
+.tl-list{border:1px solid rgba(255,255,255,.06)}
+.tl-row{display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid rgba(255,255,255,.06)}
+.tl-row:last-child{border-bottom:none}
+.tl-n{display:flex;align-items:flex-start;justify-content:center;padding:36px 0;border-right:1px solid rgba(255,255,255,.06);font-family:var(--sans);font-size:10px;font-weight:600;color:rgba(255,255,255,.12);letter-spacing:.1em;padding-top:38px}
+.tl-c{padding:36px 48px}
+.tl-c h4{font-family:var(--sans);font-size:16px;font-weight:600;color:#cdd5e0;letter-spacing:-.02em;margin-bottom:7px}
+.tl-c p{font-size:13.5px;color:#4a5568;line-height:1.7}
 
-/* ─── RESULTADOS ─── */
-section.resultados{background:var(--smoke);padding:88px 0;border-bottom:1px solid var(--rule)}
-.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.kpi-card{background:#fff;border:1px solid var(--rule);border-radius:var(--radius);padding:32px 22px;text-align:center;transition:all .22s;box-shadow:0 1px 3px rgba(0,0,0,.03)}
-.kpi-card:hover{border-color:rgba(16,59,115,.2);box-shadow:0 6px 24px rgba(16,59,115,.08);transform:translateY(-3px)}
-.kpi-card .v{font-family:var(--sans);font-size:52px;font-weight:700;color:var(--blue);letter-spacing:-.04em;line-height:1}
-.kpi-card .l{font-size:13px;color:var(--ink-2);margin-top:10px;line-height:1.4;font-weight:500}
+/* RESULTADOS */
+section.resultados{background:var(--white);padding:144px 0;border-bottom:1px solid var(--rule)}
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--rule)}
+.kpi-card{background:var(--white);padding:56px 36px;text-align:left;border-right:1px solid var(--rule)}
+.kpi-card:last-child{border-right:none}
+.kpi-card .v{font-family:var(--sans);font-size:52px;font-weight:600;color:var(--blue);letter-spacing:-.045em;line-height:1}
+.kpi-card .l{font-size:13px;color:var(--ink-2);margin-top:14px;line-height:1.5;max-width:15ch}
 
-/* ─── INDUSTRIAS ─── */
-section.industrias{background:#fff;padding:88px 0;border-bottom:1px solid var(--rule)}
-.ind-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.ind-card{border:1px solid var(--rule);border-radius:var(--radius);padding:22px 20px;background:var(--smoke);display:flex;align-items:center;gap:15px;transition:all .22s}
-.ind-card:hover{border-color:rgba(66,165,245,.4);background:#fff;box-shadow:0 4px 18px rgba(16,59,115,.07);transform:translateX(4px)}
-.ind-icon{width:44px;height:44px;border-radius:10px;background:var(--blue-dim);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--blue)}
-.ind-icon svg{width:22px;height:22px;flex-shrink:0}
-.ind-card h3{font-family:var(--sans);font-size:15px;font-weight:600;color:var(--ink);letter-spacing:-.01em}
-.ind-card p{font-size:12.5px;color:var(--ink-2);margin-top:2px;line-height:1.45}
+/* INDUSTRIAS */
+section.industrias{background:var(--stone);padding:144px 0;border-bottom:1px solid var(--rule)}
+.ind-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--rule)}
+.ind-card{background:var(--white);padding:36px 34px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.ind-card:nth-child(3n){border-right:none}
+.ind-card:nth-child(4),.ind-card:nth-child(5),.ind-card:nth-child(6){border-bottom:none}
+.ind-card h3{font-family:var(--sans);font-size:15px;font-weight:600;color:var(--ink);letter-spacing:-.015em;margin-bottom:7px}
+.ind-card p{font-size:13px;color:var(--ink-2);line-height:1.55}
 
-/* ─── CTA FINAL ─── */
-section.cta-final{background:var(--blue);padding:96px 0;position:relative;overflow:hidden}
-section.cta-final::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 110%,rgba(66,165,245,.35) 0%,transparent 70%);pointer-events:none}
-.cta-inner{text-align:center;max-width:660px;margin:0 auto;position:relative;z-index:2}
-.cta-inner h2{font-family:var(--sans);font-weight:700;font-size:clamp(30px,4.5vw,54px);line-height:1.05;letter-spacing:-.035em;color:#fff}
-.cta-inner h2 span{color:var(--blue-e)}
-.cta-inner p{margin-top:18px;font-size:16px;color:rgba(255,255,255,.72);line-height:1.65}
-.cta-btns{margin-top:34px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+/* CTA */
+section.cta-final{background:var(--blue);padding:144px 0}
+.cta-inner{max-width:580px}
+.cta-inner h2{font-family:var(--sans);font-weight:600;font-size:clamp(30px,4vw,50px);line-height:1.05;letter-spacing:-.04em;color:#fff}
+.cta-inner p{margin-top:22px;font-size:15px;color:rgba(255,255,255,.5);line-height:1.78}
+.cta-btns{margin-top:38px;display:flex;gap:14px;flex-wrap:wrap}
 
-/* ─── CONTACTO ─── */
-section.contact{background:var(--smoke);padding:88px 0 0}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
-.contact-left .eyebrow{margin-bottom:0}
-.contact-left h2{font-family:var(--sans);font-weight:700;font-size:clamp(30px,3.8vw,50px);line-height:1.0;letter-spacing:-.04em;color:var(--ink);margin-top:14px;max-width:14ch}
-.contact-left h2 span{color:var(--ink-3);font-weight:400}
-.contact-info{margin-top:32px;border-top:1px solid var(--rule);padding-top:20px}
-.contact-info .row{display:flex;justify-content:space-between;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--rule)}
-.contact-info .row .k{font-size:11.5px;font-weight:600;color:var(--ink-3);text-transform:uppercase;letter-spacing:.06em}
-.contact-info .row .v{font-size:13px;color:var(--ink);font-weight:500}
-.contact-form{border:1px solid var(--rule);border-radius:var(--radius-lg);background:#fff;padding:32px;display:flex;flex-direction:column;gap:18px;box-shadow:0 1px 3px rgba(0,0,0,.03)}
-.contact-form .field{display:flex;flex-direction:column;gap:6px}
-.contact-form label{font-size:11px;font-weight:600;color:var(--ink-3);text-transform:uppercase;letter-spacing:.07em}
-.contact-form input,.contact-form textarea,.contact-form select{background:var(--smoke);border:1px solid var(--rule);border-radius:8px;padding:11px 14px;font-family:var(--body);font-size:14px;color:var(--ink);outline:none;transition:.15s;width:100%}
-.contact-form textarea{min-height:110px;resize:vertical}
-.contact-form input:focus,.contact-form textarea:focus,.contact-form select:focus{border-color:var(--blue-e);background:#fff;box-shadow:0 0 0 3px rgba(66,165,245,.1)}
-.contact-form .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.contact-form button{background:var(--blue);color:#fff;font-family:var(--body);font-size:14px;font-weight:600;padding:14px;border:0;border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:.15s}
-.contact-form button:hover{background:#0c2f5c;transform:translateY(-1px)}
+/* CONTACTO */
+section.contact{background:var(--white);padding:144px 0 0}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.contact-left h2{font-family:var(--sans);font-weight:600;font-size:clamp(28px,3.5vw,46px);line-height:1.05;letter-spacing:-.04em;color:var(--ink);margin-top:10px;max-width:15ch}
+.c-info{margin-top:38px;border-top:1px solid var(--rule)}
+.c-info .row{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--rule)}
+.c-info .k{font-size:10px;font-weight:600;color:var(--ink-3);text-transform:uppercase;letter-spacing:.12em}
+.c-info .v{font-size:13px;color:var(--ink)}
+.c-form{border:1px solid var(--rule);padding:42px;display:flex;flex-direction:column;gap:20px}
+.c-form .field{display:flex;flex-direction:column;gap:8px}
+.c-form label{font-size:10px;font-weight:600;color:var(--ink-3);text-transform:uppercase;letter-spacing:.12em}
+.c-form input,.c-form textarea,.c-form select{background:var(--stone);border:1px solid var(--rule);border-radius:2px;padding:12px 16px;font-family:var(--body);font-size:14px;color:var(--ink);outline:none;transition:border-color .15s;width:100%}
+.c-form textarea{min-height:120px;resize:vertical}
+.c-form input:focus,.c-form textarea:focus,.c-form select:focus{border-color:var(--blue);background:var(--white)}
+.c-form .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.c-form button{background:var(--blue);color:#fff;font-family:var(--body);font-size:14px;font-weight:500;padding:14px;border:0;border-radius:2px;cursor:pointer;transition:background .2s}
+.c-form button:hover{background:#0c2f5c}
 .hint{font-size:11px;color:var(--ink-3)}
 
-/* ─── FOOTER ─── */
-footer{background:var(--graphite);padding:52px 0 32px}
-.footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.08)}
-.footer-brand p{margin-top:12px;font-size:13px;color:#66707f;line-height:1.6;max-width:32ch;font-style:italic}
-.footer-col h4{font-size:11.5px;font-weight:600;color:#7a8494;text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px}
-.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
-.footer-col ul li a{font-size:14px;color:#7a8494;transition:.15s}
+/* FOOTER */
+footer{background:var(--graphite);padding:72px 0 40px}
+.footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px;padding-bottom:52px;border-bottom:1px solid rgba(255,255,255,.06)}
+.footer-brand .logo{background:#fff;padding:8px 14px;border-radius:2px;display:inline-flex}
+.footer-brand .logo-img{height:26px}
+.footer-brand p{margin-top:20px;font-size:13px;color:#34404f;line-height:1.65;max-width:26ch;font-style:italic}
+.footer-col h4{font-size:10px;font-weight:600;color:#34404f;text-transform:uppercase;letter-spacing:.14em;margin-bottom:20px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:13px}
+.footer-col ul li a{font-size:13px;color:#34404f;transition:color .15s}
 .footer-col ul li a:hover{color:#fff}
-.footer-bottom{margin-top:24px;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#4a5568}
-.footer-links{display:flex;gap:16px}
-.footer-links a{color:#4a5568;font-size:12px;transition:.15s}
+.footer-bottom{margin-top:28px;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#34404f}
+.footer-links{display:flex;gap:20px}
+.footer-links a{color:#34404f;font-size:12px;transition:color .15s}
 .footer-links a:hover{color:#fff}
 
-/* ─── WA FLOAT ─── */
-.wa-float{position:fixed;bottom:24px;right:24px;z-index:9999;width:54px;height:54px;border-radius:50%;background:#25D366;box-shadow:0 4px 20px rgba(37,211,102,.4);display:flex;align-items:center;justify-content:center;transition:transform .2s,box-shadow .2s}
-.wa-float:hover{transform:scale(1.08);box-shadow:0 6px 28px rgba(37,211,102,.55)}
-.wa-float svg{width:26px;height:26px;fill:#fff}
-@media(prefers-reduced-motion:no-preference){
-  .wa-float{animation:wa-pop 8s ease-in-out infinite}
-  @keyframes wa-pop{0%,90%,100%{transform:scale(1)}95%{transform:scale(1.07)}}
-  .wa-float:hover{animation:none;transform:scale(1.08)}
-}
+/* WA */
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:9999;width:48px;height:48px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;transition:opacity .2s}
+.wa-float:hover{opacity:.85}
+.wa-float svg{width:22px;height:22px;fill:#fff}
 
-/* ─── FADE-IN ─── */
-.fu{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease}
-.fu.in{opacity:1;transform:translateY(0)}
+/* FADE — opacity only, restrained */
+.fu{opacity:0;transition:opacity .65s ease}
+.fu.in{opacity:1}
 
-/* ─── RESPONSIVE ─── */
+/* RESPONSIVE */
 @media(max-width:960px){
-  .wrap{padding:0 20px}
+  .wrap{padding:0 28px}
   .nav-links{display:none}
-  .hero-grid,.dif-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
+  .hero-grid,.dif-grid,.contact-grid{grid-template-columns:1fr;gap:60px}
   .prob-grid,.ind-grid{grid-template-columns:1fr 1fr}
-  .srv-grid{grid-template-columns:1fr}
+  .prob-card:nth-child(3n){border-right:1px solid var(--rule)}
+  .prob-card:nth-child(2n){border-right:none}
   .kpi-grid{grid-template-columns:1fr 1fr}
-  .timeline{grid-template-columns:1fr;gap:20px}
-  .timeline::before{display:none}
-  .tl-step{flex-direction:row;text-align:left;align-items:flex-start;gap:16px}
-  .tl-num{flex-shrink:0;margin-bottom:0}
-  .footer-top{grid-template-columns:1fr;gap:28px}
-  .dif-tiles{grid-template-columns:1fr}
-  .hero-stats{gap:24px}
+  .kpi-card:nth-child(2){border-right:none}
+  .kpi-card:nth-child(3),.kpi-card:nth-child(4){border-top:1px solid var(--rule)}
+  .srv-row{grid-template-columns:1fr}
+  .srv-n{border-right:none;border-bottom:1px solid var(--rule);padding:28px 40px 0}
+  .srv-c{padding:24px 40px 40px}
+  .footer-top{grid-template-columns:1fr;gap:36px}
+  section.hero{padding:96px 0 80px}
+  section.problems,section.services,section.diferencial,section.proceso,section.resultados,section.industrias,section.cta-final,section.contact{padding-top:96px;padding-bottom:96px}
 }
 @media(max-width:600px){
-  .prob-grid,.kpi-grid{grid-template-columns:1fr}
-  .ind-grid{grid-template-columns:1fr}
-  section.hero{padding:64px 0 56px}
+  .prob-grid,.ind-grid{grid-template-columns:1fr}
+  .prob-card:nth-child(n){border-right:none}
+  .kpi-grid{grid-template-columns:1fr 1fr}
+  .hero-stats{gap:28px}
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav class="top" id="nav">
   <div class="wrap bar">
     <a class="logo" href="#">
-      <img src="assets/branding/logo-horizontal.png.jpeg" alt="IDEIA" class="logo-img" />
+      <img src="assets/branding/logo-horizontal.png" alt="IDEIA" class="logo-img" />
     </a>
     <div class="nav-links">
       <a href="#que-hacemos">Qué hacemos</a>
@@ -285,103 +235,149 @@ footer{background:var(--graphite);padding:52px 0 32px}
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero" id="inicio">
-  <div class="hero-glow"></div>
   <div class="wrap">
     <div class="hero-grid">
       <div class="fu">
-        <div class="hero-badge"><span class="dot"></span>Tomando proyectos · 2026</div>
-        <h1>Influimos <span class="accent">positivamente</span> para que las cosas pasen.</h1>
-        <p class="hero-lead">Ayudamos a organizaciones a optimizar procesos internos mediante <strong>automatización</strong>, <strong>inteligencia aplicada</strong> y experiencia operativa real.</p>
+        <span class="hero-label">Transformación operativa</span>
+        <h1>Influimos <em>positivamente</em> para que las cosas pasen.</h1>
+        <p class="hero-lead">Ayudamos a organizaciones a optimizar procesos internos mediante automatización, inteligencia aplicada y experiencia operativa real.</p>
         <div class="hero-ctas">
-          <a class="btn btn-primary" href="#contacto">Agendar reunión <span class="arr">→</span></a>
-          <a class="btn btn-ghost" href="#como-trabajamos">Conocer cómo trabajamos</a>
+          <a class="btn btn-primary" href="#contacto">Agendar reunión</a>
+          <a class="btn btn-ghost" href="#como-trabajamos">Cómo trabajamos</a>
         </div>
-        <p class="hero-note"><span class="hero-check">—</span> Diagnóstico inicial sin cargo &nbsp;·&nbsp; <span class="hero-check">—</span> Sin contratos de adhesión</p>
+        <p class="hero-note">Diagnóstico inicial sin cargo &nbsp;·&nbsp; Sin contratos de adhesión</p>
         <div class="hero-stats">
           <div class="s"><div class="v">25+</div><div class="l">Años de experiencia</div></div>
           <div class="s"><div class="v">100%</div><div class="l">Soluciones a medida</div></div>
           <div class="s"><div class="v">24 h</div><div class="l">Tiempo de respuesta</div></div>
         </div>
       </div>
-      <div class="fu" style="transition-delay:.14s">
-        <div class="hero-card">
-          <div class="hc-top"></div>
-          <div class="hc-body">
-            <div class="hc-title">
-              Diagnóstico operativo
-              <span class="hc-badge">● En proceso</span>
-            </div>
-            <div class="hc-steps">
-              <div class="hc-step done">
-                <span class="dot"></span>
-                <span class="lbl">Relevamiento de procesos</span>
-                <span class="val">✓ Completo</span>
-              </div>
-              <div class="hc-step done">
-                <span class="dot"></span>
-                <span class="lbl">Detección de cuellos de botella</span>
-                <span class="val">4 hallazgos</span>
-              </div>
-              <div class="hc-step active">
-                <span class="dot"></span>
-                <span class="lbl">Diseño de automatizaciones</span>
-                <span class="val">En curso</span>
-              </div>
-              <div class="hc-step">
-                <span class="dot"></span>
-                <span class="lbl">Implementación</span>
-                <span class="val">Próximo</span>
-              </div>
-            </div>
-            <div class="hc-foot">
-              <span class="tag">Ahorro estimado</span>
-              <span class="res">↓ 40% tiempo operativo</span>
-            </div>
-          </div>
-        </div>
+
+      <div class="hero-diagram fu">
+        <svg viewBox="0 0 460 388" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Column dividers -->
+          <line x1="153" y1="0" x2="153" y2="388" stroke="#ddd9d3" stroke-width="1"/>
+          <line x1="307" y1="0" x2="307" y2="388" stroke="#ddd9d3" stroke-width="1"/>
+
+          <!-- Column headers -->
+          <text x="16" y="20" font-family="Inter,system-ui,sans-serif" font-size="9" font-weight="600" fill="#8a92a0" letter-spacing="1.8">ESTADO ACTUAL</text>
+          <text x="169" y="20" font-family="Inter,system-ui,sans-serif" font-size="9" font-weight="600" fill="#103B73" letter-spacing="1.8">TRANSFORMACIÓN</text>
+          <text x="323" y="20" font-family="Inter,system-ui,sans-serif" font-size="9" font-weight="600" fill="#8a92a0" letter-spacing="1.8">RESULTADO</text>
+
+          <!-- Col 1 — current state -->
+          <rect x="16" y="36" width="120" height="40" fill="#F5F4F1" stroke="#ddd9d3" stroke-width="1"/>
+          <text x="28" y="53" font-family="Inter,system-ui,sans-serif" font-size="11" fill="#4a5568">Procesos manuales</text>
+          <text x="28" y="67" font-family="Inter,system-ui,sans-serif" font-size="10" fill="#8a92a0">sin estructura</text>
+
+          <rect x="16" y="92" width="120" height="40" fill="#F5F4F1" stroke="#ddd9d3" stroke-width="1"/>
+          <text x="28" y="109" font-family="Inter,system-ui,sans-serif" font-size="11" fill="#4a5568">Información dispersa</text>
+          <text x="28" y="123" font-family="Inter,system-ui,sans-serif" font-size="10" fill="#8a92a0">sin integración</text>
+
+          <rect x="16" y="148" width="120" height="40" fill="#F5F4F1" stroke="#ddd9d3" stroke-width="1"/>
+          <text x="28" y="165" font-family="Inter,system-ui,sans-serif" font-size="11" fill="#4a5568">Equipos desalineados</text>
+          <text x="28" y="179" font-family="Inter,system-ui,sans-serif" font-size="10" fill="#8a92a0">sin trazabilidad</text>
+
+          <rect x="16" y="204" width="120" height="40" fill="#F5F4F1" stroke="#ddd9d3" stroke-width="1"/>
+          <text x="28" y="221" font-family="Inter,system-ui,sans-serif" font-size="11" fill="#4a5568">Decisiones sin datos</text>
+          <text x="28" y="235" font-family="Inter,system-ui,sans-serif" font-size="10" fill="#8a92a0">operativos confiables</text>
+
+          <!-- Connector lines col 1 → col 2 -->
+          <line x1="136" y1="56" x2="166" y2="130" stroke="#ddd9d3" stroke-width="1"/>
+          <line x1="136" y1="112" x2="166" y2="146" stroke="#ddd9d3" stroke-width="1"/>
+          <line x1="136" y1="168" x2="166" y2="166" stroke="#ddd9d3" stroke-width="1"/>
+          <line x1="136" y1="224" x2="166" y2="190" stroke="#ddd9d3" stroke-width="1"/>
+
+          <!-- Col 2 — transformation block (blue) -->
+          <rect x="169" y="76" width="122" height="132" fill="#103B73" stroke="none"/>
+          <text x="183" y="100" font-family="Sora,system-ui,sans-serif" font-size="11.5" font-weight="600" fill="white">Diagnóstico</text>
+          <line x1="183" y1="107" x2="277" y2="107" stroke="rgba(255,255,255,.15)" stroke-width="1"/>
+          <text x="183" y="124" font-family="Inter,system-ui,sans-serif" font-size="10.5" fill="rgba(255,255,255,.6)">Análisis operativo</text>
+          <line x1="183" y1="131" x2="277" y2="131" stroke="rgba(255,255,255,.15)" stroke-width="1"/>
+          <text x="183" y="148" font-family="Inter,system-ui,sans-serif" font-size="10.5" fill="rgba(255,255,255,.6)">Diseño de mejoras</text>
+          <line x1="183" y1="155" x2="277" y2="155" stroke="rgba(255,255,255,.15)" stroke-width="1"/>
+          <text x="183" y="172" font-family="Inter,system-ui,sans-serif" font-size="10.5" fill="rgba(255,255,255,.6)">Implementación</text>
+          <line x1="183" y1="179" x2="277" y2="179" stroke="rgba(255,255,255,.15)" stroke-width="1"/>
+          <text x="183" y="196" font-family="Inter,system-ui,sans-serif" font-size="10.5" fill="rgba(255,255,255,.6)">Optimización</text>
+
+          <!-- Arrow col 2 → col 3 -->
+          <line x1="291" y1="142" x2="315" y2="142" stroke="#103B73" stroke-width="1.5"/>
+          <polyline points="311,138 317,142 311,146" stroke="#103B73" stroke-width="1.5" stroke-linejoin="round" fill="none"/>
+
+          <!-- Col 3 — result state -->
+          <rect x="323" y="36" width="120" height="40" fill="#F5F4F1" stroke="#ddd9d3" stroke-width="1"/>
+          <text x="335" y="53" font-family="Inter,system-ui,sans-serif" font-size="11" fill="#0d1b2e" font-weight="500">Operaciones fluidas</text>
+          <text x="335" y="67" font-family="Inter,system-ui,sans-serif" font-size="10" fill="#8a92a0">estructuradas y medibles</text>
+
+          <rect x="323" y="92" width="120" height="40" fill="#F5F4F1" stroke="#ddd9d3" stroke-width="1"/>
+          <text x="335" y="109" font-family="Inter,system-ui,sans-serif" font-size="11" fill="#0d1b2e" font-weight="500">Información centralizada</text>
+          <text x="335" y="123" font-family="Inter,system-ui,sans-serif" font-size="10" fill="#8a92a0">con trazabilidad total</text>
+
+          <rect x="323" y="148" width="120" height="40" fill="#F5F4F1" stroke="#ddd9d3" stroke-width="1"/>
+          <text x="335" y="165" font-family="Inter,system-ui,sans-serif" font-size="11" fill="#0d1b2e" font-weight="500">Equipos alineados</text>
+          <text x="335" y="179" font-family="Inter,system-ui,sans-serif" font-size="10" fill="#8a92a0">con claridad de roles</text>
+
+          <rect x="323" y="204" width="120" height="40" fill="#F5F4F1" stroke="#ddd9d3" stroke-width="1"/>
+          <text x="335" y="221" font-family="Inter,system-ui,sans-serif" font-size="11" fill="#0d1b2e" font-weight="500">Decisiones estratégicas</text>
+          <text x="335" y="235" font-family="Inter,system-ui,sans-serif" font-size="10" fill="#8a92a0">basadas en datos</text>
+
+          <!-- Bottom KPI strip -->
+          <rect x="0" y="276" width="460" height="112" fill="#F5F4F1" stroke="#ddd9d3" stroke-width="1"/>
+          <line x1="153" y1="276" x2="153" y2="388" stroke="#ddd9d3" stroke-width="1"/>
+          <line x1="307" y1="276" x2="307" y2="388" stroke="#ddd9d3" stroke-width="1"/>
+
+          <text x="24" y="314" font-family="Sora,system-ui,sans-serif" font-size="26" font-weight="600" fill="#103B73" letter-spacing="-1">25+</text>
+          <text x="24" y="336" font-family="Inter,system-ui,sans-serif" font-size="10" fill="#8a92a0">años de experiencia</text>
+          <text x="24" y="350" font-family="Inter,system-ui,sans-serif" font-size="10" fill="#8a92a0">operativa real</text>
+
+          <text x="177" y="314" font-family="Sora,system-ui,sans-serif" font-size="26" font-weight="600" fill="#103B73" letter-spacing="-1">−40%</text>
+          <text x="177" y="336" font-family="Inter,system-ui,sans-serif" font-size="10" fill="#8a92a0">tiempo operativo</text>
+          <text x="177" y="350" font-family="Inter,system-ui,sans-serif" font-size="10" fill="#8a92a0">por proyecto</text>
+
+          <text x="323" y="314" font-family="Sora,system-ui,sans-serif" font-size="26" font-weight="600" fill="#103B73" letter-spacing="-1">100%</text>
+          <text x="323" y="336" font-family="Inter,system-ui,sans-serif" font-size="10" fill="#8a92a0">soluciones diseñadas</text>
+          <text x="323" y="350" font-family="Inter,system-ui,sans-serif" font-size="10" fill="#8a92a0">a medida</text>
+        </svg>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PROBLEMAS -->
 <section class="problems" id="problemas">
   <div class="wrap">
-    <div class="sec-center fu">
-      <div class="eyebrow">El problema</div>
+    <div class="sec-head center fu">
+      <span class="eyebrow">El problema</span>
       <h2>Muchas organizaciones funcionan con procesos que <span>frenan su crecimiento.</span></h2>
       <p>Las tareas manuales, la falta de seguimiento y la información desordenada generan pérdida de tiempo, errores y equipos poco eficientes.</p>
     </div>
-    <div class="prob-grid">
-      <div class="prob-card fu">
-        <div class="prob-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-3.5 3.6-6 8-6s8 2.5 8 6"/></svg></div>
+    <div class="prob-grid fu">
+      <div class="prob-card">
+        <span class="prob-n">01</span>
         <h3>Dependencia de personas</h3>
         <p>Procesos que solo funcionan si alguien específico está presente.</p>
       </div>
-      <div class="prob-card fu" style="transition-delay:.05s">
-        <div class="prob-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v6c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 11v6c0 1.66 4 3 9 3s9-1.34 9-3v-6"/></svg></div>
+      <div class="prob-card">
+        <span class="prob-n">02</span>
         <h3>Información dispersa</h3>
         <p>Datos repartidos en múltiples sistemas y planillas sin integración.</p>
       </div>
-      <div class="prob-card fu" style="transition-delay:.1s">
-        <div class="prob-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><polyline points="23 20 23 14 17 14"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/></svg></div>
+      <div class="prob-card">
+        <span class="prob-n">03</span>
         <h3>Tareas repetitivas</h3>
         <p>Tiempo operativo perdido en acciones manuales que podrían automatizarse.</p>
       </div>
-      <div class="prob-card fu" style="transition-delay:.15s">
-        <div class="prob-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg></div>
+      <div class="prob-card">
+        <span class="prob-n">04</span>
         <h3>Falta de trazabilidad</h3>
         <p>Dificultad para medir y controlar el avance de los procesos internos.</p>
       </div>
-      <div class="prob-card fu" style="transition-delay:.2s">
-        <div class="prob-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <div class="prob-card">
+        <span class="prob-n">05</span>
         <h3>Equipos desalineados</h3>
         <p>Falta de claridad sobre responsabilidades y seguimiento entre áreas.</p>
       </div>
-      <div class="prob-card fu" style="transition-delay:.25s">
-        <div class="prob-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg></div>
+      <div class="prob-card">
+        <span class="prob-n">06</span>
         <h3>Decisiones sin datos</h3>
         <p>Operaciones sin métricas confiables para tomar decisiones estratégicas.</p>
       </div>
@@ -389,222 +385,173 @@ footer{background:var(--graphite);padding:52px 0 32px}
   </div>
 </section>
 
-<!-- QUÉ HACEMOS -->
 <section class="services" id="que-hacemos">
   <div class="wrap">
-    <div class="sec-center fu">
-      <div class="eyebrow">Qué hacemos</div>
+    <div class="sec-head fu">
+      <span class="eyebrow">Qué hacemos</span>
       <h2>Transformamos procesos internos en <span>operaciones más eficientes.</span></h2>
-      <p>Analizamos cómo funciona tu organización y aplicamos mejoras concretas usando automatización, inteligencia artificial y optimización operativa.</p>
+      <p>Analizamos cómo funciona tu organización y aplicamos mejoras concretas usando automatización, inteligencia aplicada y optimización operativa.</p>
     </div>
-    <div class="srv-grid">
-      <div class="srv-card fu">
-        <div class="srv-num">01</div>
-        <h3>Diagnóstico operativo</h3>
-        <p>Analizamos procesos internos en profundidad, detectamos oportunidades de mejora concretas y estimamos el impacto real de cada intervención antes de arrancar.</p>
+    <div class="srv-list fu">
+      <div class="srv-row">
+        <div class="srv-n"><span>01</span></div>
+        <div class="srv-c">
+          <h3>Diagnóstico operativo</h3>
+          <p>Analizamos procesos internos en profundidad, detectamos oportunidades de mejora concretas y estimamos el impacto real de cada intervención antes de arrancar.</p>
+        </div>
       </div>
-      <div class="srv-card fu" style="transition-delay:.07s">
-        <div class="srv-num">02</div>
-        <h3>Automatización inteligente</h3>
-        <p>Reducimos tareas repetitivas y mejoramos tiempos operativos conectando tus sistemas actuales. Sin reemplazar lo que funciona — potenciándolo.</p>
+      <div class="srv-row">
+        <div class="srv-n"><span>02</span></div>
+        <div class="srv-c">
+          <h3>Automatización inteligente</h3>
+          <p>Reducimos tareas repetitivas y mejoramos tiempos operativos conectando tus sistemas actuales. Sin reemplazar lo que funciona — potenciándolo.</p>
+        </div>
       </div>
-      <div class="srv-card fu" style="transition-delay:.13s">
-        <div class="srv-num">03</div>
-        <h3>Organización de información</h3>
-        <p>Centralizamos datos, generamos trazabilidad y construimos dashboards que permiten tomar decisiones con información confiable y en tiempo real.</p>
+      <div class="srv-row">
+        <div class="srv-n"><span>03</span></div>
+        <div class="srv-c">
+          <h3>Organización de información</h3>
+          <p>Centralizamos datos, generamos trazabilidad y construimos estructuras que permiten tomar decisiones con información confiable y en tiempo real.</p>
+        </div>
       </div>
-      <div class="srv-card fu" style="transition-delay:.19s">
-        <div class="srv-num">04</div>
-        <h3>Implementación personalizada</h3>
-        <p>Cada solución se adapta a la realidad de tu empresa. No vendemos productos enlatados — diseñamos junto a vos y acompañamos hasta que funcione.</p>
+      <div class="srv-row">
+        <div class="srv-n"><span>04</span></div>
+        <div class="srv-c">
+          <h3>Implementación personalizada</h3>
+          <p>Cada solución se adapta a la realidad de tu empresa. No vendemos productos enlatados — diseñamos junto a vos y acompañamos hasta que funcione.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- DIFERENCIAL -->
 <section class="diferencial" id="nosotros">
   <div class="wrap">
     <div class="dif-grid">
       <div class="fu">
-        <div class="eyebrow">Nuestro diferencial</div>
+        <span class="eyebrow">Nuestro diferencial</span>
         <h2>No venimos del <span>software.</span> Venimos de la <span>operación.</span></h2>
-        <p class="text">Durante más de 25 años trabajamos dentro de operaciones complejas enfrentando problemas reales todos los días — en transporte de pasajeros, logística y gestión organizacional.</p>
-        <p class="text">Esa experiencia nos permite comprender cómo funcionan las organizaciones desde adentro y aplicar soluciones que realmente generan impacto.</p>
-        <a class="btn btn-primary" href="#contacto" style="margin-top:30px">Hablar con el equipo <span class="arr">→</span></a>
+        <p>Durante más de 25 años trabajamos dentro de operaciones complejas enfrentando problemas reales todos los días — en transporte de pasajeros, logística y gestión organizacional.</p>
+        <p>Esa experiencia nos permite comprender cómo funcionan las organizaciones desde adentro y aplicar soluciones que realmente generan impacto.</p>
+        <a class="btn btn-primary" href="#contacto">Hablar con el equipo</a>
       </div>
-      <div class="dif-tiles fu" style="transition-delay:.14s">
-        <div class="dif-tile">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
-          <h4>Claridad</h4>
-          <p>Simplificamos procesos complejos sin tecnicismos innecesarios.</p>
+      <div class="dif-values fu">
+        <div class="val-row">
+          <div class="val-title">Claridad</div>
+          <div class="val-desc">Simplificamos procesos complejos sin tecnicismos innecesarios.</div>
         </div>
-        <div class="dif-tile">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
-          <h4>Experiencia real</h4>
-          <p>Trabajamos desde la práctica, no desde la teoría.</p>
+        <div class="val-row">
+          <div class="val-title">Experiencia real</div>
+          <div class="val-desc">Trabajamos desde la práctica operativa, no desde la teoría.</div>
         </div>
-        <div class="dif-tile">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-          <h4>Cercanía</h4>
-          <p>Construimos soluciones junto a cada organización.</p>
+        <div class="val-row">
+          <div class="val-title">Cercanía</div>
+          <div class="val-desc">Construimos soluciones junto a cada organización, sin fórmulas genéricas.</div>
         </div>
-        <div class="dif-tile">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
-          <h4>Impacto medible</h4>
-          <p>Resultados concretos desde el primer diagnóstico.</p>
+        <div class="val-row">
+          <div class="val-title">Impacto medible</div>
+          <div class="val-desc">Resultados concretos y cuantificables desde el primer diagnóstico.</div>
+        </div>
+        <div class="val-row">
+          <div class="val-title">Confianza</div>
+          <div class="val-desc">Más de 25 años de trayectoria en operaciones reales y complejas.</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CÓMO TRABAJAMOS -->
 <section class="proceso" id="como-trabajamos">
   <div class="wrap">
-    <div class="sec-center fu">
-      <div class="eyebrow">Cómo trabajamos</div>
+    <div class="sec-head fu">
+      <span class="eyebrow">Cómo trabajamos</span>
       <h2>Del problema detectado a la solución funcionando.</h2>
       <p>Un proceso claro y transparente: siempre sabés en qué etapa está tu proyecto.</p>
     </div>
-    <div class="timeline">
-      <div class="tl-step fu">
-        <div class="tl-num">01</div>
-        <div>
-          <h4>Diagnóstico</h4>
-          <p>Entendemos cómo funciona la organización desde adentro.</p>
-        </div>
+    <div class="tl-list fu">
+      <div class="tl-row">
+        <div class="tl-n">01</div>
+        <div class="tl-c"><h4>Diagnóstico</h4><p>Entendemos cómo funciona la organización desde adentro.</p></div>
       </div>
-      <div class="tl-step fu" style="transition-delay:.08s">
-        <div class="tl-num">02</div>
-        <div>
-          <h4>Análisis operativo</h4>
-          <p>Detectamos cuellos de botella y oportunidades reales.</p>
-        </div>
+      <div class="tl-row">
+        <div class="tl-n">02</div>
+        <div class="tl-c"><h4>Análisis operativo</h4><p>Detectamos cuellos de botella y oportunidades reales de mejora.</p></div>
       </div>
-      <div class="tl-step fu" style="transition-delay:.16s">
-        <div class="tl-num">03</div>
-        <div>
-          <h4>Diseño de mejoras</h4>
-          <p>Definimos procesos, automatizaciones y estructura.</p>
-        </div>
+      <div class="tl-row">
+        <div class="tl-n">03</div>
+        <div class="tl-c"><h4>Diseño de mejoras</h4><p>Definimos procesos, automatizaciones y estructura organizacional.</p></div>
       </div>
-      <div class="tl-step fu" style="transition-delay:.24s">
-        <div class="tl-num">04</div>
-        <div>
-          <h4>Implementación</h4>
-          <p>Aplicamos herramientas y mejoras concretas.</p>
-        </div>
+      <div class="tl-row">
+        <div class="tl-n">04</div>
+        <div class="tl-c"><h4>Implementación</h4><p>Aplicamos herramientas y mejoras concretas junto al equipo.</p></div>
       </div>
-      <div class="tl-step fu" style="transition-delay:.32s">
-        <div class="tl-num">05</div>
-        <div>
-          <h4>Optimización continua</h4>
-          <p>Medimos, ajustamos y evolucionamos los procesos.</p>
-        </div>
+      <div class="tl-row">
+        <div class="tl-n">05</div>
+        <div class="tl-c"><h4>Optimización continua</h4><p>Medimos, ajustamos y evolucionamos los procesos en el tiempo.</p></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- RESULTADOS -->
 <section class="resultados" id="resultados">
   <div class="wrap">
-    <div class="sec-center fu">
-      <div class="eyebrow">Resultados</div>
+    <div class="sec-head center fu">
+      <span class="eyebrow">Resultados</span>
       <h2>Cuando los procesos mejoran, <span>el negocio avanza.</span></h2>
     </div>
-    <div class="kpi-grid">
-      <div class="kpi-card fu">
-        <div class="v">40%</div>
-        <div class="l">Menos tareas manuales</div>
-      </div>
-      <div class="kpi-card fu" style="transition-delay:.07s">
-        <div class="v">60%</div>
-        <div class="l">Más trazabilidad operativa</div>
-      </div>
-      <div class="kpi-card fu" style="transition-delay:.14s">
-        <div class="v">3×</div>
-        <div class="l">Mayor velocidad de ejecución</div>
-      </div>
-      <div class="kpi-card fu" style="transition-delay:.21s">
-        <div class="v">100%</div>
-        <div class="l">Soluciones adaptadas a cada organización</div>
-      </div>
+    <div class="kpi-grid fu">
+      <div class="kpi-card"><div class="v">40%</div><div class="l">Menos tareas manuales</div></div>
+      <div class="kpi-card"><div class="v">60%</div><div class="l">Más trazabilidad operativa</div></div>
+      <div class="kpi-card"><div class="v">3×</div><div class="l">Mayor velocidad de ejecución</div></div>
+      <div class="kpi-card"><div class="v">100%</div><div class="l">Soluciones adaptadas a cada organización</div></div>
     </div>
   </div>
 </section>
 
-<!-- INDUSTRIAS -->
 <section class="industrias" id="industrias">
   <div class="wrap">
-    <div class="sec-center fu">
-      <div class="eyebrow">Industrias</div>
+    <div class="sec-head center fu">
+      <span class="eyebrow">Industrias</span>
       <h2>Experiencia en <span>operaciones reales.</span></h2>
-      <p>Conocemos en profundidad las operaciones del NEA argentino — no solo la tecnología detrás de ellas.</p>
+      <p>Conocemos en profundidad las operaciones complejas — no solo la tecnología detrás de ellas.</p>
     </div>
-    <div class="ind-grid">
-      <div class="ind-card fu">
-        <div class="ind-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="1" y="8" width="18" height="10" rx="2"/><path d="M19 10h2l2 4v4h-4"/><circle cx="6" cy="19" r="1.5" fill="currentColor" stroke="none"/><circle cx="14" cy="19" r="1.5" fill="currentColor" stroke="none"/><path d="M5 8V5a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v3"/>
-          </svg>
-        </div>
-        <div><h3>Transporte</h3><p>Operaciones de pasajeros y flota</p></div>
+    <div class="ind-grid fu">
+      <div class="ind-card">
+        <h3>Transporte</h3>
+        <p>Operaciones de pasajeros y gestión de flota</p>
       </div>
-      <div class="ind-card fu" style="transition-delay:.05s">
-        <div class="ind-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>
-          </svg>
-        </div>
-        <div><h3>Logística</h3><p>Gestión de cargas y trazabilidad</p></div>
+      <div class="ind-card">
+        <h3>Logística</h3>
+        <p>Gestión de cargas y trazabilidad de envíos</p>
       </div>
-      <div class="ind-card fu" style="transition-delay:.1s">
-        <div class="ind-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/><rect x="12" y="13" width="5" height="4" rx="1"/>
-          </svg>
-        </div>
-        <div><h3>Administración</h3><p>Procesos internos y documentación</p></div>
+      <div class="ind-card">
+        <h3>Administración</h3>
+        <p>Procesos internos y gestión documental</p>
       </div>
-      <div class="ind-card fu" style="transition-delay:.15s">
-        <div class="ind-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/>
-          </svg>
-        </div>
-        <div><h3>Operaciones</h3><p>Automatización y coordinación de equipos</p></div>
+      <div class="ind-card">
+        <h3>Operaciones</h3>
+        <p>Automatización y coordinación de equipos</p>
       </div>
-      <div class="ind-card fu" style="transition-delay:.2s">
-        <div class="ind-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><line x1="9" y1="10" x2="15" y2="10"/>
-          </svg>
-        </div>
-        <div><h3>Atención al cliente</h3><p>Seguimiento, cobranzas y CRM</p></div>
+      <div class="ind-card">
+        <h3>Atención al cliente</h3>
+        <p>Seguimiento, cobranzas y gestión de CRM</p>
       </div>
-      <div class="ind-card fu" style="transition-delay:.25s">
-        <div class="ind-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
-          </svg>
-        </div>
-        <div><h3>Empresas complejas</h3><p>Organizaciones con alta complejidad operativa</p></div>
+      <div class="ind-card">
+        <h3>Organizaciones complejas</h3>
+        <p>Alta complejidad operativa y multi-área</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA FINAL -->
 <section class="cta-final">
   <div class="wrap">
     <div class="cta-inner fu">
-      <h2>Empecemos a mejorar cómo funciona <span>tu organización.</span></h2>
+      <h2>Empecemos a mejorar cómo funciona tu organización.</h2>
       <p>Cada empresa tiene procesos únicos. Por eso construimos soluciones adaptadas a la realidad de cada operación. El diagnóstico inicial es sin cargo.</p>
       <div class="cta-btns">
         <a class="btn btn-white" id="cta-wa" href="#" target="_blank" rel="noopener noreferrer">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           WhatsApp
         </a>
         <a class="btn btn-outline-white" href="#contacto">Enviar mensaje</a>
@@ -613,14 +560,13 @@ footer{background:var(--graphite);padding:52px 0 32px}
   </div>
 </section>
 
-<!-- CONTACTO -->
 <section class="contact" id="contacto">
   <div class="wrap">
     <div class="contact-grid">
       <div class="fu">
         <span class="eyebrow">Contacto</span>
-        <h2>Contanos qué te frena. <span>Respondemos en 24h.</span></h2>
-        <div class="contact-info">
+        <h2>Contanos qué te frena. Respondemos en 24 h.</h2>
+        <div class="c-info">
           <div class="row"><span class="k">Email</span><span class="v"><a href="mailto:hola@ideia.com.ar">hola@ideia.com.ar</a></span></div>
           <div class="row"><span class="k">WhatsApp</span><span class="v">+54 9 376 — — —</span></div>
           <div class="row"><span class="k">LinkedIn</span><span class="v">/company/ideia</span></div>
@@ -628,7 +574,7 @@ footer{background:var(--graphite);padding:52px 0 32px}
           <div class="row"><span class="k">Horario</span><span class="v">Lun–Vie · 9–18 · UTC−3</span></div>
         </div>
       </div>
-      <form class="contact-form fu" style="transition-delay:.14s" onsubmit="return false">
+      <form class="c-form fu" onsubmit="return false">
         <div class="row2">
           <div class="field"><label>Nombre</label><input type="text" placeholder="Tu nombre" /></div>
           <div class="field"><label>Empresa</label><input type="text" placeholder="Nombre de la empresa" /></div>
@@ -640,25 +586,24 @@ footer{background:var(--graphite);padding:52px 0 32px}
             <option>Automatizar un proceso</option>
             <option>Diagnóstico operativo</option>
             <option>Organizar información</option>
-            <option>Integrar IA en mi operación</option>
+            <option>Integrar automatización en mi operación</option>
             <option>No estoy seguro — quiero asesoría</option>
           </select>
         </div>
         <div class="field"><label>Mensaje</label><textarea placeholder="Contanos qué te está frenando hoy..."></textarea></div>
-        <button type="submit">Enviar mensaje →</button>
+        <button type="submit">Enviar mensaje</button>
         <span class="hint">Sin spam · respondemos en menos de 24 h hábiles</span>
       </form>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="wrap">
     <div class="footer-top">
       <div class="footer-brand">
         <a class="logo" href="#">
-          <img src="assets/branding/logo-horizontal.png.jpeg" alt="IDEIA" class="logo-img" />
+          <img src="assets/branding/logo-horizontal.png" alt="IDEIA" class="logo-img" />
         </a>
         <p>Influir positivamente para que las cosas pasen.</p>
       </div>
@@ -692,7 +637,6 @@ footer{background:var(--graphite);padding:52px 0 32px}
   </div>
 </footer>
 
-<!-- WA flotante -->
 <a class="wa-float" id="wa-float" href="#" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
@@ -700,23 +644,18 @@ footer{background:var(--graphite);padding:52px 0 32px}
 <script>
 const WA_NUM = '549XXXXXXXXXX';
 const WA_MSG = 'Hola IDEIA, vengo del sitio y quiero saber más.';
-const waHref = (msg) => `https://wa.me/${WA_NUM}?text=${encodeURIComponent(msg||WA_MSG)}`;
-
+const waHref = () => `https://wa.me/${WA_NUM}?text=${encodeURIComponent(WA_MSG)}`;
 ['wa-float','cta-wa','footer-wa','footer-wa2'].forEach(id => {
   const el = document.getElementById(id);
   if (el) el.href = waHref();
 });
-
-// Sticky nav
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 24);
 }, {passive:true});
-
-// Fade-in on scroll
 const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
-}, {threshold: 0.1});
+}, {threshold: 0.06});
 document.querySelectorAll('.fu').forEach(el => obs.observe(el));
 </script>
 </body>
