@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nosotros — IDEIA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/main.css">
+<style>
+
+/* ── CAPACIDADES ── */
+.capacidades {
+  padding: 80px 0;
+}
+
+.cap-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.cap-card {
+  padding: 36px 28px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.cap-iso-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--humo);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.cap-iso {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.cap-title {
+  font-family: 'Sora', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--azul);
+  margin-bottom: 12px;
+}
+
+.cap-desc {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+/* ── TEXTO NOSOTROS ── */
+.nosotros-texto {
+  background: var(--humo);
+  padding: 80px 0;
+}
+
+.nosotros-texto-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.nosotros-quote {
+  font-family: 'Sora', sans-serif;
+  font-size: clamp(20px, 2.2vw, 28px);
+  font-weight: 700;
+  color: var(--azul);
+  line-height: 1.45;
+  letter-spacing: -0.02em;
+}
+
+.nosotros-iso-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.nosotros-iso-wrap::before {
+  content: '';
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(66,165,245,0.1) 0%, transparent 65%);
+  border-radius: 50%;
+}
+
+.nosotros-iso {
+  width: 240px;
+  height: 240px;
+  object-fit: contain;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── CIERRE NOSOTROS ── */
+.nosotros-cierre {
+  padding: 72px 0;
+  border-top: 1px solid var(--border);
+}
+
+.nosotros-cierre-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nosotros-cierre-iso {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+.nosotros-cierre-text {
+  font-family: 'Sora', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--azul);
+  letter-spacing: 0.01em;
+}
+
+@media (max-width: 960px) {
+  .cap-grid { grid-template-columns: repeat(2, 1fr); }
+  .nosotros-texto-inner { grid-template-columns: 1fr; }
+  .nosotros-iso-wrap { display: none; }
+  .nosotros-cierre-inner { flex-direction: column; text-align: center; }
+}
+@media (max-width: 640px) {
+  .cap-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/branding/ideia_logo.png" alt="IDEIA">
+    </a>
+    <ul class="nav-menu">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="nosotros.html" class="active">Nosotros</a></li>
+      <li><a href="servicios.html">Servicios</a></li>
+      <li><a href="metodologia.html">Metodología</a></li>
+      <li><a href="casos.html">Casos</a></li>
+      <li><a href="recursos.html">Recursos</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HEADER -->
+<header class="page-header">
+  <div class="page-header-inner">
+    <div>
+      <p class="eyebrow">Quiénes somos</p>
+      <h1 class="page-title">Sobre IDEIA</h1>
+      <p class="page-subtitle">Somos un equipo de profesionales con experiencia en gestión, análisis y tecnología.</p>
+    </div>
+    <img src="assets/branding/isotipo.png" alt="" class="page-iso">
+  </div>
+</header>
+
+<!-- CAPACIDADES -->
+<section class="capacidades">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="section-h">Nuestras capacidades</h2>
+    </div>
+    <div class="cap-grid">
+      <div class="cap-card">
+        <div class="cap-iso-wrap">
+          <img src="assets/branding/isotipo.png" alt="" class="cap-iso">
+        </div>
+        <p class="cap-title">Experiencia</p>
+        <p class="cap-desc">Trayectoria en organizaciones de distintos sectores y tamaños.</p>
+      </div>
+      <div class="cap-card">
+        <div class="cap-iso-wrap">
+          <img src="assets/branding/isotipo.png" alt="" class="cap-iso">
+        </div>
+        <p class="cap-title">Visión integral</p>
+        <p class="cap-desc">Combinamos estrategia, procesos, personas y tecnología.</p>
+      </div>
+      <div class="cap-card">
+        <div class="cap-iso-wrap">
+          <img src="assets/branding/isotipo.png" alt="" class="cap-iso">
+        </div>
+        <p class="cap-title">Compromiso real</p>
+        <p class="cap-desc">Nos involucramos en tus desafíos como si fueran nuestros.</p>
+      </div>
+      <div class="cap-card">
+        <div class="cap-iso-wrap">
+          <img src="assets/branding/isotipo.png" alt="" class="cap-iso">
+        </div>
+        <p class="cap-title">Enfoque humano</p>
+        <p class="cap-desc">Trabajamos junto a tu equipo, no por encima de él.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEXTO -->
+<section class="nosotros-texto">
+  <div class="nosotros-texto-inner">
+    <p class="nosotros-quote">Trabajamos junto a las organizaciones para generar mejoras que continúen creando valor mucho después de finalizada nuestra intervención.</p>
+    <div class="nosotros-iso-wrap">
+      <img src="assets/branding/isotipo.png" alt="" class="nosotros-iso">
+    </div>
+  </div>
+</section>
+
+<!-- CIERRE -->
+<section class="nosotros-cierre">
+  <div class="nosotros-cierre-inner">
+    <img src="assets/branding/isotipo.png" alt="" class="nosotros-cierre-iso">
+    <p class="nosotros-cierre-text">Influir positivamente para que las tareas se hagan.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <a href="index.html" class="footer-logo">
+      <img src="assets/branding/ideia_logo.png" alt="IDEIA">
+    </a>
+    <ul class="footer-nav">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="nosotros.html">Nosotros</a></li>
+      <li><a href="servicios.html">Servicios</a></li>
+      <li><a href="metodologia.html">Metodología</a></li>
+      <li><a href="casos.html">Casos</a></li>
+      <li><a href="recursos.html">Recursos</a></li>
+    </ul>
+    <p class="footer-copy">© 2025 IDEIA. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+</body>
+</html>

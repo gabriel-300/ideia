@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Servicios — IDEIA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/main.css">
+<style>
+
+/* ── SERVICIOS LIST ── */
+.servicios-list {
+  padding: 80px 0;
+}
+
+.servicio-row {
+  display: grid;
+  grid-template-columns: 56px 1fr 40px;
+  gap: 32px;
+  align-items: center;
+  padding: 32px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.servicio-row:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.serv-iso-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--humo);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.serv-iso {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+.serv-title {
+  font-family: 'Sora', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--azul);
+  margin-bottom: 6px;
+}
+
+.serv-desc {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.6;
+  max-width: 560px;
+}
+
+.serv-arrow {
+  font-size: 18px;
+  color: var(--electrico);
+  font-weight: 600;
+  text-align: center;
+  transition: transform .2s;
+}
+
+.servicio-row:hover .serv-arrow {
+  transform: translateX(4px);
+}
+
+/* ── CIERRE SERVICIOS ── */
+.serv-cierre {
+  background: var(--humo);
+  padding: 72px 0;
+}
+
+.serv-cierre-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.serv-cierre-iso {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  flex-shrink: 0;
+  opacity: 0.8;
+}
+
+.serv-cierre-text {
+  font-family: 'Sora', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--azul);
+  line-height: 1.55;
+  max-width: 640px;
+}
+
+@media (max-width: 640px) {
+  .servicio-row { grid-template-columns: 44px 1fr; }
+  .serv-arrow { display: none; }
+  .serv-cierre-inner { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/branding/ideia_logo.png" alt="IDEIA">
+    </a>
+    <ul class="nav-menu">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="nosotros.html">Nosotros</a></li>
+      <li><a href="servicios.html" class="active">Servicios</a></li>
+      <li><a href="metodologia.html">Metodología</a></li>
+      <li><a href="casos.html">Casos</a></li>
+      <li><a href="recursos.html">Recursos</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HEADER -->
+<header class="page-header">
+  <div class="page-header-inner">
+    <div>
+      <p class="eyebrow">Lo que hacemos</p>
+      <h1 class="page-title">Servicios</h1>
+      <p class="page-subtitle">Soluciones diseñadas para mejorar la gestión, optimizar procesos y dejar capacidades internas duraderas.</p>
+    </div>
+    <img src="assets/branding/isotipo.png" alt="" class="page-iso">
+  </div>
+</header>
+
+<!-- SERVICIOS -->
+<section class="servicios-list">
+  <div class="container">
+
+    <div class="servicio-row">
+      <div class="serv-iso-wrap">
+        <img src="assets/branding/isotipo.png" alt="" class="serv-iso">
+      </div>
+      <div>
+        <p class="serv-title">Gestión y Estrategia</p>
+        <p class="serv-desc">Alineamos objetivos, procesos y personas para mejorar la toma de decisiones.</p>
+      </div>
+      <span class="serv-arrow">→</span>
+    </div>
+
+    <div class="servicio-row">
+      <div class="serv-iso-wrap">
+        <img src="assets/branding/isotipo.png" alt="" class="serv-iso">
+      </div>
+      <div>
+        <p class="serv-title">Eficiencia Operacional</p>
+        <p class="serv-desc">Optimizamos procesos y recursos para aumentar la productividad y reducir costos.</p>
+      </div>
+      <span class="serv-arrow">→</span>
+    </div>
+
+    <div class="servicio-row">
+      <div class="serv-iso-wrap">
+        <img src="assets/branding/isotipo.png" alt="" class="serv-iso">
+      </div>
+      <div>
+        <p class="serv-title">Información y Control</p>
+        <p class="serv-desc">Implementamos indicadores y tableros para tener una visión clara del negocio.</p>
+      </div>
+      <span class="serv-arrow">→</span>
+    </div>
+
+    <div class="servicio-row">
+      <div class="serv-iso-wrap">
+        <img src="assets/branding/isotipo.png" alt="" class="serv-iso">
+      </div>
+      <div>
+        <p class="serv-title">Inteligencia Artificial Aplicada</p>
+        <p class="serv-desc">Aplicamos IA para analizar información, automatizar tareas y apoyar decisiones.</p>
+      </div>
+      <span class="serv-arrow">→</span>
+    </div>
+
+    <div class="servicio-row">
+      <div class="serv-iso-wrap">
+        <img src="assets/branding/isotipo.png" alt="" class="serv-iso">
+      </div>
+      <div>
+        <p class="serv-title">Herramientas y Soluciones</p>
+        <p class="serv-desc">Desarrollamos herramientas prácticas y soluciones digitales adaptadas a cada organización.</p>
+      </div>
+      <span class="serv-arrow">→</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- CIERRE -->
+<section class="serv-cierre">
+  <div class="serv-cierre-inner">
+    <img src="assets/branding/isotipo.png" alt="" class="serv-cierre-iso">
+    <p class="serv-cierre-text">Utilizamos tecnología e inteligencia para acelerar resultados, siempre con foco en la autonomía de tu organización.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <a href="index.html" class="footer-logo">
+      <img src="assets/branding/ideia_logo.png" alt="IDEIA">
+    </a>
+    <ul class="footer-nav">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="nosotros.html">Nosotros</a></li>
+      <li><a href="servicios.html">Servicios</a></li>
+      <li><a href="metodologia.html">Metodología</a></li>
+      <li><a href="casos.html">Casos</a></li>
+      <li><a href="recursos.html">Recursos</a></li>
+    </ul>
+    <p class="footer-copy">© 2025 IDEIA. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+</body>
+</html>

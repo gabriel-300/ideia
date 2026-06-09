@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Metodología — IDEIA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/main.css">
+<style>
+
+/* ── PASOS FULL ── */
+.pasos-full {
+  padding: 80px 0;
+}
+
+.paso-full {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 40px;
+  align-items: flex-start;
+  padding: 40px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.paso-full:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.paso-full-num {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--azul);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.paso-full-num img {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.25;
+  position: absolute;
+}
+
+.paso-full-num span {
+  font-family: 'Sora', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+}
+
+.paso-full-title {
+  font-family: 'Sora', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--azul);
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
+}
+
+.paso-full-desc {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 600px;
+}
+
+/* ── CIERRE METODOLOGÍA ── */
+.metodo-cierre {
+  background: var(--humo);
+  padding: 72px 0;
+}
+
+.metodo-cierre-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+
+.metodo-cierre-iso {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  flex-shrink: 0;
+  opacity: 0.8;
+}
+
+.metodo-cierre-text {
+  font-family: 'Sora', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--azul);
+  line-height: 1.55;
+  max-width: 640px;
+}
+
+@media (max-width: 640px) {
+  .paso-full { grid-template-columns: 1fr; }
+  .metodo-cierre-inner { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/branding/ideia_logo.png" alt="IDEIA">
+    </a>
+    <ul class="nav-menu">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="nosotros.html">Nosotros</a></li>
+      <li><a href="servicios.html">Servicios</a></li>
+      <li><a href="metodologia.html" class="active">Metodología</a></li>
+      <li><a href="casos.html">Casos</a></li>
+      <li><a href="recursos.html">Recursos</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HEADER -->
+<header class="page-header">
+  <div class="page-header-inner">
+    <div>
+      <p class="eyebrow">Nuestro proceso</p>
+      <h1 class="page-title">Metodología</h1>
+      <p class="page-subtitle">Un enfoque colaborativo que garantiza resultados y autonomía.</p>
+    </div>
+    <img src="assets/branding/isotipo.png" alt="" class="page-iso">
+  </div>
+</header>
+
+<!-- PASOS -->
+<section class="pasos-full">
+  <div class="container">
+
+    <div class="paso-full">
+      <div class="paso-full-num">
+        <img src="assets/branding/isotipo.png" alt="">
+        <span>01</span>
+      </div>
+      <div>
+        <p class="paso-full-title">Entendemos la realidad.</p>
+        <p class="paso-full-desc">Escuchamos y analizamos en profundidad para comprender desafíos y oportunidades.</p>
+      </div>
+    </div>
+
+    <div class="paso-full">
+      <div class="paso-full-num">
+        <img src="assets/branding/isotipo.png" alt="">
+        <span>02</span>
+      </div>
+      <div>
+        <p class="paso-full-title">Analizamos y priorizamos.</p>
+        <p class="paso-full-desc">Utilizamos herramientas de análisis para identificar el mayor impacto.</p>
+      </div>
+    </div>
+
+    <div class="paso-full">
+      <div class="paso-full-num">
+        <img src="assets/branding/isotipo.png" alt="">
+        <span>03</span>
+      </div>
+      <div>
+        <p class="paso-full-title">Proponemos y planificamos.</p>
+        <p class="paso-full-desc">Diseñamos un plan de acción claro, con objetivos e indicadores.</p>
+      </div>
+    </div>
+
+    <div class="paso-full">
+      <div class="paso-full-num">
+        <img src="assets/branding/isotipo.png" alt="">
+        <span>04</span>
+      </div>
+      <div>
+        <p class="paso-full-title">Implementamos juntos.</p>
+        <p class="paso-full-desc">Acompañamos la ejecución trabajando codo a codo con tu equipo.</p>
+      </div>
+    </div>
+
+    <div class="paso-full">
+      <div class="paso-full-num">
+        <img src="assets/branding/isotipo.png" alt="">
+        <span>05</span>
+      </div>
+      <div>
+        <p class="paso-full-title">Transferimos y fortalecemos.</p>
+        <p class="paso-full-desc">Dejamos capacidades instaladas para que puedas seguir avanzando.</p>
+      </div>
+    </div>
+
+    <div class="paso-full">
+      <div class="paso-full-num">
+        <img src="assets/branding/isotipo.png" alt="">
+        <span>06</span>
+      </div>
+      <div>
+        <p class="paso-full-title">Medimos y consolidamos.</p>
+        <p class="paso-full-desc">Evaluamos resultados, ajustamos y aseguramos la mejora continua.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CIERRE -->
+<section class="metodo-cierre">
+  <div class="metodo-cierre-inner">
+    <img src="assets/branding/isotipo.png" alt="" class="metodo-cierre-iso">
+    <p class="metodo-cierre-text">Nuestro objetivo es que la organización continúe creciendo de manera autónoma y sostenible.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <a href="index.html" class="footer-logo">
+      <img src="assets/branding/ideia_logo.png" alt="IDEIA">
+    </a>
+    <ul class="footer-nav">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="nosotros.html">Nosotros</a></li>
+      <li><a href="servicios.html">Servicios</a></li>
+      <li><a href="metodologia.html">Metodología</a></li>
+      <li><a href="casos.html">Casos</a></li>
+      <li><a href="recursos.html">Recursos</a></li>
+    </ul>
+    <p class="footer-copy">© 2025 IDEIA. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+</body>
+</html>

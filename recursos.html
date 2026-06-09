@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recursos — IDEIA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/main.css">
+<style>
+
+/* ── ARTICULOS ── */
+.articulos {
+  padding: 80px 0;
+}
+
+.articulos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.articulo-card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.articulo-categoria {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--electrico);
+}
+
+.articulo-iso-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--humo);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.articulo-iso {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.articulo-title {
+  font-family: 'Sora', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--azul);
+  line-height: 1.35;
+}
+
+.articulo-desc {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.65;
+  flex: 1;
+}
+
+.articulo-link {
+  font-family: 'Sora', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--electrico);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  transition: gap .2s;
+}
+
+.articulo-card:hover .articulo-link {
+  gap: 10px;
+}
+
+@media (max-width: 960px) {
+  .articulos-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .articulos-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/branding/ideia_logo.png" alt="IDEIA">
+    </a>
+    <ul class="nav-menu">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="nosotros.html">Nosotros</a></li>
+      <li><a href="servicios.html">Servicios</a></li>
+      <li><a href="metodologia.html">Metodología</a></li>
+      <li><a href="casos.html">Casos</a></li>
+      <li><a href="recursos.html" class="active">Recursos</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HEADER -->
+<header class="page-header">
+  <div class="page-header-inner">
+    <div>
+      <p class="eyebrow">Liderazgo de pensamiento</p>
+      <h1 class="page-title">Recursos</h1>
+      <p class="page-subtitle">Artículos y contenidos orientados a la gestión, la mejora operativa y el liderazgo organizacional.</p>
+    </div>
+    <img src="assets/branding/isotipo.png" alt="" class="page-iso">
+  </div>
+</header>
+
+<!-- ARTÍCULOS -->
+<section class="articulos">
+  <div class="container">
+    <div class="articulos-grid">
+
+      <div class="articulo-card">
+        <p class="articulo-categoria">Gestión</p>
+        <div class="articulo-iso-wrap">
+          <img src="assets/branding/isotipo.png" alt="" class="articulo-iso">
+        </div>
+        <p class="articulo-title">Próximamente</p>
+        <p class="articulo-desc">Estamos preparando contenidos para esta sección.</p>
+        <span class="articulo-link">Volver pronto →</span>
+      </div>
+
+      <div class="articulo-card">
+        <p class="articulo-categoria">Operaciones</p>
+        <div class="articulo-iso-wrap">
+          <img src="assets/branding/isotipo.png" alt="" class="articulo-iso">
+        </div>
+        <p class="articulo-title">Próximamente</p>
+        <p class="articulo-desc">Estamos preparando contenidos para esta sección.</p>
+        <span class="articulo-link">Volver pronto →</span>
+      </div>
+
+      <div class="articulo-card">
+        <p class="articulo-categoria">Tecnología</p>
+        <div class="articulo-iso-wrap">
+          <img src="assets/branding/isotipo.png" alt="" class="articulo-iso">
+        </div>
+        <p class="articulo-title">Próximamente</p>
+        <p class="articulo-desc">Estamos preparando contenidos para esta sección.</p>
+        <span class="articulo-link">Volver pronto →</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <a href="index.html" class="footer-logo">
+      <img src="assets/branding/ideia_logo.png" alt="IDEIA">
+    </a>
+    <ul class="footer-nav">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="nosotros.html">Nosotros</a></li>
+      <li><a href="servicios.html">Servicios</a></li>
+      <li><a href="metodologia.html">Metodología</a></li>
+      <li><a href="casos.html">Casos</a></li>
+      <li><a href="recursos.html">Recursos</a></li>
+    </ul>
+    <p class="footer-copy">© 2025 IDEIA. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Casos — IDEIA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/main.css">
+<style>
+
+/* ── CASOS GRID ── */
+.casos-section {
+  padding: 80px 0;
+}
+
+.casos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.caso-card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.caso-sector {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--electrico);
+}
+
+.caso-iso-wrap {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--humo);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.caso-iso {
+  width: 46px;
+  height: 46px;
+  object-fit: contain;
+}
+
+.caso-title {
+  font-family: 'Sora', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--azul);
+  line-height: 1.3;
+}
+
+.caso-desc {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.65;
+  flex: 1;
+}
+
+.caso-link {
+  font-family: 'Sora', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--electrico);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: gap .2s;
+  margin-top: 8px;
+}
+
+.caso-card:hover .caso-link {
+  gap: 10px;
+}
+
+/* ── CIERRE CASOS ── */
+.casos-cierre {
+  background: var(--humo);
+  padding: 72px 0;
+}
+
+.casos-cierre-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.casos-cierre-iso {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  flex-shrink: 0;
+  opacity: 0.8;
+}
+
+.casos-cierre-right {}
+
+.casos-cierre-text {
+  font-family: 'Sora', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--azul);
+  margin-bottom: 16px;
+}
+
+.casos-cierre-link {
+  font-family: 'Sora', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--electrico);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+@media (max-width: 960px) {
+  .casos-grid { grid-template-columns: 1fr; }
+  .casos-cierre-inner { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/branding/ideia_logo.png" alt="IDEIA">
+    </a>
+    <ul class="nav-menu">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="nosotros.html">Nosotros</a></li>
+      <li><a href="servicios.html">Servicios</a></li>
+      <li><a href="metodologia.html">Metodología</a></li>
+      <li><a href="casos.html" class="active">Casos</a></li>
+      <li><a href="recursos.html">Recursos</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HEADER -->
+<header class="page-header">
+  <div class="page-header-inner">
+    <div>
+      <p class="eyebrow">Experiencia real</p>
+      <h1 class="page-title">Casos de éxito</h1>
+      <p class="page-subtitle">Cada organización tiene su propio camino. Nuestro trabajo es ayudar a recorrerlo con éxito.</p>
+    </div>
+    <img src="assets/branding/isotipo.png" alt="" class="page-iso">
+  </div>
+</header>
+
+<!-- CASOS -->
+<section class="casos-section">
+  <div class="container">
+    <div class="casos-grid">
+
+      <div class="caso-card">
+        <p class="caso-sector">Transporte</p>
+        <div class="caso-iso-wrap">
+          <img src="assets/branding/isotipo.png" alt="" class="caso-iso">
+        </div>
+        <p class="caso-title">Mejora operativa y reducción de costos</p>
+        <p class="caso-desc">Optimización de procesos y análisis de costos que generó mayor rentabilidad y eficiencia.</p>
+        <a href="#" class="caso-link">Ver caso →</a>
+      </div>
+
+      <div class="caso-card">
+        <p class="caso-sector">Seguridad</p>
+        <div class="caso-iso-wrap">
+          <img src="assets/branding/isotipo.png" alt="" class="caso-iso">
+        </div>
+        <p class="caso-title">Gestión y control centralizado</p>
+        <p class="caso-desc">Estructuración de procesos e indicadores que mejoraron el control y la toma de decisiones.</p>
+        <a href="#" class="caso-link">Ver caso →</a>
+      </div>
+
+      <div class="caso-card">
+        <p class="caso-sector">Consultoría</p>
+        <div class="caso-iso-wrap">
+          <img src="assets/branding/isotipo.png" alt="" class="caso-iso">
+        </div>
+        <p class="caso-title">Planificación y seguimiento</p>
+        <p class="caso-desc">Implementación de controles y tableros que permitieron mejorar la planificación y ejecución.</p>
+        <a href="#" class="caso-link">Ver caso →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CIERRE -->
+<section class="casos-cierre">
+  <div class="casos-cierre-inner">
+    <img src="assets/branding/isotipo.png" alt="" class="casos-cierre-iso">
+    <div class="casos-cierre-right">
+      <p class="casos-cierre-text">Cada caso es único. Cada resultado, medible.</p>
+      <a href="#" class="casos-cierre-link">Conocé más experiencias →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <a href="index.html" class="footer-logo">
+      <img src="assets/branding/ideia_logo.png" alt="IDEIA">
+    </a>
+    <ul class="footer-nav">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="nosotros.html">Nosotros</a></li>
+      <li><a href="servicios.html">Servicios</a></li>
+      <li><a href="metodologia.html">Metodología</a></li>
+      <li><a href="casos.html">Casos</a></li>
+      <li><a href="recursos.html">Recursos</a></li>
+    </ul>
+    <p class="footer-copy">© 2025 IDEIA. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+</body>
+</html>
