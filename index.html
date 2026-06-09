@@ -18,6 +18,8 @@
   display: flex;
   align-items: center;
   background: var(--blanco);
+  position: relative;
+  overflow: hidden;
 }
 .hero-inner {
   max-width: 1200px;
@@ -71,7 +73,6 @@
 
 /* ── DIFERENCIALES ── */
 .diferenciales {
-  background: var(--azul);
   padding: 72px 0;
 }
 .dif-grid {
@@ -115,6 +116,8 @@
 .desafios {
   padding: 96px 0;
   background: var(--blanco);
+  background-image: radial-gradient(circle, rgba(66,165,245,0.12) 1.5px, transparent 1.5px);
+  background-size: 28px 28px;
 }
 .desafios-grid {
   display: grid;
@@ -259,6 +262,13 @@
 }
 .cierre-text .accent { color: var(--electrico); }
 
+/* ── DIFERENCIALES PATTERN ── */
+.diferenciales {
+  background-color: var(--azul);
+  background-image: radial-gradient(circle, rgba(66,165,245,0.15) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
 /* ── RESPONSIVE ── */
 @media (max-width: 960px) {
   .hero-inner { grid-template-columns: 1fr; padding: 60px 40px; }
@@ -298,6 +308,25 @@
 
 <!-- HERO -->
 <section class="hero">
+  <svg viewBox="0 0 600 500" xmlns="http://www.w3.org/2000/svg"
+       style="position:absolute;top:0;right:0;width:55%;height:100%;opacity:0.12;pointer-events:none;overflow:hidden"
+       aria-hidden="true">
+    <circle cx="420" cy="220" r="80"  fill="none" stroke="#42A5F5" stroke-width="1.5"/>
+    <circle cx="420" cy="220" r="140" fill="none" stroke="#103B73" stroke-width="1"/>
+    <circle cx="420" cy="220" r="200" fill="none" stroke="#103B73" stroke-width="0.8"/>
+    <circle cx="420" cy="220" r="270" fill="none" stroke="#2E3138" stroke-width="0.6"/>
+    <circle cx="420" cy="140" r="7" fill="#42A5F5"/>
+    <circle cx="500" cy="260" r="5" fill="#103B73"/>
+    <circle cx="340" cy="300" r="5" fill="#2E3138"/>
+    <circle cx="360" cy="160" r="4" fill="#103B73"/>
+    <circle cx="480" cy="180" r="4" fill="#42A5F5"/>
+    <circle cx="310" cy="220" r="3" fill="#2E3138"/>
+    <circle cx="450" cy="340" r="3" fill="#103B73"/>
+    <line x1="420" y1="140" x2="500" y2="260" stroke="#42A5F5" stroke-width="1" opacity="0.6"/>
+    <line x1="500" y1="260" x2="340" y2="300" stroke="#103B73" stroke-width="1" opacity="0.6"/>
+    <line x1="340" y1="300" x2="420" y2="140" stroke="#103B73" stroke-width="0.8" opacity="0.4"/>
+    <line x1="360" y1="160" x2="480" y2="180" stroke="#42A5F5" stroke-width="0.8" opacity="0.5"/>
+  </svg>
   <div class="hero-inner">
     <div>
       <p class="eyebrow">Consultoría Operativa</p>
@@ -312,32 +341,59 @@
 </section>
 
 <!-- DIFERENCIALES -->
-<section class="diferenciales">
+<section class="diferenciales section-dark-pattern">
   <div class="dif-grid">
     <div>
       <div class="dif-iso-wrap">
-        <img src="assets/branding/isotipo.png" alt="" class="dif-iso">
+        <svg width="38" height="38" viewBox="0 0 38 38" fill="none" aria-hidden="true">
+          <circle cx="19" cy="19" r="14" stroke="white" stroke-width="0.75" stroke-opacity="0.22"/>
+          <circle cx="19" cy="19" r="8" stroke="white" stroke-width="1" stroke-opacity="0.38"/>
+          <circle cx="19" cy="19" r="3.5" fill="white" fill-opacity="0.6"/>
+        </svg>
       </div>
       <p class="dif-title">Enfoque en resultados</p>
       <p class="dif-desc">Trabajamos por objetivos concretos y medibles.</p>
     </div>
     <div>
       <div class="dif-iso-wrap">
-        <img src="assets/branding/isotipo.png" alt="" class="dif-iso">
+        <svg width="38" height="38" viewBox="0 0 38 38" fill="none" aria-hidden="true">
+          <path d="M5 19 C12 10 26 10 33 19" stroke="white" stroke-width="1.5" stroke-opacity="0.38" fill="none"/>
+          <path d="M29 15 L33 19 L29 23" stroke="white" stroke-width="1.5" stroke-opacity="0.48" fill="none" stroke-linecap="round"/>
+          <circle cx="5" cy="19" r="3.5" fill="white" fill-opacity="0.45"/>
+          <circle cx="33" cy="19" r="3.5" fill="white" fill-opacity="0.6"/>
+        </svg>
       </div>
       <p class="dif-title">Transferimos conocimiento</p>
       <p class="dif-desc">Dejamos herramientas y capacidades instaladas.</p>
     </div>
     <div>
       <div class="dif-iso-wrap">
-        <img src="assets/branding/isotipo.png" alt="" class="dif-iso">
+        <svg width="38" height="38" viewBox="0 0 38 38" fill="none" aria-hidden="true">
+          <line x1="9" y1="9" x2="19" y2="19" stroke="white" stroke-width="1" stroke-opacity="0.28"/>
+          <line x1="29" y1="9" x2="19" y2="19" stroke="white" stroke-width="1" stroke-opacity="0.28"/>
+          <line x1="9" y1="29" x2="19" y2="19" stroke="white" stroke-width="1" stroke-opacity="0.28"/>
+          <line x1="29" y1="29" x2="19" y2="19" stroke="white" stroke-width="1" stroke-opacity="0.28"/>
+          <circle cx="9" cy="9" r="3" fill="white" fill-opacity="0.38"/>
+          <circle cx="29" cy="9" r="3" fill="white" fill-opacity="0.38"/>
+          <circle cx="9" cy="29" r="3" fill="white" fill-opacity="0.38"/>
+          <circle cx="29" cy="29" r="3" fill="white" fill-opacity="0.38"/>
+          <circle cx="19" cy="19" r="5" fill="white" fill-opacity="0.58"/>
+        </svg>
       </div>
       <p class="dif-title">Uso inteligente de IA</p>
       <p class="dif-desc">Aplicamos tecnología para analizar, optimizar y acelerar resultados.</p>
     </div>
     <div>
       <div class="dif-iso-wrap">
-        <img src="assets/branding/isotipo.png" alt="" class="dif-iso">
+        <svg width="38" height="38" viewBox="0 0 38 38" fill="none" aria-hidden="true">
+          <line x1="19" y1="19" x2="19" y2="5" stroke="white" stroke-width="1" stroke-opacity="0.32" stroke-dasharray="3 2"/>
+          <line x1="19" y1="19" x2="31" y2="27" stroke="white" stroke-width="1" stroke-opacity="0.32" stroke-dasharray="3 2"/>
+          <line x1="19" y1="19" x2="7" y2="27" stroke="white" stroke-width="1" stroke-opacity="0.32" stroke-dasharray="3 2"/>
+          <circle cx="19" cy="19" r="5" fill="white" fill-opacity="0.58"/>
+          <circle cx="19" cy="5" r="2.5" fill="white" fill-opacity="0.32"/>
+          <circle cx="31" cy="27" r="2.5" fill="white" fill-opacity="0.32"/>
+          <circle cx="7" cy="27" r="2.5" fill="white" fill-opacity="0.32"/>
+        </svg>
       </div>
       <p class="dif-title">Independencia asegurada</p>
       <p class="dif-desc">Nuestro éxito es que puedas seguir creciendo sin nuestra presencia.</p>
@@ -354,35 +410,69 @@
     <div class="desafios-grid">
       <div class="desafio-card">
         <div class="desafio-iso-wrap">
-          <img src="assets/branding/isotipo.png" alt="" class="desafio-iso">
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true">
+            <circle cx="8" cy="8" r="3" fill="#103B73" fill-opacity="0.35"/>
+            <circle cx="22" cy="8" r="3" fill="#103B73" fill-opacity="0.35"/>
+            <circle cx="8" cy="22" r="3" fill="#103B73" fill-opacity="0.35"/>
+            <circle cx="22" cy="22" r="3" fill="#103B73" fill-opacity="0.35"/>
+            <circle cx="15" cy="15" r="4" fill="#42A5F5" fill-opacity="0.55"/>
+          </svg>
         </div>
         <p class="desafio-title">Falta de claridad para decidir</p>
         <p class="desafio-desc">Los datos existen, pero no siempre se transforman en información útil.</p>
       </div>
       <div class="desafio-card">
         <div class="desafio-iso-wrap">
-          <img src="assets/branding/isotipo.png" alt="" class="desafio-iso">
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true">
+            <line x1="4" y1="15" x2="12" y2="15" stroke="#103B73" stroke-width="1.5" stroke-opacity="0.4"/>
+            <line x1="18" y1="15" x2="26" y2="15" stroke="#103B73" stroke-width="1.5" stroke-opacity="0.4" stroke-dasharray="2 2"/>
+            <circle cx="4" cy="15" r="3" fill="#103B73" fill-opacity="0.55"/>
+            <circle cx="15" cy="15" r="4" fill="#42A5F5" fill-opacity="0.5"/>
+            <circle cx="26" cy="15" r="3" fill="#103B73" fill-opacity="0.4"/>
+          </svg>
         </div>
         <p class="desafio-title">Procesos ineficientes</p>
         <p class="desafio-desc">Las tareas se duplican, se retrasan o dependen de personas clave.</p>
       </div>
       <div class="desafio-card">
         <div class="desafio-iso-wrap">
-          <img src="assets/branding/isotipo.png" alt="" class="desafio-iso">
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true">
+            <path d="M5 22 C10 10 20 10 25 22" stroke="#42A5F5" stroke-width="1.5" stroke-opacity="0.45" fill="none" stroke-dasharray="3 2"/>
+            <circle cx="5" cy="22" r="3.5" fill="#103B73" fill-opacity="0.5"/>
+            <circle cx="25" cy="22" r="3.5" fill="#103B73" fill-opacity="0.5"/>
+            <circle cx="15" cy="8" r="3" fill="#42A5F5" fill-opacity="0.42"/>
+          </svg>
         </div>
         <p class="desafio-title">Dificultad para implementar cambios</p>
         <p class="desafio-desc">Las buenas ideas no siempre se convierten en acciones.</p>
       </div>
       <div class="desafio-card">
         <div class="desafio-iso-wrap">
-          <img src="assets/branding/isotipo.png" alt="" class="desafio-iso">
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true">
+            <circle cx="6" cy="12" r="3" fill="#103B73" fill-opacity="0.38"/>
+            <circle cx="18" cy="6" r="2.5" fill="#42A5F5" fill-opacity="0.45"/>
+            <circle cx="24" cy="19" r="3" fill="#103B73" fill-opacity="0.38"/>
+            <circle cx="10" cy="24" r="2.5" fill="#42A5F5" fill-opacity="0.45"/>
+            <circle cx="21" cy="25" r="2" fill="#103B73" fill-opacity="0.28"/>
+            <circle cx="15" cy="15" r="3.5" fill="#42A5F5" fill-opacity="0.35"/>
+          </svg>
         </div>
         <p class="desafio-title">Información dispersa</p>
         <p class="desafio-desc">La falta de integración puede limitar el análisis y el control.</p>
       </div>
       <div class="desafio-card">
         <div class="desafio-iso-wrap">
-          <img src="assets/branding/isotipo.png" alt="" class="desafio-iso">
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true">
+            <circle cx="15" cy="15" r="3.5" fill="#103B73" fill-opacity="0.6"/>
+            <line x1="15" y1="15" x2="6" y2="6" stroke="#42A5F5" stroke-width="1" stroke-opacity="0.38" stroke-dasharray="2 2"/>
+            <line x1="15" y1="15" x2="25" y2="7" stroke="#42A5F5" stroke-width="1" stroke-opacity="0.38" stroke-dasharray="2 2"/>
+            <line x1="15" y1="15" x2="26" y2="23" stroke="#42A5F5" stroke-width="1" stroke-opacity="0.38" stroke-dasharray="2 2"/>
+            <line x1="15" y1="15" x2="8" y2="25" stroke="#42A5F5" stroke-width="1" stroke-opacity="0.38" stroke-dasharray="2 2"/>
+            <circle cx="6" cy="6" r="2.5" fill="#42A5F5" fill-opacity="0.3"/>
+            <circle cx="25" cy="7" r="2" fill="#42A5F5" fill-opacity="0.3"/>
+            <circle cx="26" cy="23" r="3" fill="#42A5F5" fill-opacity="0.3"/>
+            <circle cx="8" cy="25" r="2" fill="#42A5F5" fill-opacity="0.3"/>
+          </svg>
         </div>
         <p class="desafio-title">Crecimiento sin planificación</p>
         <p class="desafio-desc">Crecer sin estructura puede generar más problemas que soluciones.</p>
@@ -392,7 +482,7 @@
 </section>
 
 <!-- METODOLOGÍA PREVIEW -->
-<section class="metodo-preview">
+<section class="metodo-preview section-with-pattern">
   <div class="container">
     <div class="section-head centered">
       <h2 class="section-h">Cómo generamos valor</h2>

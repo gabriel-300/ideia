@@ -252,6 +252,20 @@ img { display: block; max-width: 100%; }
 }
 
 /* ═══════════════════════════════════
+   SECTION PATTERNS
+═══════════════════════════════════ */
+.section-with-pattern {
+  background-image: radial-gradient(circle, rgba(66,165,245,0.12) 1.5px, transparent 1.5px);
+  background-size: 28px 28px;
+}
+
+.section-dark-pattern {
+  background-color: var(--azul);
+  background-image: radial-gradient(circle, rgba(66,165,245,0.15) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* ═══════════════════════════════════
    RESPONSIVE
 ═══════════════════════════════════ */
 @media (max-width: 960px) {
