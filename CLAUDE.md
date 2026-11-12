@@ -16,6 +16,7 @@ Si una tarea parece requerir cambiar algo de lo anterior, frená y preguntá.
 1. `assets/app.js`, línea `var WHATSAPP = '';` → poner el número en formato internacional
    sin + ni espacios (ej. '5493764123456'). Nada más de ese archivo.
 2. Configuración del hosting (dominio, HTTPS, redirecciones). No toca los archivos del sitio.
+   Si el hosting tiene optimización automática de imágenes o minificación, desactivarla.
 
 ## Qué es
 HTML estático, sin build. Se sube la carpeta completa a la raíz del hosting.
@@ -25,6 +26,10 @@ HTML estático, sin build. Se sube la carpeta completa a la raíz del hosting.
   alimentos.html      Gastronomía e industria alimenticia (Planta, Mostrador, Pedido)
   construccion.html   Construcción y proyectos (Obra, Cotiza)
   servicios.html      Servicios y operaciones (Flujo)
+  pedido.html         Pedido (tienda online)
+  nosotros.html       Nosotros
+  terminos.html       Términos de uso
+  privacidad.html     Política de privacidad
   assets/styles.css   Sistema de diseño
   assets/app.js       Menú móvil, pestañas, botones de WhatsApp, copiar mail
   assets/fonts/       Montserrat (respaldo de Google Fonts)
