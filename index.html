@@ -1,552 +1,123 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IDEIA — Influir positivamente para que las cosas pasen.</title>
-<meta name="description" content="Acompañamos a las organizaciones a mejorar su gestión, implementar herramientas y desarrollar capacidades internas que generan valor sostenible.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/main.css">
-<style>
-
-/* ── HERO ── */
-.hero {
-  padding-top: var(--nav-h);
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  background: var(--blanco);
-  position: relative;
-  overflow: hidden;
-}
-.hero-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 80px 40px;
-  display: grid;
-  grid-template-columns: 55fr 45fr;
-  gap: 80px;
-  align-items: center;
-  width: 100%;
-}
-.hero-h1 {
-  font-size: clamp(38px, 4.5vw, 58px);
-  font-weight: 800;
-  line-height: 1.1;
-  letter-spacing: -0.03em;
-  color: var(--azul);
-  margin-bottom: 24px;
-}
-.hero-h1 .accent { color: var(--electrico); }
-.hero-sub {
-  font-size: 17px;
-  font-weight: 400;
-  line-height: 1.7;
-  color: var(--muted);
-  max-width: 440px;
-  margin-bottom: 40px;
-}
-.hero-visual {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-.hero-visual::before {
-  content: '';
-  position: absolute;
-  width: 480px;
-  height: 480px;
-  background: radial-gradient(circle, rgba(66,165,245,0.1) 0%, transparent 65%);
-  border-radius: 50%;
-  pointer-events: none;
-}
-.hero-iso {
-  width: 360px;
-  height: 360px;
-  object-fit: contain;
-  position: relative;
-  z-index: 1;
-}
-
-/* ── DIFERENCIALES ── */
-.diferenciales {
-  padding: 72px 0;
-}
-.dif-grid {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 40px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 48px;
-}
-.dif-iso-wrap {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.12);
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-.dif-iso {
-  width: 38px;
-  height: 38px;
-  object-fit: contain;
-}
-.dif-title {
-  font-family: 'Sora', sans-serif;
-  font-size: 15px;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: 10px;
-}
-.dif-desc {
-  font-size: 13px;
-  line-height: 1.65;
-  color: rgba(255,255,255,0.6);
-}
-
-/* ── DESAFÍOS ── */
-.desafios {
-  padding: 96px 0;
-  background: var(--blanco);
-  background-image: radial-gradient(circle, rgba(66,165,245,0.12) 1.5px, transparent 1.5px);
-  background-size: 28px 28px;
-}
-.desafios-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
-}
-.desafio-card {
-  padding: 28px 24px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-}
-.desafio-iso-wrap {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  overflow: hidden;
-  background: var(--humo);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 16px;
-}
-.desafio-iso {
-  width: 30px;
-  height: 30px;
-  object-fit: contain;
-}
-.desafio-title {
-  font-family: 'Sora', sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--azul);
-  margin-bottom: 10px;
-  line-height: 1.35;
-}
-.desafio-desc {
-  font-size: 13px;
-  color: var(--muted);
-  line-height: 1.6;
-}
-
-/* ── METODOLOGÍA PREVIEW ── */
-.metodo-preview {
-  background: var(--humo);
-  padding: 96px 0;
-}
-.pasos {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  position: relative;
-}
-.pasos::after {
-  content: '';
-  position: absolute;
-  top: 23px;
-  left: calc(10% + 24px);
-  right: calc(10% + 24px);
-  height: 1px;
-  background: var(--border);
-  pointer-events: none;
-}
-.paso {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 0 12px;
-  position: relative;
-  z-index: 1;
-}
-.paso-num {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  border: 2px solid var(--border);
-  background: var(--blanco);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Sora', sans-serif;
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--azul);
-  margin-bottom: 20px;
-  flex-shrink: 0;
-}
-.paso-label {
-  font-family: 'Sora', sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--azul);
-  margin-bottom: 8px;
-}
-.paso-desc {
-  font-size: 12px;
-  color: var(--muted);
-  line-height: 1.6;
-}
-
-/* ── CIERRE ── */
-.cierre {
-  padding: 96px 0;
-  border-top: 1px solid var(--border);
-}
-.cierre-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 40px;
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 80px;
-  align-items: center;
-}
-.cierre-iso-wrap {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.cierre-iso-wrap::before {
-  content: '';
-  position: absolute;
-  width: 260px;
-  height: 260px;
-  background: radial-gradient(circle, rgba(66,165,245,0.1) 0%, transparent 65%);
-  border-radius: 50%;
-}
-.cierre-iso {
-  width: 200px;
-  height: 200px;
-  object-fit: contain;
-  position: relative;
-  z-index: 1;
-}
-.cierre-text {
-  font-family: 'Sora', sans-serif;
-  font-size: clamp(22px, 2.5vw, 32px);
-  font-weight: 700;
-  line-height: 1.35;
-  color: var(--azul);
-  letter-spacing: -0.02em;
-}
-.cierre-text .accent { color: var(--electrico); }
-
-/* ── DIFERENCIALES PATTERN ── */
-.diferenciales {
-  background-color: var(--azul);
-  background-image: radial-gradient(circle, rgba(66,165,245,0.15) 1px, transparent 1px);
-  background-size: 24px 24px;
-}
-
-/* ── RESPONSIVE ── */
-@media (max-width: 960px) {
-  .hero-inner { grid-template-columns: 1fr; padding: 60px 40px; }
-  .hero-visual { display: none; }
-  .dif-grid { grid-template-columns: repeat(2, 1fr); }
-  .desafios-grid { grid-template-columns: repeat(2, 1fr); }
-  .pasos { grid-template-columns: 1fr; gap: 40px; }
-  .pasos::after { display: none; }
-  .cierre-inner { grid-template-columns: 1fr; }
-  .cierre-iso-wrap { display: none; }
-}
-@media (max-width: 640px) {
-  .hero-inner { padding: 40px 20px; }
-  .dif-grid { padding: 0 20px; gap: 32px; }
-  .desafios-grid { grid-template-columns: 1fr; }
-}
-</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>IDEIA · Sistemas de gestión</title>
+<meta name="description" content="Sistemas de gestión listos para usar, pensados para comercios, empresas de alimentos, constructoras y empresas de servicios. Posadas, Misiones.">
+<meta property="og:title" content="IDEIA · Sistemas de gestión">
+<meta property="og:description" content="Sistemas de gestión listos para usar, pensados para comercios, empresas de alimentos, constructoras y empresas de servicios. Posadas, Misiones.">
+<meta property="og:type" content="website">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
-
-<!-- NAV -->
-<nav class="site-nav">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo">
-      <img src="assets/branding/ideia_logo.png" alt="IDEIA">
-    </a>
-    <ul class="nav-menu">
-      <li><a href="index.html" class="active">Inicio</a></li>
-      <li><a href="nosotros.html">Nosotros</a></li>
-      <li><a href="servicios.html">Servicios</a></li>
-      <li><a href="metodologia.html">Metodología</a></li>
-      <li><a href="casos.html">Casos</a></li>
-      <li><a href="recursos.html">Recursos</a></li>
-      <li><a href="contacto.html">Contacto</a></li>
-    </ul>
+<header class="hdr">
+  <div class="hdr-in">
+    <a class="logo" href="./" aria-label="IDEIA, inicio"><svg viewBox="0 0 260 82" role="img" aria-label="IDEIA"><path d="M50 16 A30 30 0 0 0 24.02 61" stroke="#42A5F5" stroke-width="7" fill="none"/><path d="M50 16 A30 30 0 0 1 75.98 61" stroke="#103B73" stroke-width="7" fill="none"/><path d="M24.02 61 A30 30 0 0 0 75.98 61" stroke="#4A5B70" stroke-width="7" fill="none"/><circle cx="50" cy="16" r="12" fill="#42A5F5" stroke="#FFFFFF" stroke-width="4"/><circle cx="24.02" cy="61" r="12" fill="#103B73" stroke="#FFFFFF" stroke-width="4"/><circle cx="75.98" cy="61" r="12" fill="#4A5B70" stroke="#FFFFFF" stroke-width="4"/><g fill="#0E1B3D"><rect x="112" y="26" width="7" height="40"/><path fill-rule="evenodd" d="M128 26h12a20 20 0 0 1 0 40h-12zM135 33h5a13 13 0 0 1 0 26h-5z"/><rect x="170" y="26" width="28" height="7"/><rect x="170" y="42.5" width="28" height="7" fill="#42A5F5"/><rect x="170" y="59" width="28" height="7"/><rect x="208" y="26" width="7" height="40"/></g><path d="M224 66 L240 27 L256 66" stroke="#0E1B3D" stroke-width="7" fill="none"/></svg></a>
+    <span class="vsep" aria-hidden="true"></span>
+    <nav class="nav" aria-label="Principal">
+      <a href="./#sistemas">Sistemas</a><span class="dot">·</span>
+      <div class="dd"><a href="./#rubros" aria-haspopup="true">Rubros</a><div class="dd-panel"><a href="comercios.html"><span>Comercios y puntos de venta<small>Mostrador</small></span><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 5.5 19.5 12 13 18.5"/></svg></a><a href="alimentos.html"><span>Gastronomía e industria alimenticia<small>Planta · Mostrador · Pedido</small></span><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 5.5 19.5 12 13 18.5"/></svg></a><a href="construccion.html"><span>Construcción y proyectos<small>Obra · Cotiza</small></span><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 5.5 19.5 12 13 18.5"/></svg></a><a href="servicios.html"><span>Servicios y operaciones<small>Flujo</small></span><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 5.5 19.5 12 13 18.5"/></svg></a></div></div><span class="dot">·</span>
+      <a href="./#sitios">Sitios web</a><span class="dot">·</span>
+      <a href="./#consultoria">Consultoría</a><span class="dot">·</span>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <a class="btn sm" href="#contacto" data-wa="">Pedí una demo</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Abrir menú"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
   </div>
-</nav>
+  <nav class="mnav" id="mnav" aria-label="Menú móvil" hidden>
+    <a href="./#sistemas">Sistemas</a>
+    <span class="lbl">Rubros</span><a class="sub" href="comercios.html">Comercios y puntos de venta</a><a class="sub" href="alimentos.html">Gastronomía e industria alimenticia</a><a class="sub" href="construccion.html">Construcción y proyectos</a><a class="sub" href="servicios.html">Servicios y operaciones</a>
+    <a href="./#sitios">Sitios web</a>
+    <a href="./#consultoria">Consultoría</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+</header>
+<main>
+<section class="hero-a">
+  <div class="ph"><img src="img/h2_hero.webp" width="1533" height="903" alt="Local con la tablet de Mostrador en el mostrador y un cliente pagando con QR desde el celular" fetchpriority="high" decoding="async"></div>
+  <div class="wrap"><div class="copy">
+    <h1>Sistemas de gestión<br class="bd"> para tu negocio.<br class="bd"> Listos para usar.</h1>
+    <p class="support">Rápido de implementar<span class="dt">·</span>100% autogestionable<span class="dt">·</span>Cero estrés</p>
+    <a class="btn" href="#contacto" data-wa="">Pedí una demo</a>
+  </div></div>
+</section>
 
-<!-- HERO -->
-<section class="hero">
-  <svg viewBox="0 0 600 500" xmlns="http://www.w3.org/2000/svg"
-       style="position:absolute;top:0;right:0;width:55%;height:100%;opacity:0.12;pointer-events:none;overflow:hidden"
-       aria-hidden="true">
-    <circle cx="420" cy="220" r="80"  fill="none" stroke="#42A5F5" stroke-width="1.5"/>
-    <circle cx="420" cy="220" r="140" fill="none" stroke="#103B73" stroke-width="1"/>
-    <circle cx="420" cy="220" r="200" fill="none" stroke="#103B73" stroke-width="0.8"/>
-    <circle cx="420" cy="220" r="270" fill="none" stroke="#2E3138" stroke-width="0.6"/>
-    <circle cx="420" cy="140" r="7" fill="#42A5F5"/>
-    <circle cx="500" cy="260" r="5" fill="#103B73"/>
-    <circle cx="340" cy="300" r="5" fill="#2E3138"/>
-    <circle cx="360" cy="160" r="4" fill="#103B73"/>
-    <circle cx="480" cy="180" r="4" fill="#42A5F5"/>
-    <circle cx="310" cy="220" r="3" fill="#2E3138"/>
-    <circle cx="450" cy="340" r="3" fill="#103B73"/>
-    <line x1="420" y1="140" x2="500" y2="260" stroke="#42A5F5" stroke-width="1" opacity="0.6"/>
-    <line x1="500" y1="260" x2="340" y2="300" stroke="#103B73" stroke-width="1" opacity="0.6"/>
-    <line x1="340" y1="300" x2="420" y2="140" stroke="#103B73" stroke-width="0.8" opacity="0.4"/>
-    <line x1="360" y1="160" x2="480" y2="180" stroke="#42A5F5" stroke-width="0.8" opacity="0.5"/>
-  </svg>
-  <div class="hero-inner">
-    <div>
-      <p class="eyebrow">Consultoría Operativa</p>
-      <h1 class="hero-h1">Convertimos decisiones en <span class="accent">resultados.</span></h1>
-      <p class="hero-sub">Acompañamos a las organizaciones a mejorar su gestión, implementar herramientas y desarrollar capacidades internas que generan valor sostenible en el tiempo.</p>
-      <a href="metodologia.html" class="btn btn-primary">Conocé cómo trabajamos →</a>
-    </div>
-    <div class="hero-visual">
-      <img src="assets/branding/isotipo.png" alt="" class="hero-iso">
+<section class="sec bg-bone rubros" id="rubros">
+  <div class="wrap">
+    <h2>Elegí tu rubro</h2>
+    <div class="cards"><a class="vcard" href="comercios.html"><img src="img/v_comercio.webp" width="1662" height="932" alt="Comercio minorista: cajera cobrando en la pantalla de Mostrador, con lector de códigos y góndolas" loading="lazy" decoding="async"><div class="band"><h3>Comercios y puntos de venta</h3><div class="sys"><span>Mostrador</span><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 5.5 19.5 12 13 18.5"/></svg></div></div></a><a class="vcard" href="alimentos.html"><img src="img/v_alimentos.webp" width="1662" height="932" alt="Elaboración de empanadas en planta con el tablero de producción de Planta" loading="lazy" decoding="async"><div class="band"><h3>Gastronomía e industria alimenticia</h3><div class="sys"><span>Planta · Mostrador · Pedido</span><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 5.5 19.5 12 13 18.5"/></svg></div></div></a><a class="vcard" href="construccion.html"><img src="img/v_construccion.webp" width="1662" height="932" alt="Responsable de obra revisando el avance en una tablet frente a un edificio en construcción" loading="lazy" decoding="async"><div class="band"><h3>Construcción y proyectos</h3><div class="sys"><span>Obra · Cotiza</span><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 5.5 19.5 12 13 18.5"/></svg></div></div></a><a class="vcard" href="servicios.html"><img src="img/v_servicios.webp" width="1662" height="932" alt="Operador de una empresa de seguridad trabajando con el tablero de clientes y servicios" loading="lazy" decoding="async"><div class="band"><h3>Servicios y operaciones</h3><div class="sys"><span>Flujo</span><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 5.5 19.5 12 13 18.5"/></svg></div></div></a></div>
+    <p class="more"><a class="tlink" href="#contacto" data-wa="un sistema a medida"><span>¿Tu rubro no está? Lo hacemos a medida</span><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 5.5 19.5 12 13 18.5"/></svg></a></p>
+  </div>
+</section>
+
+<section class="sec" id="sistemas">
+  <div class="wrap">
+    <div class="sys-head"><h2>Sistemas</h2><p class="muted">Cada uno resuelve una operación concreta. Se usan solos o combinados.</p></div>
+    <div class="sys-list"><a class="sys-row" href="comercios.html"><span class="nm">MOSTRADOR</span><span class="ds">Caja, ventas, stock y sucursales. Cobro con QR y factura ARCA desde la misma venta.</span><span class="rb">Comercios · Alimentos</span><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 5.5 19.5 12 13 18.5"/></svg></a><a class="sys-row" href="alimentos.html#pedido"><span class="nm">PEDIDO</span><span class="ds">Tienda online con delivery o retiro, zonas de envío y pago con link.</span><span class="rb">Comercios · Alimentos</span><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 5.5 19.5 12 13 18.5"/></svg></a><a class="sys-row" href="alimentos.html"><span class="nm">PLANTA</span><span class="ds">Recetas, producción por lotes, stock, precios por canal y reparto.</span><span class="rb">Alimentos</span><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 5.5 19.5 12 13 18.5"/></svg></a><a class="sys-row" href="construccion.html"><span class="nm">OBRA</span><span class="ds">Avance por etapas e hitos, plan de cobros y costos de cada obra.</span><span class="rb">Construcción</span><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 5.5 19.5 12 13 18.5"/></svg></a><a class="sys-row" href="construccion.html#cotiza"><span class="nm">COTIZA</span><span class="ds">Cotizaciones con seña, compras a proveedor, instalaciones y comisiones.</span><span class="rb">Construcción</span><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 5.5 19.5 12 13 18.5"/></svg></a><a class="sys-row" href="servicios.html"><span class="nm">FLUJO</span><span class="ds">Clientes, conversaciones y seguimiento comercial sobre Odoo, con automatizaciones.</span><span class="rb">Servicios</span><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 5.5 19.5 12 13 18.5"/></svg></a></div>
+  </div>
+</section>
+
+<section class="sec s-md bg-bone base" id="base">
+  <div class="wrap">
+    <h2>La base común de todos los sistemas</h2>
+    <div class="feats">
+      <div class="feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="6.5" height="6.5" rx="1"/><rect x="14.5" y="3" width="6.5" height="6.5" rx="1"/><rect x="3" y="14.5" width="6.5" height="6.5" rx="1"/><path d="M14.5 14.5h3v3h-3zM17.5 17.5h3.5v3.5M21 14.5v.01M14.5 21h.01"/></svg><h4>Cobros</h4><p>QR y link de pago de Mercado Pago.</p></div>
+      <div class="feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 2.5H6.5a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2v-12z"/><path d="M14.5 2.5v5h5M8.5 12h7M8.5 15h7M8.5 18h5"/></svg><h4>Facturación electrónica</h4><p>Comprobantes ARCA desde la caja.</p></div>
+      <div class="feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.2 20.8l1.3-4.3A9 9 0 1 1 7.6 19.6z"/><path d="M9 8.6c-.2 2.8 3.4 6.5 6.4 6.4l.9-1.5-2-1-.9.8c-1.2-.4-2.3-1.5-2.7-2.7l.8-.9-1-2z"/></svg><h4>WhatsApp</h4><p>Pedidos y consultas de tus clientes.</p></div>
+      <div class="feat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7.5 16v-4M12 16V8M16.5 16v-6"/></svg><h4>Tableros</h4><p>Ventas, producción y cobros a la vista.</p></div>
     </div>
   </div>
 </section>
 
-<!-- DIFERENCIALES -->
-<section class="diferenciales section-dark-pattern">
-  <div class="dif-grid">
-    <div>
-      <div class="dif-iso-wrap">
-        <svg width="38" height="38" viewBox="0 0 38 38" fill="none" aria-hidden="true">
-          <circle cx="19" cy="19" r="14" stroke="white" stroke-width="0.75" stroke-opacity="0.22"/>
-          <circle cx="19" cy="19" r="8" stroke="white" stroke-width="1" stroke-opacity="0.38"/>
-          <circle cx="19" cy="19" r="3.5" fill="white" fill-opacity="0.6"/>
-        </svg>
-      </div>
-      <p class="dif-title">Enfoque en resultados</p>
-      <p class="dif-desc">Trabajamos por objetivos concretos y medibles.</p>
-    </div>
-    <div>
-      <div class="dif-iso-wrap">
-        <svg width="38" height="38" viewBox="0 0 38 38" fill="none" aria-hidden="true">
-          <path d="M5 19 C12 10 26 10 33 19" stroke="white" stroke-width="1.5" stroke-opacity="0.38" fill="none"/>
-          <path d="M29 15 L33 19 L29 23" stroke="white" stroke-width="1.5" stroke-opacity="0.48" fill="none" stroke-linecap="round"/>
-          <circle cx="5" cy="19" r="3.5" fill="white" fill-opacity="0.45"/>
-          <circle cx="33" cy="19" r="3.5" fill="white" fill-opacity="0.6"/>
-        </svg>
-      </div>
-      <p class="dif-title">Transferimos conocimiento</p>
-      <p class="dif-desc">Dejamos herramientas y capacidades instaladas.</p>
-    </div>
-    <div>
-      <div class="dif-iso-wrap">
-        <svg width="38" height="38" viewBox="0 0 38 38" fill="none" aria-hidden="true">
-          <line x1="9" y1="9" x2="19" y2="19" stroke="white" stroke-width="1" stroke-opacity="0.28"/>
-          <line x1="29" y1="9" x2="19" y2="19" stroke="white" stroke-width="1" stroke-opacity="0.28"/>
-          <line x1="9" y1="29" x2="19" y2="19" stroke="white" stroke-width="1" stroke-opacity="0.28"/>
-          <line x1="29" y1="29" x2="19" y2="19" stroke="white" stroke-width="1" stroke-opacity="0.28"/>
-          <circle cx="9" cy="9" r="3" fill="white" fill-opacity="0.38"/>
-          <circle cx="29" cy="9" r="3" fill="white" fill-opacity="0.38"/>
-          <circle cx="9" cy="29" r="3" fill="white" fill-opacity="0.38"/>
-          <circle cx="29" cy="29" r="3" fill="white" fill-opacity="0.38"/>
-          <circle cx="19" cy="19" r="5" fill="white" fill-opacity="0.58"/>
-        </svg>
-      </div>
-      <p class="dif-title">Uso inteligente de IA</p>
-      <p class="dif-desc">Aplicamos tecnología para analizar, optimizar y acelerar resultados.</p>
-    </div>
-    <div>
-      <div class="dif-iso-wrap">
-        <svg width="38" height="38" viewBox="0 0 38 38" fill="none" aria-hidden="true">
-          <line x1="19" y1="19" x2="19" y2="5" stroke="white" stroke-width="1" stroke-opacity="0.32" stroke-dasharray="3 2"/>
-          <line x1="19" y1="19" x2="31" y2="27" stroke="white" stroke-width="1" stroke-opacity="0.32" stroke-dasharray="3 2"/>
-          <line x1="19" y1="19" x2="7" y2="27" stroke="white" stroke-width="1" stroke-opacity="0.32" stroke-dasharray="3 2"/>
-          <circle cx="19" cy="19" r="5" fill="white" fill-opacity="0.58"/>
-          <circle cx="19" cy="5" r="2.5" fill="white" fill-opacity="0.32"/>
-          <circle cx="31" cy="27" r="2.5" fill="white" fill-opacity="0.32"/>
-          <circle cx="7" cy="27" r="2.5" fill="white" fill-opacity="0.32"/>
-        </svg>
-      </div>
-      <p class="dif-title">Independencia asegurada</p>
-      <p class="dif-desc">Nuestro éxito es que puedas seguir creciendo sin nuestra presencia.</p>
+<section class="split" id="sitios">
+  <div class="tx">
+    <span class="eyebrow">Sitios web</span>
+    <h2>Webs que se actualizan solas con tu negocio</h2>
+    <p class="muted">Los productos y los textos se editan desde tu sistema.</p>
+    <a class="btn" href="#contacto" data-wa="un sitio web">Consultanos</a>
+  </div>
+  <div class="ph cut-l"><img src="img/web.webp" width="1452" height="662" alt="Laptop con el sitio web de un negocio de comidas regionales" loading="lazy" decoding="async"></div>
+</section>
+
+<section class="sec s-sm uses" aria-label="Empresas que ya lo usan">
+  <div class="wrap"><span class="lbl">Ya lo usan</span><span class="vsep" aria-hidden="true"></span><div class="logo-row"><img src="img/logos/mega.webp" width="160" height="160" alt="Mega Seguridad" loading="lazy" class="sq"><img src="img/logos/enminutas.webp" width="128" height="160" alt="En Minutas" loading="lazy" class="sq"><img src="img/logos/angiru.webp" width="369" height="120" alt="Angiru Food" loading="lazy"><img src="img/logos/gobus.webp" width="335" height="120" alt="GoBus" loading="lazy"><img src="img/logos/lug.webp" width="328" height="120" alt="LUG Argentina" loading="lazy"><span class="wm">CONCEPTO<small>CONSTRUCTORA</small></span><span class="wm">ECO HUB</span></div></div>
+</section>
+
+<section class="sec s-md bg-navy close" id="contacto">
+  <div class="wrap">
+    <h2>¿Querés verlo funcionando en tu negocio?</h2>
+    <div class="act">
+      <a class="btn" href="#contacto" data-wa=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.2 20.8l1.3-4.3A9 9 0 1 1 7.6 19.6z"/><path d="M9 8.6c-.2 2.8 3.4 6.5 6.4 6.4l.9-1.5-2-1-.9.8c-1.2-.4-2.3-1.5-2.7-2.7l.8-.9-1-2z"/></svg> Pedí una demo por WhatsApp</a>
+      <p class="mail"><span class="nw">o escribinos a</span> <b>damian.ideia@gmail.com</b> <button class="copybtn" type="button" data-copy="damian.ideia@gmail.com">Copiar</button></p>
     </div>
   </div>
 </section>
 
-<!-- DESAFÍOS -->
-<section class="desafios">
-  <div class="container">
-    <div class="section-head centered">
-      <h2 class="section-h">¿Qué desafíos enfrentan las organizaciones hoy?</h2>
-    </div>
-    <div class="desafios-grid">
-      <div class="desafio-card">
-        <div class="desafio-iso-wrap">
-          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true">
-            <circle cx="8" cy="8" r="3" fill="#103B73" fill-opacity="0.35"/>
-            <circle cx="22" cy="8" r="3" fill="#103B73" fill-opacity="0.35"/>
-            <circle cx="8" cy="22" r="3" fill="#103B73" fill-opacity="0.35"/>
-            <circle cx="22" cy="22" r="3" fill="#103B73" fill-opacity="0.35"/>
-            <circle cx="15" cy="15" r="4" fill="#42A5F5" fill-opacity="0.55"/>
-          </svg>
-        </div>
-        <p class="desafio-title">Falta de claridad para decidir</p>
-        <p class="desafio-desc">Los datos existen, pero no siempre se transforman en información útil.</p>
-      </div>
-      <div class="desafio-card">
-        <div class="desafio-iso-wrap">
-          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true">
-            <line x1="4" y1="15" x2="12" y2="15" stroke="#103B73" stroke-width="1.5" stroke-opacity="0.4"/>
-            <line x1="18" y1="15" x2="26" y2="15" stroke="#103B73" stroke-width="1.5" stroke-opacity="0.4" stroke-dasharray="2 2"/>
-            <circle cx="4" cy="15" r="3" fill="#103B73" fill-opacity="0.55"/>
-            <circle cx="15" cy="15" r="4" fill="#42A5F5" fill-opacity="0.5"/>
-            <circle cx="26" cy="15" r="3" fill="#103B73" fill-opacity="0.4"/>
-          </svg>
-        </div>
-        <p class="desafio-title">Procesos ineficientes</p>
-        <p class="desafio-desc">Las tareas se duplican, se retrasan o dependen de personas clave.</p>
-      </div>
-      <div class="desafio-card">
-        <div class="desafio-iso-wrap">
-          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true">
-            <path d="M5 22 C10 10 20 10 25 22" stroke="#42A5F5" stroke-width="1.5" stroke-opacity="0.45" fill="none" stroke-dasharray="3 2"/>
-            <circle cx="5" cy="22" r="3.5" fill="#103B73" fill-opacity="0.5"/>
-            <circle cx="25" cy="22" r="3.5" fill="#103B73" fill-opacity="0.5"/>
-            <circle cx="15" cy="8" r="3" fill="#42A5F5" fill-opacity="0.42"/>
-          </svg>
-        </div>
-        <p class="desafio-title">Dificultad para implementar cambios</p>
-        <p class="desafio-desc">Las buenas ideas no siempre se convierten en acciones.</p>
-      </div>
-      <div class="desafio-card">
-        <div class="desafio-iso-wrap">
-          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true">
-            <circle cx="6" cy="12" r="3" fill="#103B73" fill-opacity="0.38"/>
-            <circle cx="18" cy="6" r="2.5" fill="#42A5F5" fill-opacity="0.45"/>
-            <circle cx="24" cy="19" r="3" fill="#103B73" fill-opacity="0.38"/>
-            <circle cx="10" cy="24" r="2.5" fill="#42A5F5" fill-opacity="0.45"/>
-            <circle cx="21" cy="25" r="2" fill="#103B73" fill-opacity="0.28"/>
-            <circle cx="15" cy="15" r="3.5" fill="#42A5F5" fill-opacity="0.35"/>
-          </svg>
-        </div>
-        <p class="desafio-title">Información dispersa</p>
-        <p class="desafio-desc">La falta de integración puede limitar el análisis y el control.</p>
-      </div>
-      <div class="desafio-card">
-        <div class="desafio-iso-wrap">
-          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true">
-            <circle cx="15" cy="15" r="3.5" fill="#103B73" fill-opacity="0.6"/>
-            <line x1="15" y1="15" x2="6" y2="6" stroke="#42A5F5" stroke-width="1" stroke-opacity="0.38" stroke-dasharray="2 2"/>
-            <line x1="15" y1="15" x2="25" y2="7" stroke="#42A5F5" stroke-width="1" stroke-opacity="0.38" stroke-dasharray="2 2"/>
-            <line x1="15" y1="15" x2="26" y2="23" stroke="#42A5F5" stroke-width="1" stroke-opacity="0.38" stroke-dasharray="2 2"/>
-            <line x1="15" y1="15" x2="8" y2="25" stroke="#42A5F5" stroke-width="1" stroke-opacity="0.38" stroke-dasharray="2 2"/>
-            <circle cx="6" cy="6" r="2.5" fill="#42A5F5" fill-opacity="0.3"/>
-            <circle cx="25" cy="7" r="2" fill="#42A5F5" fill-opacity="0.3"/>
-            <circle cx="26" cy="23" r="3" fill="#42A5F5" fill-opacity="0.3"/>
-            <circle cx="8" cy="25" r="2" fill="#42A5F5" fill-opacity="0.3"/>
-          </svg>
-        </div>
-        <p class="desafio-title">Crecimiento sin planificación</p>
-        <p class="desafio-desc">Crecer sin estructura puede generar más problemas que soluciones.</p>
-      </div>
-    </div>
+<section class="consult" id="consultoria">
+  <div class="ph"><img src="img/consult.webp" width="1407" height="653" alt="Reunión de trabajo revisando planillas de gestión" loading="lazy" decoding="async"></div>
+  <div class="wrap">
+    <span class="tag">IDEIA Consultoría</span>
+    <h2>¿Primero necesitás ordenar tu empresa?</h2>
+    <a class="mono" href="#contacto" data-wa="consultoría">IDEIA Consultoría <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 5.5 19.5 12 13 18.5"/></svg></a>
   </div>
 </section>
-
-<!-- METODOLOGÍA PREVIEW -->
-<section class="metodo-preview section-with-pattern">
-  <div class="container">
-    <div class="section-head centered">
-      <h2 class="section-h">Cómo generamos valor</h2>
-      <p class="section-sub">Un proceso claro, colaborativo y enfocado en dejar capacidades instaladas.</p>
+</main>
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-top">
+      <a class="logo" href="./" aria-label="IDEIA, inicio"><svg viewBox="0 0 260 82" role="img" aria-label="IDEIA"><path d="M50 16 A30 30 0 0 0 24.02 61" stroke="#42A5F5" stroke-width="7" fill="none"/><path d="M50 16 A30 30 0 0 1 75.98 61" stroke="#FFFFFF" stroke-width="7" fill="none"/><path d="M24.02 61 A30 30 0 0 0 75.98 61" stroke="#4A5B70" stroke-width="7" fill="none"/><circle cx="50" cy="16" r="12" fill="#42A5F5" stroke="#0E1B3D" stroke-width="4"/><circle cx="24.02" cy="61" r="12" fill="#FFFFFF" stroke="#0E1B3D" stroke-width="4"/><circle cx="75.98" cy="61" r="12" fill="#4A5B70" stroke="#0E1B3D" stroke-width="4"/><g fill="#FFFFFF"><rect x="112" y="26" width="7" height="40"/><path fill-rule="evenodd" d="M128 26h12a20 20 0 0 1 0 40h-12zM135 33h5a13 13 0 0 1 0 26h-5z"/><rect x="170" y="26" width="28" height="7"/><rect x="170" y="42.5" width="28" height="7" fill="#42A5F5"/><rect x="170" y="59" width="28" height="7"/><rect x="208" y="26" width="7" height="40"/></g><path d="M224 66 L240 27 L256 66" stroke="#FFFFFF" stroke-width="7" fill="none"/></svg></a>
+      <span class="vsep" aria-hidden="true"></span>
+      <nav class="nav" aria-label="Pie" style="display:flex">
+        <a href="./#sistemas">Sistemas</a><span class="dot">·</span><a href="./#rubros">Rubros</a><span class="dot">·</span><a href="./#sitios">Sitios web</a><span class="dot">·</span><a href="./#consultoria">Consultoría</a><span class="dot">·</span><a href="#contacto">Contacto</a>
+      </nav>
+      <p class="ct">damian.ideia@gmail.com<br>Posadas, Misiones, Argentina</p>
     </div>
-    <div class="pasos">
-      <div class="paso">
-        <div class="paso-num">1</div>
-        <p class="paso-label">Diagnosticar</p>
-        <p class="paso-desc">Entendemos tu situación actual y detectamos oportunidades clave.</p>
-      </div>
-      <div class="paso">
-        <div class="paso-num">2</div>
-        <p class="paso-label">Diseñar</p>
-        <p class="paso-desc">Definimos herramientas, indicadores y planes de acción.</p>
-      </div>
-      <div class="paso">
-        <div class="paso-num">3</div>
-        <p class="paso-label">Implementar</p>
-        <p class="paso-desc">Acompañamos la puesta en marcha junto a tu equipo.</p>
-      </div>
-      <div class="paso">
-        <div class="paso-num">4</div>
-        <p class="paso-label">Transferir</p>
-        <p class="paso-desc">Dejamos conocimiento para que el equipo sea autónomo.</p>
-      </div>
-      <div class="paso">
-        <div class="paso-num">5</div>
-        <p class="paso-label">Consolidar</p>
-        <p class="paso-desc">Verificamos resultados y aseguramos la continuidad de las mejoras.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CIERRE -->
-<section class="cierre">
-  <div class="cierre-inner">
-    <div class="cierre-iso-wrap">
-      <img src="assets/branding/isotipo.png" alt="" class="cierre-iso">
-    </div>
-    <p class="cierre-text">Nuestro compromiso es <span class="accent">influir positivamente</span> para que las tareas se hagan y los resultados perduren.</p>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="site-footer">
-  <div class="footer-inner">
-    <a href="index.html" class="footer-logo">
-      <img src="assets/branding/ideia_logo.png" alt="IDEIA">
-    </a>
-    <ul class="footer-nav">
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="nosotros.html">Nosotros</a></li>
-      <li><a href="servicios.html">Servicios</a></li>
-      <li><a href="metodologia.html">Metodología</a></li>
-      <li><a href="casos.html">Casos</a></li>
-      <li><a href="recursos.html">Recursos</a></li>
-      <li><a href="contacto.html">Contacto</a></li>
-    </ul>
-    <p class="footer-copy">© 2025 IDEIA. Todos los derechos reservados.</p>
+    <div class="ftr-bot"><a href="comercios.html">Comercios y puntos de venta</a><a href="alimentos.html">Gastronomía e industria alimenticia</a><a href="construccion.html">Construcción y proyectos</a><a href="servicios.html">Servicios y operaciones</a><span class="cp">© 2026 IDEIA</span></div>
   </div>
 </footer>
-
+<script src="assets/app.js"></script>
 </body>
 </html>

@@ -1,314 +1,135 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Servicios — IDEIA</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/main.css">
-<style>
-
-/* ── SERVICIOS LIST ── */
-.servicios-list {
-  padding: 80px 0;
-}
-
-.servicio-row {
-  display: grid;
-  grid-template-columns: 56px 1fr 40px;
-  gap: 32px;
-  align-items: center;
-  padding: 32px 0;
-  border-bottom: 1px solid var(--border);
-}
-
-.servicio-row:first-child {
-  border-top: 1px solid var(--border);
-}
-
-.serv-iso-wrap {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  overflow: hidden;
-  background: var(--humo);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.serv-iso {
-  width: 42px;
-  height: 42px;
-  object-fit: contain;
-}
-
-.serv-title {
-  font-family: 'Sora', sans-serif;
-  font-size: 17px;
-  font-weight: 700;
-  color: var(--azul);
-  margin-bottom: 6px;
-}
-
-.serv-desc {
-  font-size: 14px;
-  color: var(--muted);
-  line-height: 1.6;
-  max-width: 560px;
-}
-
-.serv-arrow {
-  font-size: 18px;
-  color: var(--electrico);
-  font-weight: 600;
-  text-align: center;
-  transition: transform .2s;
-}
-
-.servicio-row:hover .serv-arrow {
-  transform: translateX(4px);
-}
-
-/* ── CIERRE SERVICIOS ── */
-.serv-cierre {
-  background: var(--humo);
-  padding: 72px 0;
-}
-
-.serv-cierre-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 40px;
-  display: flex;
-  align-items: center;
-  gap: 40px;
-}
-
-.serv-cierre-iso {
-  width: 72px;
-  height: 72px;
-  object-fit: contain;
-  flex-shrink: 0;
-  opacity: 0.8;
-}
-
-.serv-cierre-text {
-  font-family: 'Sora', sans-serif;
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--azul);
-  line-height: 1.55;
-  max-width: 640px;
-}
-
-@media (max-width: 640px) {
-  .servicio-row { grid-template-columns: 44px 1fr; }
-  .serv-arrow { display: none; }
-  .serv-cierre-inner { flex-direction: column; }
-}
-</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Flujo · Servicios y operaciones · IDEIA</title>
+<meta name="description" content="Clientes, conversaciones y seguimiento comercial en un solo tablero para empresas de seguridad, mantenimiento y servicios con abonos.">
+<meta property="og:title" content="Flujo · Servicios y operaciones · IDEIA">
+<meta property="og:description" content="Clientes, conversaciones y seguimiento comercial en un solo tablero para empresas de seguridad, mantenimiento y servicios con abonos.">
+<meta property="og:type" content="website">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
-
-<!-- NAV -->
-<nav class="site-nav">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo">
-      <img src="assets/branding/ideia_logo.png" alt="IDEIA">
-    </a>
-    <ul class="nav-menu">
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="nosotros.html">Nosotros</a></li>
-      <li><a href="servicios.html" class="active">Servicios</a></li>
-      <li><a href="metodologia.html">Metodología</a></li>
-      <li><a href="casos.html">Casos</a></li>
-      <li><a href="recursos.html">Recursos</a></li>
-      <li><a href="contacto.html">Contacto</a></li>
-    </ul>
+<header class="hdr">
+  <div class="hdr-in">
+    <a class="logo" href="./" aria-label="IDEIA, inicio"><svg viewBox="0 0 260 82" role="img" aria-label="IDEIA"><path d="M50 16 A30 30 0 0 0 24.02 61" stroke="#42A5F5" stroke-width="7" fill="none"/><path d="M50 16 A30 30 0 0 1 75.98 61" stroke="#103B73" stroke-width="7" fill="none"/><path d="M24.02 61 A30 30 0 0 0 75.98 61" stroke="#4A5B70" stroke-width="7" fill="none"/><circle cx="50" cy="16" r="12" fill="#42A5F5" stroke="#FFFFFF" stroke-width="4"/><circle cx="24.02" cy="61" r="12" fill="#103B73" stroke="#FFFFFF" stroke-width="4"/><circle cx="75.98" cy="61" r="12" fill="#4A5B70" stroke="#FFFFFF" stroke-width="4"/><g fill="#0E1B3D"><rect x="112" y="26" width="7" height="40"/><path fill-rule="evenodd" d="M128 26h12a20 20 0 0 1 0 40h-12zM135 33h5a13 13 0 0 1 0 26h-5z"/><rect x="170" y="26" width="28" height="7"/><rect x="170" y="42.5" width="28" height="7" fill="#42A5F5"/><rect x="170" y="59" width="28" height="7"/><rect x="208" y="26" width="7" height="40"/></g><path d="M224 66 L240 27 L256 66" stroke="#0E1B3D" stroke-width="7" fill="none"/></svg></a>
+    <span class="vsep" aria-hidden="true"></span>
+    <nav class="nav" aria-label="Principal">
+      <a href="./#sistemas">Sistemas</a><span class="dot">·</span>
+      <div class="dd"><a href="./#rubros" aria-haspopup="true">Rubros</a><div class="dd-panel"><a href="comercios.html"><span>Comercios y puntos de venta<small>Mostrador</small></span><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 5.5 19.5 12 13 18.5"/></svg></a><a href="alimentos.html"><span>Gastronomía e industria alimenticia<small>Planta · Mostrador · Pedido</small></span><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 5.5 19.5 12 13 18.5"/></svg></a><a href="construccion.html"><span>Construcción y proyectos<small>Obra · Cotiza</small></span><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 5.5 19.5 12 13 18.5"/></svg></a><a href="servicios.html" aria-current="page"><span>Servicios y operaciones<small>Flujo</small></span><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 5.5 19.5 12 13 18.5"/></svg></a></div></div><span class="dot">·</span>
+      <a href="./#sitios">Sitios web</a><span class="dot">·</span>
+      <a href="./#consultoria">Consultoría</a><span class="dot">·</span>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <a class="btn sm" href="#contacto" data-wa="">Pedí una demo</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Abrir menú"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
   </div>
-</nav>
-
-<!-- HEADER -->
-<header class="page-header">
-  <div class="page-header-inner">
-    <div>
-      <p class="eyebrow">Lo que hacemos</p>
-      <h1 class="page-title">Servicios</h1>
-      <p class="page-subtitle">Soluciones diseñadas para mejorar la gestión, optimizar procesos y dejar capacidades internas duraderas.</p>
-    </div>
-    <svg class="page-iso" width="160" height="160" viewBox="0 0 160 160" fill="none" aria-hidden="true" style="display:block">
-      <circle cx="80" cy="80" r="64" stroke="#103B73" stroke-width="0.5" stroke-opacity="0.12"/>
-      <circle cx="80" cy="80" r="44" stroke="#103B73" stroke-width="0.5" stroke-opacity="0.15"/>
-      <circle cx="80" cy="80" r="24" stroke="#103B73" stroke-width="1" stroke-opacity="0.18"/>
-      <circle cx="80" cy="80" r="7" fill="#103B73" fill-opacity="0.45"/>
-      <circle cx="80" cy="16" r="4" fill="#42A5F5" fill-opacity="0.38"/>
-      <circle cx="135" cy="48" r="4" fill="#42A5F5" fill-opacity="0.38"/>
-      <circle cx="135" cy="112" r="4" fill="#42A5F5" fill-opacity="0.38"/>
-      <circle cx="80" cy="144" r="4" fill="#42A5F5" fill-opacity="0.38"/>
-      <circle cx="25" cy="112" r="4" fill="#42A5F5" fill-opacity="0.38"/>
-      <circle cx="25" cy="48" r="4" fill="#42A5F5" fill-opacity="0.38"/>
-      <line x1="80" y1="73" x2="80" y2="20" stroke="#42A5F5" stroke-width="0.75" stroke-opacity="0.22"/>
-      <line x1="86" y1="76" x2="131" y2="51" stroke="#42A5F5" stroke-width="0.75" stroke-opacity="0.22"/>
-      <line x1="86" y1="84" x2="131" y2="109" stroke="#42A5F5" stroke-width="0.75" stroke-opacity="0.22"/>
-      <line x1="80" y1="87" x2="80" y2="140" stroke="#42A5F5" stroke-width="0.75" stroke-opacity="0.22"/>
-      <line x1="74" y1="84" x2="29" y2="109" stroke="#42A5F5" stroke-width="0.75" stroke-opacity="0.22"/>
-      <line x1="74" y1="76" x2="29" y2="51" stroke="#42A5F5" stroke-width="0.75" stroke-opacity="0.22"/>
-    </svg>
-  </div>
+  <nav class="mnav" id="mnav" aria-label="Menú móvil" hidden>
+    <a href="./#sistemas">Sistemas</a>
+    <span class="lbl">Rubros</span><a class="sub" href="comercios.html">Comercios y puntos de venta</a><a class="sub" href="alimentos.html">Gastronomía e industria alimenticia</a><a class="sub" href="construccion.html">Construcción y proyectos</a><a class="sub" href="servicios.html">Servicios y operaciones</a>
+    <a href="./#sitios">Sitios web</a>
+    <a href="./#consultoria">Consultoría</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
 </header>
+<main>
+<section class="hero-e">
+  <div class="copy">
+    <nav class="crumb" aria-label="Ruta"><a href="./">Inicio</a><span>/</span>Servicios y operaciones</nav>
+    <h1>Clientes, abonos y servicios en un solo tablero.</h1>
+    <p class="lead">Para empresas de seguridad, mantenimiento y servicios con contratos y abonos.</p>
+    <a class="btn" href="#contacto" data-wa="Flujo">Pedí una demo</a>
+  </div>
+  <div class="ph"><img src="img/v_servicios.webp" width="1662" height="932" alt="Operador de una empresa de seguridad trabajando con el tablero de clientes y servicios" fetchpriority="high" decoding="async"></div>
+</section>
+<div class="wrap strip"><div class="in">
+  <div class="it"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 13l2.5-8h13L21 13v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M3 13h5l1.5 3h5L16 13h5"/></svg><div><b>Bandeja única</b><span>WhatsApp, web y Facebook.</span></div></div>
+  <div class="it"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="8" ry="3"/><path d="M4 5.5v13c0 1.7 3.6 3 8 3s8-1.3 8-3v-13M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg><div><b>CRM sobre Odoo</b><span>Toda la base de clientes.</span></div></div>
+  <div class="it"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="6" rx="1"/><rect x="14" y="15" width="7" height="6" rx="1"/><path d="M6.5 9v3.5a2 2 0 0 0 2 2h9V15"/></svg><div><b>Flujos automáticos</b><span>Seguimiento y reportes.</span></div></div>
+</div></div>
 
-<!-- SERVICIOS -->
-<section class="servicios-list">
-  <div class="container">
-
-    <div class="servicio-row">
-      <div class="serv-iso-wrap">
-        <svg width="42" height="42" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <circle cx="24" cy="10" r="6" fill="#42A5F5"/>
-          <circle cx="12" cy="34" r="4" fill="#103B73"/>
-          <circle cx="36" cy="34" r="4" fill="#2E3138"/>
-          <path d="M19 14 Q13 22 14 30" stroke="#103B73" stroke-width="2" fill="none" stroke-linecap="round"/>
-          <path d="M29 14 Q35 22 34 30" stroke="#2E3138" stroke-width="2" fill="none" stroke-linecap="round"/>
-          <path d="M16 34 Q24 40 32 34" stroke="#103B73" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.5"/>
-        </svg>
+<section class="sec">
+  <div class="wrap">
+    <h2 style="max-width:760px;margin-bottom:48px">Cuando cada consulta entra por un lado distinto</h2>
+    <div class="chan">
+      <div class="src">
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.2 20.8l1.3-4.3A9 9 0 1 1 7.6 19.6z"/><path d="M9 8.6c-.2 2.8 3.4 6.5 6.4 6.4l.9-1.5-2-1-.9.8c-1.2-.4-2.3-1.5-2.7-2.7l.8-.9-1-2z"/></svg> WhatsApp <small>Mensajes sueltos</small></div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1.5"/><path d="M3 9h18"/></svg> Formulario web <small>Un mail más</small></div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 21v-7.5h2.6l.4-3H14V8.7c0-.9.3-1.5 1.5-1.5H17V4.5c-.3 0-1.2-.1-2.3-.1-2.3 0-3.7 1.4-3.7 3.9v2.2H8.5v3H11V21"/></svg> Facebook <small>Sin respuesta</small></div>
       </div>
-      <div>
-        <p class="serv-title">Gestión y Estrategia</p>
-        <p class="serv-desc">Alineamos objetivos, procesos y personas para mejorar la toma de decisiones.</p>
-      </div>
-      <span class="serv-arrow">→</span>
+      <svg class="lines" viewBox="0 0 200 220" preserveAspectRatio="none" aria-hidden="true" fill="none" stroke="#0E1B3D" stroke-width="1.5"><path d="M0 36 C100 36 100 110 200 110"/><path d="M0 110 H200"/><path d="M0 184 C100 184 100 110 200 110"/><path d="M186 102 L200 110 L186 118" stroke="#FF6B2C" stroke-width="2"/></svg>
+      <div class="dst"><span class="eyebrow">Con Flujo</span><h3>Una sola bandeja y un solo CRM</h3><p>Cada conversación queda asociada al cliente y a su etapa de venta.</p></div>
     </div>
-
-    <div class="servicio-row">
-      <div class="serv-iso-wrap">
-        <svg width="42" height="42" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <circle cx="8"  cy="24" r="5" fill="#103B73"/>
-          <circle cx="24" cy="14" r="4" fill="#42A5F5"/>
-          <circle cx="40" cy="24" r="5" fill="#2E3138"/>
-          <path d="M13 24 Q18 10 20 14" stroke="#42A5F5" stroke-width="2" fill="none" stroke-linecap="round"/>
-          <path d="M28 14 Q32 10 35 24" stroke="#103B73" stroke-width="2" fill="none" stroke-linecap="round"/>
-          <path d="M33 22 L36 24 L33 26" stroke="#2E3138" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </div>
-      <div>
-        <p class="serv-title">Eficiencia Operacional</p>
-        <p class="serv-desc">Optimizamos procesos y recursos para aumentar la productividad y reducir costos.</p>
-      </div>
-      <span class="serv-arrow">→</span>
-    </div>
-
-    <div class="servicio-row">
-      <div class="serv-iso-wrap">
-        <svg width="42" height="42" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <circle cx="24" cy="8"  r="5" fill="#42A5F5"/>
-          <circle cx="14" cy="24" r="4" fill="#103B73"/>
-          <circle cx="34" cy="24" r="4" fill="#103B73"/>
-          <circle cx="9"  cy="40" r="3" fill="#2E3138"/>
-          <circle cx="24" cy="40" r="3" fill="#2E3138"/>
-          <circle cx="39" cy="40" r="3" fill="#2E3138"/>
-          <line x1="24" y1="13" x2="16" y2="20" stroke="#103B73" stroke-width="1.8" stroke-linecap="round"/>
-          <line x1="24" y1="13" x2="32" y2="20" stroke="#103B73" stroke-width="1.8" stroke-linecap="round"/>
-          <line x1="14" y1="28" x2="10" y2="37" stroke="#2E3138" stroke-width="1.5" stroke-linecap="round"/>
-          <line x1="14" y1="28" x2="23" y2="37" stroke="#2E3138" stroke-width="1.5" stroke-linecap="round"/>
-          <line x1="34" y1="28" x2="38" y2="37" stroke="#2E3138" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <div>
-        <p class="serv-title">Información y Control</p>
-        <p class="serv-desc">Implementamos indicadores y tableros para tener una visión clara del negocio.</p>
-      </div>
-      <span class="serv-arrow">→</span>
-    </div>
-
-    <div class="servicio-row">
-      <div class="serv-iso-wrap">
-        <svg width="42" height="42" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <circle cx="24" cy="6"  r="3.5" fill="#42A5F5"/>
-          <circle cx="40" cy="15" r="3"   fill="#103B73"/>
-          <circle cx="40" cy="33" r="3"   fill="#103B73"/>
-          <circle cx="24" cy="42" r="3.5" fill="#42A5F5"/>
-          <circle cx="8"  cy="33" r="3"   fill="#2E3138"/>
-          <circle cx="8"  cy="15" r="3"   fill="#2E3138"/>
-          <circle cx="24" cy="24" r="4"   fill="#103B73"/>
-          <line x1="24" y1="9.5"  x2="24" y2="20" stroke="#42A5F5" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
-          <line x1="37" y1="17"   x2="27" y2="21" stroke="#103B73" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
-          <line x1="37" y1="31"   x2="27" y2="27" stroke="#103B73" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
-          <line x1="24" y1="38.5" x2="24" y2="28" stroke="#42A5F5" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
-          <line x1="11" y1="31"   x2="21" y2="27" stroke="#2E3138" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
-          <line x1="11" y1="17"   x2="21" y2="21" stroke="#2E3138" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
-        </svg>
-      </div>
-      <div>
-        <p class="serv-title">Inteligencia Artificial Aplicada</p>
-        <p class="serv-desc">Aplicamos IA para analizar información, automatizar tareas y apoyar decisiones.</p>
-      </div>
-      <span class="serv-arrow">→</span>
-    </div>
-
-    <div class="servicio-row">
-      <div class="serv-iso-wrap">
-        <svg width="42" height="42" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <rect x="4"  y="6"  width="16" height="12" rx="3" stroke="#103B73" stroke-width="2" fill="none"/>
-          <rect x="28" y="6"  width="16" height="12" rx="3" stroke="#42A5F5" stroke-width="2" fill="none"/>
-          <rect x="16" y="30" width="16" height="12" rx="3" stroke="#2E3138" stroke-width="2" fill="none"/>
-          <circle cx="12" cy="12" r="3" fill="#103B73"/>
-          <circle cx="36" cy="12" r="3" fill="#42A5F5"/>
-          <circle cx="24" cy="36" r="3" fill="#2E3138"/>
-          <path d="M20 12 Q24 12 28 12" stroke="#42A5F5" stroke-width="2" fill="none" stroke-linecap="round"/>
-          <path d="M12 18 Q14 30 18 30" stroke="#103B73" stroke-width="2" fill="none" stroke-linecap="round"/>
-          <path d="M36 18 Q34 30 30 30" stroke="#2E3138" stroke-width="2" fill="none" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <div>
-        <p class="serv-title">Herramientas y Soluciones</p>
-        <p class="serv-desc">Desarrollamos herramientas prácticas y soluciones digitales adaptadas a cada organización.</p>
-      </div>
-      <span class="serv-arrow">→</span>
-    </div>
-
   </div>
 </section>
 
-<!-- CIERRE -->
-<section class="serv-cierre">
-  <div class="serv-cierre-inner">
-    <svg class="serv-cierre-iso" width="72" height="72" viewBox="0 0 72 72" fill="none" aria-hidden="true" style="display:block">
-      <circle cx="36" cy="36" r="26" stroke="#103B73" stroke-width="0.75" stroke-opacity="0.15"/>
-      <circle cx="36" cy="36" r="14" stroke="#103B73" stroke-width="1" stroke-opacity="0.2"/>
-      <circle cx="36" cy="36" r="5" fill="#103B73" fill-opacity="0.45"/>
-      <circle cx="36" cy="10" r="3" fill="#42A5F5" fill-opacity="0.35"/>
-      <circle cx="59" cy="23" r="3" fill="#42A5F5" fill-opacity="0.35"/>
-      <circle cx="59" cy="49" r="3" fill="#42A5F5" fill-opacity="0.35"/>
-      <circle cx="36" cy="62" r="3" fill="#42A5F5" fill-opacity="0.35"/>
-      <circle cx="13" cy="49" r="3" fill="#42A5F5" fill-opacity="0.35"/>
-      <circle cx="13" cy="23" r="3" fill="#42A5F5" fill-opacity="0.35"/>
-    </svg>
-    <p class="serv-cierre-text">Utilizamos tecnología e inteligencia para acelerar resultados, siempre con foco en la autonomía de tu organización.</p>
+<section class="sec bg-bone sysblock">
+  <div class="wrap">
+    <div class="pair" style="align-items:end;margin-bottom:40px">
+      <div class="col"><span class="label">Sistema · Implementado sobre Odoo</span><span class="nm">FLUJO</span>
+        <p class="ln">Clientes, contactos y seguimiento comercial en un solo lugar.</p></div>
+      <div class="col"><ul class="mods"><li>Migración de tu base actual</li><li>Bandeja de WhatsApp, web y Facebook</li><li>Etapas de venta</li><li>Flujos automáticos con n8n</li><li>Reporte semanal</li><li>Tablero de compromisos</li></ul></div>
+    </div>
+    <div class="pair" style="gap:24px;align-items:start"><div class="ui" aria-label="Bandeja de conversaciones, datos de ejemplo"><div class="ui-bar"><svg class="iso" viewBox="0 0 100 82" aria-hidden="true"><path d="M50 16 A30 30 0 0 0 24.02 61" stroke="#42A5F5" stroke-width="9" fill="none"/><path d="M50 16 A30 30 0 0 1 75.98 61" stroke="#103B73" stroke-width="9" fill="none"/><path d="M24.02 61 A30 30 0 0 0 75.98 61" stroke="#4A5B70" stroke-width="9" fill="none"/><circle cx="50" cy="16" r="13" fill="#42A5F5" stroke="#fff" stroke-width="4"/><circle cx="24.02" cy="61" r="13" fill="#103B73" stroke="#fff" stroke-width="4"/><circle cx="75.98" cy="61" r="13" fill="#4A5B70" stroke="#fff" stroke-width="4"/></svg>Flujo · Bandeja<span class="st">3 canales</span></div>
+<div class="ui-body"><div class="pn">
+ <div class="msg"><span class="av">CM</span><div><b>Comercio centro</b><span>¿Cuánto sale el monitoreo con cámaras?</span><span class="ch">WhatsApp</span></div><em>09:41</em></div>
+ <div class="msg"><span class="av">DR</span><div><b>Depósito ruta 12</b><span>Queremos sumar un sensor más al abono</span><span class="ch">Web</span></div><em>09:12</em></div>
+ <div class="msg"><span class="av">CS</span><div><b>Consultorio</b><span>¿Hacen instalación el sábado?</span><span class="ch">Facebook</span></div><em>08:55</em></div>
+ <div class="msg"><span class="av">FA</span><div><b>Farmacia</b><span>Recibimos la propuesta, la revisamos</span><span class="ch">WhatsApp</span></div><em>Ayer</em></div>
+</div></div></div><div class="ui" aria-label="Seguimiento comercial, datos de ejemplo"><div class="ui-bar"><svg class="iso" viewBox="0 0 100 82" aria-hidden="true"><path d="M50 16 A30 30 0 0 0 24.02 61" stroke="#42A5F5" stroke-width="9" fill="none"/><path d="M50 16 A30 30 0 0 1 75.98 61" stroke="#103B73" stroke-width="9" fill="none"/><path d="M24.02 61 A30 30 0 0 0 75.98 61" stroke="#4A5B70" stroke-width="9" fill="none"/><circle cx="50" cy="16" r="13" fill="#42A5F5" stroke="#fff" stroke-width="4"/><circle cx="24.02" cy="61" r="13" fill="#103B73" stroke="#fff" stroke-width="4"/><circle cx="75.98" cy="61" r="13" fill="#4A5B70" stroke="#fff" stroke-width="4"/></svg>Flujo · Seguimiento comercial<span class="st">Sobre Odoo</span></div>
+<div class="ui-body"><div class="kb">
+ <div class="col"><h6>Nuevo <span class="n">4</span></h6><div class="cd">Comercio centro<small>Alarma + cámaras</small></div><div class="cd">Consultorio<small>Monitoreo 24 h</small></div></div>
+ <div class="col"><h6>Contactado <span class="n">3</span></h6><div class="cd">Depósito ruta 12<small>Visita jueves</small></div></div>
+ <div class="col"><h6>Propuesta <span class="n">2</span></h6><div class="cd">Escuela privada<small>Enviada hace 2 días</small></div></div>
+ <div class="col"><h6>Cerrado <span class="n">6</span></h6><div class="cd">Farmacia<small>Abono mensual</small></div></div>
+</div></div></div></div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="site-footer">
-  <div class="footer-inner">
-    <a href="index.html" class="footer-logo">
-      <img src="assets/branding/ideia_logo.png" alt="IDEIA">
-    </a>
-    <ul class="footer-nav">
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="nosotros.html">Nosotros</a></li>
-      <li><a href="servicios.html">Servicios</a></li>
-      <li><a href="metodologia.html">Metodología</a></li>
-      <li><a href="casos.html">Casos</a></li>
-      <li><a href="recursos.html">Recursos</a></li>
-      <li><a href="contacto.html">Contacto</a></li>
-    </ul>
-    <p class="footer-copy">© 2025 IDEIA. Todos los derechos reservados.</p>
+<section class="sec">
+  <div class="wrap">
+    <h2 style="max-width:720px">Qué pasa con cada consulta</h2>
+    <div class="steps">
+      <div class="step"><span class="s">Paso 1</span><h4>Entra la consulta</h4><p>Por WhatsApp, la web o Facebook, a la misma bandeja.</p></div>
+      <div class="step"><span class="s">Paso 2</span><h4>Queda en el CRM</h4><p>Asociada al cliente, con su historial.</p></div>
+      <div class="step"><span class="s">Paso 3</span><h4>Se sigue por etapas</h4><p>Nuevo, contactado, propuesta y cerrado.</p></div>
+      <div class="step"><span class="s">Paso 4</span><h4>Reporte semanal</h4><p>El estado de cada compromiso, sin armarlo a mano.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec s-sm uses" aria-label="Empresas que ya lo usan">
+  <div class="wrap"><span class="lbl">Ya lo usan</span><span class="vsep" aria-hidden="true"></span><div class="logo-row"><img src="img/logos/mega.webp" width="160" height="160" alt="Mega Seguridad" loading="lazy" class="sq"></div></div>
+</section>
+<section class="sec s-md bg-navy close" id="contacto">
+  <div class="wrap">
+    <h2>¿Ordenamos tu operación?</h2>
+    <div class="act">
+      <a class="btn" href="#contacto" data-wa="Flujo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.2 20.8l1.3-4.3A9 9 0 1 1 7.6 19.6z"/><path d="M9 8.6c-.2 2.8 3.4 6.5 6.4 6.4l.9-1.5-2-1-.9.8c-1.2-.4-2.3-1.5-2.7-2.7l.8-.9-1-2z"/></svg> Pedí una demo por WhatsApp</a>
+      <p class="mail"><span class="nw">o escribinos a</span> <b>damian.ideia@gmail.com</b> <button class="copybtn" type="button" data-copy="damian.ideia@gmail.com">Copiar</button></p>
+    </div>
+  </div>
+</section>
+<section class="sec s-sm bg-bone" aria-label="Otros rubros">
+  <div class="wrap"><p class="label" style="margin-bottom:18px">Otros rubros</p><div class="others"><a class="oth" href="comercios.html"><img src="img/v_comercio.webp" width="1662" height="932" alt="" loading="lazy" decoding="async"><b>Comercios y puntos de venta</b><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 5.5 19.5 12 13 18.5"/></svg></a><a class="oth" href="alimentos.html"><img src="img/v_alimentos.webp" width="1662" height="932" alt="" loading="lazy" decoding="async"><b>Gastronomía e industria alimenticia</b><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 5.5 19.5 12 13 18.5"/></svg></a><a class="oth" href="construccion.html"><img src="img/v_construccion.webp" width="1662" height="932" alt="" loading="lazy" decoding="async"><b>Construcción y proyectos</b><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 5.5 19.5 12 13 18.5"/></svg></a></div></div>
+</section>
+</main>
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-top">
+      <a class="logo" href="./" aria-label="IDEIA, inicio"><svg viewBox="0 0 260 82" role="img" aria-label="IDEIA"><path d="M50 16 A30 30 0 0 0 24.02 61" stroke="#42A5F5" stroke-width="7" fill="none"/><path d="M50 16 A30 30 0 0 1 75.98 61" stroke="#FFFFFF" stroke-width="7" fill="none"/><path d="M24.02 61 A30 30 0 0 0 75.98 61" stroke="#4A5B70" stroke-width="7" fill="none"/><circle cx="50" cy="16" r="12" fill="#42A5F5" stroke="#0E1B3D" stroke-width="4"/><circle cx="24.02" cy="61" r="12" fill="#FFFFFF" stroke="#0E1B3D" stroke-width="4"/><circle cx="75.98" cy="61" r="12" fill="#4A5B70" stroke="#0E1B3D" stroke-width="4"/><g fill="#FFFFFF"><rect x="112" y="26" width="7" height="40"/><path fill-rule="evenodd" d="M128 26h12a20 20 0 0 1 0 40h-12zM135 33h5a13 13 0 0 1 0 26h-5z"/><rect x="170" y="26" width="28" height="7"/><rect x="170" y="42.5" width="28" height="7" fill="#42A5F5"/><rect x="170" y="59" width="28" height="7"/><rect x="208" y="26" width="7" height="40"/></g><path d="M224 66 L240 27 L256 66" stroke="#FFFFFF" stroke-width="7" fill="none"/></svg></a>
+      <span class="vsep" aria-hidden="true"></span>
+      <nav class="nav" aria-label="Pie" style="display:flex">
+        <a href="./#sistemas">Sistemas</a><span class="dot">·</span><a href="./#rubros">Rubros</a><span class="dot">·</span><a href="./#sitios">Sitios web</a><span class="dot">·</span><a href="./#consultoria">Consultoría</a><span class="dot">·</span><a href="#contacto">Contacto</a>
+      </nav>
+      <p class="ct">damian.ideia@gmail.com<br>Posadas, Misiones, Argentina</p>
+    </div>
+    <div class="ftr-bot"><a href="comercios.html">Comercios y puntos de venta</a><a href="alimentos.html">Gastronomía e industria alimenticia</a><a href="construccion.html">Construcción y proyectos</a><a href="servicios.html">Servicios y operaciones</a><span class="cp">© 2026 IDEIA</span></div>
   </div>
 </footer>
-
+<script src="assets/app.js"></script>
 </body>
 </html>
